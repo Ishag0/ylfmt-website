@@ -4,659 +4,137 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>华鹏程 · 肠道菌群检测报告解读</title>
+<meta name="description" content="源龄生命肠道菌群检测报告解读 - GMWI2评分0.1703，亚健康状态">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background: #f5f7fa;
-    color: #2c3e50;
-    line-height: 1.8;
-  }
-  /* 顶部封面 */
-  .cover {
-    background: linear-gradient(135deg, #1a4a2e 0%, #2d7a4f 50%, #4caf80 100%);
-    color: white;
-    padding: 50px 40px 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cover::before {
-    content: '';
-    position: absolute; top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.06) 0%, transparent 50%);
-  }
-  .cover h1 {
-    font-size: 28px; font-weight: 700; letter-spacing: 3px;
-    margin-bottom: 8px;
-  }
-  .cover .logo {
-    width: 70px; height: 70px; border-radius: 50%;
-    object-fit: contain; margin-bottom: 12px;
-    background: rgba(255,255,255,0.15);
-    padding: 8px;
-  }
-  .cover .subtitle {
-    font-size: 13px; opacity: 0.8; letter-spacing: 2px;
-    margin-bottom: 30px;
-  }
-  .cover-info {
-    display: inline-flex; gap: 40px;
-    background: rgba(255,255,255,0.12);
-    border-radius: 12px; padding: 16px 32px;
-    margin-bottom: 20px;
-  }
+  body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f7fa; color: #2c3e50; line-height: 1.8; }
+  .cover { background: linear-gradient(135deg, #1a4a2e 0%, #2d7a4f 50%, #4caf80 100%); color: white; padding: 50px 40px 40px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.06) 0%, transparent 50%); }
+  .cover h1 { font-size: 28px; font-weight: 700; letter-spacing: 3px; margin-bottom: 8px; }
+  .cover .logo { width: 70px; height: 70px; border-radius: 50%; object-fit: contain; margin-bottom: 12px; background: rgba(255,255,255,0.15); padding: 8px; }
+  .cover .subtitle { font-size: 13px; opacity: 0.8; letter-spacing: 2px; margin-bottom: 30px; }
+  .cover-info { display: inline-flex; gap: 40px; background: rgba(255,255,255,0.12); border-radius: 12px; padding: 16px 32px; margin-bottom: 20px; }
   .cover-info-item label { font-size: 11px; opacity: 0.7; display: block; }
-  .cover-info-item span { font-size: 16px; font-weight: 600; }
-  .disclaimer {
-    font-size: 11px; opacity: 0.6;
-    background: rgba(0,0,0,0.2); border-radius: 6px;
-    padding: 8px 16px; display: inline-block;
-  }
-
-  /* 主体 */
-  .container { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
-
-  /* 卡片 */
-  .card {
-    background: white; border-radius: 16px;
-    padding: 28px 32px; margin: 24px 0;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border-left: 5px solid #2d7a4f;
-  }
-  .card.alert-red { border-left-color: #e74c3c; }
-  .card.alert-orange { border-left-color: #e67e22; }
-  .card.alert-blue { border-left-color: #3498db; }
-  .card.alert-yellow { border-left-color: #f39c12; }
-  .card.info { border-left-color: #9b59b6; }
-
-  .section-title {
-    font-size: 20px; font-weight: 700;
-    color: #1a4a2e; margin-bottom: 18px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #e8f5ee;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-title .icon {
-    width: 32px; height: 32px;
-    background: linear-gradient(135deg, #2d7a4f, #4caf80);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    color: white; font-size: 16px;
-  }
-
-  /* 评分概览 */
-  .score-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 16px; margin-top: 16px;
-  }
-  .score-item {
-    background: #f8fdf9; border-radius: 12px;
-    padding: 16px; text-align: center;
-    border: 1px solid #e2f0e8;
-  }
-  .score-item .label { font-size: 12px; color: #666; margin-bottom: 6px; }
-  .score-item .value { font-size: 22px; font-weight: 800; }
-  .score-item .status { font-size: 11px; margin-top: 4px; }
-  .score-red { color: #e74c3c; }
-  .score-orange { color: #e67e22; }
-  .score-green { color: #27ae60; }
-  .status-bad { background: #fde8e8; color: #c0392b; border-radius: 4px; padding: 2px 8px; }
-  .status-warn { background: #fef3e2; color: #d68910; border-radius: 4px; padding: 2px 8px; }
-  .status-good { background: #e8f8f0; color: #27ae60; border-radius: 4px; padding: 2px 8px; }
-
-  /* 异常标签 */
-  .tag {
-    display: inline-block; border-radius: 6px;
-    padding: 3px 10px; font-size: 12px; font-weight: 600;
-    margin: 2px;
-  }
-  .tag-red { background: #fde8e8; color: #c0392b; }
-  .tag-orange { background: #fef3e2; color: #d68910; }
-  .tag-green { background: #e8f8f0; color: #27ae60; }
-  .tag-blue { background: #eaf2fb; color: #2471a3; }
-  .tag-purple { background: #f0eafb; color: #6c3483; }
-
-  /* 表格 */
-  table {
-    width: 100%; border-collapse: collapse;
-    font-size: 13px; margin-top: 12px;
-  }
-  th {
-    background: #1a4a2e; color: white;
-    padding: 10px 12px; text-align: left;
-    font-weight: 600; font-size: 12px;
-  }
-  tr:nth-child(even) td { background: #f9fdf9; }
-  td { padding: 9px 12px; border-bottom: 1px solid #e8f0e8; }
-  .risk-high { color: #c0392b; font-weight: 700; }
-  .risk-mid-high { color: #d68910; font-weight: 600; }
-  .risk-mid { color: #e67e22; }
-  .risk-low { color: #27ae60; }
-
-  /* 重点框 */
-  .highlight-box {
-    background: linear-gradient(135deg, #fff3cd, #fff8e6);
-    border: 1px solid #f0c040;
-    border-radius: 10px; padding: 16px 20px;
-    margin: 14px 0; font-size: 14px;
-  }
-  .highlight-box strong { color: #b7770d; }
-
-  .warning-box {
-    background: #fdf0f0; border: 1px solid #e5a0a0;
-    border-radius: 10px; padding: 16px 20px;
-    margin: 14px 0; font-size: 14px;
-  }
-  .warning-box strong { color: #c0392b; }
-
-  .info-box {
-    background: #eef6fb; border: 1px solid #a8d4ee;
-    border-radius: 10px; padding: 16px 20px;
-    margin: 14px 0; font-size: 14px;
-  }
-
-  /* 阶段 */
-  .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
-  .phase-card {
-    border-radius: 12px; padding: 20px 16px;
-    text-align: center;
-  }
-  .phase-1 { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; }
-  .phase-2 { background: linear-gradient(135deg, #27ae60, #1a7a41); color: white; }
-  .phase-3 { background: linear-gradient(135deg, #2980b9, #1a5e8e); color: white; }
-  .phase-card .num { font-size: 30px; font-weight: 800; opacity: 0.6; }
-  .phase-card h4 { font-size: 14px; font-weight: 700; margin: 6px 0; }
-  .phase-card p { font-size: 12px; opacity: 0.85; line-height: 1.5; }
-
-  /* 建议列表 */
-  .tips-list { list-style: none; padding: 0; }
-  .tips-list li {
-    padding: 10px 0; border-bottom: 1px dashed #e0ece5;
-    display: flex; align-items: flex-start; gap: 10px;
-    font-size: 14px;
-  }
-  .tips-list li::before {
-    content: '✓'; color: #2d7a4f; font-weight: 800;
-    flex-shrink: 0; margin-top: 2px;
-  }
-  .tips-list li:last-child { border-bottom: none; }
-
-  /* 底部 */
-  .footer {
-    background: #1a4a2e; color: white;
-    text-align: center; padding: 24px;
-    border-radius: 16px; margin-top: 24px;
-    font-size: 13px; opacity: 0.9;
-  }
-  .footer p { margin: 4px 0; }
-
-  /* 湿疹专项 */
-  .eczema-highlight {
-    background: linear-gradient(135deg, #e8f4fd, #f0e8fd);
-    border: 2px solid #7fb3d3;
-    border-radius: 12px; padding: 20px 24px;
-    margin: 16px 0;
-  }
-  .eczema-highlight h4 { color: #1a5e8e; margin-bottom: 10px; font-size: 16px; }
-
-  @media (max-width: 600px) {
-    .score-grid { grid-template-columns: repeat(2, 1fr); }
-    .phase-grid { grid-template-columns: 1fr; }
-    .cover-info { flex-direction: column; gap: 12px; }
-    .card { padding: 20px 16px; }
-  }
+  .cover-info-item span { font-size: 15px; font-weight: 600; }
+  .badge { display: inline-block; background: #e53935; color: white; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 20px; }
+  .main-score { font-size: 64px; font-weight: 800; margin: 10px 0; text-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+  .main-score-label { font-size: 14px; opacity: 0.8; }
+  .content { max-width: 800px; margin: 0 auto; padding: 30px 20px; }
+  .card { background: white; border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .card-title { font-size: 18px; font-weight: 700; color: #1a4a2e; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .card-title .icon { width: 32px; height: 32px; background: linear-gradient(135deg, #2d7a4f, #4caf80); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; }
+  .alert-card { background: linear-gradient(135deg, #fff8e1, #ffecb3); border-left: 4px solid #ffc107; }
+  .alert-card .card-title { color: #f57f17; }
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .risk-item { background: #f8f9fa; padding: 16px; border-radius: 10px; }
+  .risk-item.high { border-left: 3px solid #e53935; }
+  .risk-item.medium { border-left: 3px solid #fb8c00; }
+  .risk-item.low { border-left: 3px solid #43a047; }
+  .risk-name { font-size: 13px; color: #666; margin-bottom: 6px; }
+  .risk-value { font-size: 16px; font-weight: 700; }
+  .risk-value.high { color: #e53935; }
+  .risk-value.medium { color: #fb8c00; }
+  .risk-value.low { color: #43a047; }
+  .indicator-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid #eee; }
+  .indicator-row:last-child { border-bottom: none; }
+  .indicator-name { font-size: 15px; color: #333; }
+  .indicator-value { font-weight: 700; }
+  .indicator-value.danger { color: #e53935; }
+  .indicator-value.warning { color: #fb8c00; }
+  .indicator-value.normal { color: #43a047; }
+  .plan-step { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 12px; padding: 20px; margin-bottom: 16px; border-left: 4px solid #4caf50; }
+  .plan-step-num { display: inline-block; width: 28px; height: 28px; background: #4caf50; color: white; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; font-size: 14px; margin-right: 12px; }
+  .plan-step-title { font-size: 16px; font-weight: 700; color: #1b5e20; margin-bottom: 6px; display: inline-block; }
+  .plan-step-desc { color: #388e3c; font-size: 14px; }
+  .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .review-item { background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center; }
+  .review-item .num { font-size: 28px; font-weight: 800; color: #2d7a4f; }
+  .review-item .label { font-size: 13px; color: #666; margin-top: 4px; }
+  .disclaimer { background: #fff3cd; padding: 20px; border-radius: 12px; border: 1px solid #ffc107; margin-top: 20px; }
+  .disclaimer-title { font-weight: 700; color: #856404; margin-bottom: 8px; font-size: 14px; }
+  .disclaimer p { color: #856404; font-size: 13px; line-height: 1.7; }
+  .footer { background: #1a4a2e; color: rgba(255,255,255,0.7); text-align: center; padding: 30px 20px; margin-top: 40px; }
+  .footer-brand { font-size: 16px; color: white; margin-bottom: 6px; }
+  .footer p { font-size: 13px; }
+  @media (max-width: 600px) { .risk-grid { grid-template-columns: 1fr; } .review-grid { grid-template-columns: 1fr; } .cover-info { flex-direction: column; gap: 16px; } }
 </style>
 </head>
 <body>
-
-<!-- 封面 -->
-<div class="cover">
-  <img class="logo" src="https://ylfmt-website-e7o340jaq-maten336699-4872s-projects.vercel.app/assets/logo.png" alt="源龄生命">
-  <h1>🌿 肠道菌群检测报告解读</h1>
-  <p class="subtitle">专注湿疹过敏 · 菌群与免疫失衡分析</p>
-  <div class="cover-info">
-    <div class="cover-info-item">
-      <label>受检者</label>
-      <span>华鹏程</span>
+  <div class="cover">
+    <img src="/assets/logo.png" class="logo" alt="源龄生命" onerror="this.style.display='none'">
+    <div class="subtitle">YUANLING LIFE · 源龄生命</div>
+    <h1>肠道菌群检测报告解读</h1>
+    <div class="badge">⚠️ 亚健康状态</div>
+    <div class="cover-info">
+      <div class="cover-info-item"><label>受检者</label><span>华鹏程</span></div>
+      <div class="cover-info-item"><label>年龄/性别</label><span>28岁 / 男</span></div>
     </div>
-    <div class="cover-info-item">
-      <label>性别/年龄</label>
-      <span>男 / 28岁</span>
-    </div>
-    <div class="cover-info-item">
-      <label>检测编号</label>
-      <span>TG2620100304</span>
-    </div>
-    <div class="cover-info-item">
-      <label>报告日期</label>
-      <span>2026-04-15</span>
-    </div>
-  </div>
-  <p class="disclaimer">⚠ 本报告为菌群评估结果，不作为临床诊断或治疗依据</p>
-</div>
-
-<div class="container">
-
-<!-- 一、总体评估 -->
-<div class="card">
-  <div class="section-title">
-    <div class="icon">📊</div>
-    一、受检者基本情况与总体评估
+    <div class="main-score">0.17</div>
+    <div class="main-score-label">GMWI2 健康指数（正常 &gt; 1）</div>
   </div>
 
-  <div class="score-grid">
-    <div class="score-item">
-      <div class="label">菌群健康指数 GMWI2</div>
-      <div class="value score-orange">亚健康</div>
-      <div class="status"><span class="status-warn">偏向疾病人群特征</span></div>
+  <div class="content">
+    <div class="card alert-card">
+      <div class="card-title"><span class="icon">!</span> 核心结论</div>
+      <p style="color: #856404; line-height: 1.9; font-size: 15px;">肠道菌群整体处于<b>「亚健康」</b>状态，存在明显菌群失衡和致病菌超标问题。B/E 比值仅 0.17（正常 &gt; 1），抗炎能力弱，溃疡性结肠炎和炎症性肠病风险偏高。<br><br><b>建议尽快进行菌群干预，以恢复肠道微生态平衡。</b></p>
     </div>
-    <div class="score-item">
-      <div class="label">B/E 比值（菌群平衡）</div>
-      <div class="value score-red">0.17</div>
-      <div class="status"><span class="status-bad">失衡（正常 &gt;1）</span></div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📊</span> 关键指标</div>
+      <div class="indicator-row"><span class="indicator-name">GMWI2 健康指数</span><span class="indicator-value danger">0.1703（亚健康）</span></div>
+      <div class="indicator-row"><span class="indicator-name">健康度评分</span><span class="indicator-value danger">50分（低于55%受检者）</span></div>
+      <div class="indicator-row"><span class="indicator-name">B/E 比值</span><span class="indicator-value danger">0.17（严重失衡，正常&gt;1）</span></div>
+      <div class="indicator-row"><span class="indicator-name">抗炎能力</span><span class="indicator-value warning">51分（弱）</span></div>
+      <div class="indicator-row"><span class="indicator-name">产气荚膜梭菌</span><span class="indicator-value danger">超标 17.7 倍 ⚠️</span></div>
+      <div class="indicator-row"><span class="indicator-name">弗格森埃希菌</span><span class="indicator-value danger">超标 20.7 倍 ⚠️</span></div>
+      <div class="indicator-row"><span class="indicator-name">普通拟杆菌</span><span class="indicator-value warning">占比 26%（超标 2.7 倍）</span></div>
+      <div class="indicator-row"><span class="indicator-name">双歧杆菌 / 乳酸杆菌</span><span class="indicator-value danger">严重缺失</span></div>
     </div>
-    <div class="score-item">
-      <div class="label">F/B 比值（热量代谢）</div>
-      <div class="value score-orange">0.24</div>
-      <div class="status"><span class="status-warn">偏向拟杆菌门</span></div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🏥</span> 疾病风险评估</div>
+      <div class="risk-grid">
+        <div class="risk-item high"><div class="risk-name">溃疡性结肠炎</div><div class="risk-value high">94.4（高风险）</div></div>
+        <div class="risk-item high"><div class="risk-name">炎症性肠病</div><div class="risk-value high">92.28（高风险）</div></div>
+        <div class="risk-item medium"><div class="risk-name">后天性心脏瓣膜病</div><div class="risk-value medium">53.34（中风险）</div></div>
+        <div class="risk-item low"><div class="risk-name">克罗恩病 / 结直肠癌</div><div class="risk-value low">低风险</div></div>
+      </div>
     </div>
-    <div class="score-item">
-      <div class="label">肠道免疫力</div>
-      <div class="value score-green">94 分</div>
-      <div class="status"><span class="status-good">强（&gt;80）</span></div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">💊</span> HMT 4.0 干预方案</div>
+      <div class="plan-step">
+        <span class="plan-step-num">1</span><span class="plan-step-title">第一阶段：清肠消杀</span>
+        <p class="plan-step-desc">控制产气荚膜梭菌、弗格森埃希菌等致病菌，清除肠道"杂草"，为有益菌定植腾出空间</p>
+      </div>
+      <div class="plan-step">
+        <span class="plan-step-num">2</span><span class="plan-step-title">第二阶段：精准种植</span>
+        <p class="plan-step-desc">通过 HMT 菌群移植补充双歧杆菌、乳酸杆菌、艾克曼菌等缺失有益菌种，重建菌群多样性</p>
+      </div>
+      <div class="plan-step">
+        <span class="plan-step-num">3</span><span class="plan-step-title">第三阶段：Rebalance 巩固</span>
+        <p class="plan-step-desc">高膳食纤维饮食 + 益生元支持 + 维生素D3补充，3-6个月持续调理，巩固菌群平衡</p>
+      </div>
     </div>
-    <div class="score-item">
-      <div class="label">肠道抗炎能力</div>
-      <div class="value score-red">51 分</div>
-      <div class="status"><span class="status-bad">弱（&lt;60）</span></div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📅</span> 复查节点</div>
+      <div class="review-grid">
+        <div class="review-item"><div class="num">4-6周</div><div class="label">第1次复查</div></div>
+        <div class="review-item"><div class="num">3个月</div><div class="label">第2次复查</div></div>
+        <div class="review-item"><div class="num">6个月</div><div class="label">第3次复查</div></div>
+      </div>
     </div>
-    <div class="score-item">
-      <div class="label">致病潜力指数</div>
-      <div class="value score-red">1.61</div>
-      <div class="status"><span class="status-bad">失衡（正常 2.5–11.7）</span></div>
-    </div>
-  </div>
 
-  <div class="highlight-box" style="margin-top:20px;">
-    <strong>📌 总体解读：</strong>华鹏程先生目前肠道菌群处于<strong>亚健康到失衡状态</strong>。简单来说，肠道里"好菌"和"坏菌"的比例严重失调，有益菌明显不足，多种致炎性菌群超标。这种失衡状态正是引发或加重湿疹、过敏的重要底层原因——肠道免疫调控能力下降，身体对外界刺激容易过度反应，表现为皮肤过敏和炎症。
-  </div>
-</div>
-
-
-<!-- 二、异常指标归因 -->
-<div class="card alert-red">
-  <div class="section-title">
-    <div class="icon">🔬</div>
-    二、异常指标归因分析（湿疹/过敏重点解读）
-  </div>
-
-  <h3 style="color:#c0392b; font-size:15px; margin-bottom:12px;">① 菌群失衡 · 黏膜屏障受损 · 过敏核心问题</h3>
-  <div class="eczema-highlight">
-    <h4>🌡️ 与湿疹过敏最直接相关的发现</h4>
-    <p>湿疹和过敏的根源之一是<strong>"肠漏"</strong>——肠道黏膜屏障受损后，本应被隔绝在肠道内的过敏原、细菌毒素"漏入"血液，触发全身性免疫过激反应，皮肤就会出现湿疹、荨麻疹等症状。</p>
-    <br>
-    <p>华鹏程的报告显示：</p>
-    <ul style="margin-left:16px; margin-top:8px; font-size:14px; line-height:2;">
-      <li><strong>肠道抗炎能力仅51分（弱）</strong>——说明肠道慢性炎症环境明显，长期低度炎症会持续激活免疫系统，使过敏更难缓解。</li>
-      <li><strong>B/E菌群平衡比值仅0.17（严重失衡）</strong>——有益的双歧杆菌属极度不足，导致肠道"防御体系"薄弱，病原菌乘虚而入。</li>
-      <li><strong>致病潜力指数1.61（正常范围2.5–11.7，偏低失衡）</strong>——肠道整体处于病态失衡，免疫调节功能紊乱。</li>
-      <li><strong>双歧杆菌家族几乎全部丰度低或未检出</strong>（婴儿双歧杆菌、长双歧杆菌、短双歧杆菌等）——这类菌是调控过敏免疫的关键菌群，缺失后过敏风险显著上升。</li>
-      <li><strong>嗜黏蛋白艾克曼菌（Akkermansia）严重不足（0.002%，正常0–2.4%）</strong>——该菌是维持肠道黏膜屏障完整性的"守护神"，不足则肠漏风险大增。</li>
-    </ul>
-  </div>
-
-  <h3 style="color:#c0392b; font-size:15px; margin:16px 0 12px;">② 超标菌群 · 致炎主力军</h3>
-  <table>
-    <tr>
-      <th>超标菌</th>
-      <th>中文名</th>
-      <th>检测值</th>
-      <th>与湿疹/过敏/炎症的关联</th>
-    </tr>
-    <tr>
-      <td>Clostridium perfringens</td>
-      <td>产气荚膜梭菌</td>
-      <td class="risk-high">0.0177%（超标）</td>
-      <td>产生多种毒素，破坏肠道黏膜屏障，诱发肠道炎症，加重过敏反应</td>
-    </tr>
-    <tr>
-      <td>Bilophila wadsworthia</td>
-      <td>沃氏嗜胆菌</td>
-      <td class="risk-high">0.506%（超标）</td>
-      <td>嗜胆菌类会促进肠道炎症，与高脂血症、肥胖相关，间接影响免疫</td>
-    </tr>
-    <tr>
-      <td>Helicobacter sp.</td>
-      <td>螺杆菌属</td>
-      <td class="risk-high">0.0018%（超标）</td>
-      <td>引发胃肠道炎症，影响免疫系统调节，是炎症性肠病相关菌</td>
-    </tr>
-    <tr>
-      <td>Bacteroides plebeius</td>
-      <td>（某拟杆菌）</td>
-      <td class="risk-high">26.35%（正常0–9.74%）</td>
-      <td>严重超标，破坏菌群整体平衡，影响黏膜免疫功能</td>
-    </tr>
-    <tr>
-      <td>多种假单胞菌属</td>
-      <td>（条件致病菌）</td>
-      <td class="risk-high">多项超标</td>
-      <td>免疫力下降时可致病，分泌促炎因子，在肠道制造"炎症环境"</td>
-    </tr>
-    <tr>
-      <td>Acinetobacter spp.</td>
-      <td>不动杆菌属（多种）</td>
-      <td class="risk-high">多项超标</td>
-      <td>条件致病菌群，可加重肠道免疫失调</td>
-    </tr>
-  </table>
-
-  <h3 style="color:#c0392b; font-size:15px; margin:20px 0 12px;">③ 营养代谢异常</h3>
-  <table>
-    <tr>
-      <th>代谢项目</th>
-      <th>评分</th>
-      <th>意义</th>
-    </tr>
-    <tr>
-      <td>碳水化合物代谢</td>
-      <td class="risk-high">49分（弱）</td>
-      <td>碳水代谢能力差，肠道微生物发酵产物异常，可产生更多刺激物</td>
-    </tr>
-    <tr>
-      <td>甘油酯（脂肪）代谢</td>
-      <td class="risk-high">39分（弱）</td>
-      <td>脂肪代谢弱，脂溶性维生素（A、D、E、K）吸收会受影响</td>
-    </tr>
-    <tr>
-      <td>甘油磷脂代谢</td>
-      <td class="risk-mid">60分（较弱）</td>
-      <td>与细胞膜健康和炎症调控有关</td>
-    </tr>
-    <tr>
-      <td>维生素D合成</td>
-      <td class="risk-high">0分（极弱）</td>
-      <td><strong>严重不足！</strong>维生素D是调节过敏/免疫的核心营养素，严重缺乏会直接加重湿疹</td>
-    </tr>
-    <tr>
-      <td>维生素E合成</td>
-      <td class="risk-high">0分（极弱）</td>
-      <td>强抗氧化维生素，缺乏使皮肤屏障修复受阻</td>
-    </tr>
-    <tr>
-      <td>维生素B2/B6合成</td>
-      <td class="risk-mid">67分（较弱）</td>
-      <td>B族维生素参与免疫细胞生成，不足时免疫调控减弱</td>
-    </tr>
-    <tr>
-      <td>乙酰胆碱合成</td>
-      <td class="risk-high">0分（极弱）</td>
-      <td>神经递质缺乏，可能影响神经-免疫-皮肤的联动调控</td>
-    </tr>
-    <tr>
-      <td>多巴胺合成</td>
-      <td class="risk-mid">63分（较弱）</td>
-      <td>影响肠道神经调控，与瘙痒感知有关</td>
-    </tr>
-    <tr>
-      <td>谷胱甘肽（抗氧化三肽）</td>
-      <td class="risk-mid">69分（较弱）</td>
-      <td>抗炎抗氧化能力偏弱，皮肤细胞修复受影响</td>
-    </tr>
-    <tr>
-      <td>异黄酮素合成</td>
-      <td class="risk-high">0分（极弱）</td>
-      <td>植物雌激素类，抗炎抗氧化，缺乏不利于皮肤屏障维护</td>
-    </tr>
-  </table>
-</div>
-
-
-<!-- 三、疾病风险对照表 -->
-<div class="card alert-orange">
-  <div class="section-title">
-    <div class="icon">⚠️</div>
-    三、主要疾病风险等级对照
-  </div>
-
-  <h3 style="font-size:14px; color:#555; margin-bottom:10px;">🔴 高风险疾病（需重点关注）</h3>
-  <table>
-    <tr>
-      <th>疾病</th>
-      <th>风险指数</th>
-      <th>风险等级</th>
-      <th>主要相关超标菌</th>
-    </tr>
-    <tr>
-      <td><strong>溃疡性结肠炎</strong></td>
-      <td class="risk-high">94.4</td>
-      <td><span class="tag tag-red">高风险</span></td>
-      <td>螺杆菌属、产气荚膜梭菌、弯曲杆菌等</td>
-    </tr>
-    <tr>
-      <td><strong>炎症性肠病（IBD）</strong></td>
-      <td class="risk-high">92.28</td>
-      <td><span class="tag tag-red">高风险</span></td>
-      <td>螺杆菌属、产气荚膜梭菌、弯曲杆菌等</td>
-    </tr>
-    <tr>
-      <td><strong>腹胀和排气</strong></td>
-      <td class="risk-high">86.26</td>
-      <td><span class="tag tag-red">高风险</span></td>
-      <td>沃氏嗜胆菌、产气荚膜梭菌</td>
-    </tr>
-  </table>
-
-  <h3 style="font-size:14px; color:#555; margin:18px 0 10px;">🟡 中风险疾病（需持续关注）</h3>
-  <table>
-    <tr>
-      <th>疾病</th>
-      <th>风险指数</th>
-      <th>风险等级</th>
-      <th>主要相关超标菌</th>
-    </tr>
-    <tr>
-      <td>高脂血症</td>
-      <td>66.06</td>
-      <td><span class="tag tag-orange">中高风险</span></td>
-      <td>沃氏嗜胆菌、嗜胆菌属</td>
-    </tr>
-    <tr>
-      <td>心脏瓣膜病</td>
-      <td>53.34</td>
-      <td><span class="tag tag-orange">中风险</span></td>
-      <td>黏球球形菌门、变形菌纲</td>
-    </tr>
-    <tr>
-      <td>胰岛素抵抗</td>
-      <td>41.89</td>
-      <td><span class="tag tag-orange">中风险</span></td>
-      <td>毛螺旋菌属（超标）</td>
-    </tr>
-    <tr>
-      <td>II型糖尿病</td>
-      <td>42.22</td>
-      <td><span class="tag tag-orange">中风险</span></td>
-      <td>毛螺旋菌属（超标）</td>
-    </tr>
-    <tr>
-      <td>空腹血糖异常</td>
-      <td>41.85</td>
-      <td><span class="tag tag-orange">中风险</span></td>
-      <td>毛螺旋菌属（超标）</td>
-    </tr>
-  </table>
-
-  <h3 style="font-size:14px; color:#555; margin:18px 0 10px;">🟢 低风险疾病（本次检测未提示）</h3>
-  <div style="font-size:13px; color:#555; line-height:2;">
-    克罗恩病（0）、腹泻型肠易激综合征（0）、脂肪肝（0）、肝硬化（0）、
-    胆结石（0）、腹痛（0）、便秘（5.56）、结直肠癌等均为低风险，暂无需特别担心。
-  </div>
-
-  <div class="warning-box" style="margin-top:18px;">
-    <strong>🔴 湿疹过敏的直接关联：</strong>
-    溃疡性结肠炎（94.4）和炎症性肠病（92.28）均处于高风险，这两类疾病与湿疹/过敏共享"肠道慢性炎症"这一病理基础——肠道黏膜持续处于炎症状态，免疫系统长期被激活，极易引发皮肤过敏、湿疹等免疫系统过激反应。<strong>这是目前最需要干预的核心问题。</strong>
-  </div>
-</div>
-
-
-<!-- 四、食物过敏补充说明 -->
-<div class="card alert-blue">
-  <div class="section-title">
-    <div class="icon">🥛</div>
-    四、食物过敏风险评估（菌群角度）
-  </div>
-  <p style="font-size:14px; margin-bottom:12px;">从菌群角度分析食物过敏风险，以下几类需补充相关益生菌：</p>
-  <table>
-    <tr>
-      <th>过敏风险类型</th>
-      <th>关键不足菌群</th>
-      <th>建议</th>
-    </tr>
-    <tr>
-      <td>牛奶过敏</td>
-      <td>短双歧杆菌、婴儿双歧杆菌、鼠李糖乳杆菌——均不足</td>
-      <td>补充复合双歧杆菌制剂</td>
-    </tr>
-    <tr>
-      <td>鸡蛋过敏</td>
-      <td>干酪乳杆菌、长双歧杆菌、两歧双歧杆菌——均不足</td>
-      <td>补充益生菌，增强Th1/Th2免疫平衡</td>
-    </tr>
-    <tr>
-      <td>花生过敏</td>
-      <td>鼠李糖乳杆菌不足</td>
-      <td>补充鼠李糖乳杆菌LGG菌株</td>
-    </tr>
-    <tr>
-      <td>甲壳类/软体动物过敏</td>
-      <td>婴儿双歧杆菌、长双歧杆菌不足</td>
-      <td>同上，补充婴儿双歧杆菌</td>
-    </tr>
-  </table>
-  <div class="info-box" style="margin-top:14px;">
-    <strong>💡 说明：</strong>这些菌群不足并不代表直接诊断为对应食物过敏，而是说明从菌群角度调控过敏的"保护屏障"较弱，通过补充相应益生菌可降低过敏风险、减轻过敏症状。
-  </div>
-</div>
-
-
-<!-- 五、干预方案 -->
-<div class="card info">
-  <div class="section-title">
-    <div class="icon">💊</div>
-    五、HMT4.0精准移植三阶段干预方案
-  </div>
-
-  <div class="phase-grid">
-    <div class="phase-card phase-1">
-      <div class="num">01</div>
-      <h4>肠道准备阶段<br><small>Remove · 清肠消杀</small></h4>
-      <p>清除肠道内超标的致病菌和条件致病菌（如产气荚膜梭菌、假单胞菌属等），降低肠道致炎负荷，为后续菌群移植"腾出空间"</p>
-    </div>
-    <div class="phase-card phase-2">
-      <div class="num">02</div>
-      <h4>种植阶段<br><small>Reinoculate · 菌群移植</small></h4>
-      <p>将健康供体的完整菌群移植进肠道，重建双歧杆菌、乳杆菌、艾克曼菌等有益菌的丰度，恢复菌群生态结构，修复黏膜屏障</p>
-    </div>
-    <div class="phase-card phase-3">
-      <div class="num">03</div>
-      <h4>调理阶段<br><small>Rebalance · 菌群巩固</small></h4>
-      <p>通过MDFs靶向调节剂配合高膳食纤维饮食，巩固移植菌群的定植，逐步恢复肠道-免疫轴平衡，从根源改善湿疹过敏体质</p>
+    <div class="disclaimer">
+      <div class="disclaimer-title">⚠️ 重要提示</div>
+      <p>本报告为菌群评估结果，仅供参考，不构成临床诊断。如出现便血、持续腹痛、体重骤降等急性症状，请及时就医。干预方案应在专业医师指导下进行。</p>
     </div>
   </div>
 
-  <div class="highlight-box" style="margin-top:20px;">
-    <strong>📌 针对湿疹过敏的特别说明：</strong>湿疹/过敏是一个"免疫教育失败"的问题，而肠道是最大的免疫器官，通过FMT（菌群移植）重建肠道生态，可以重新"培训"免疫系统，使其不再对无害物质过度反应。临床研究已证明FMT对过敏性疾病有改善作用。
+  <div class="footer">
+    <div class="footer-brand">源龄生命 · 肠道微生态分析</div>
+    <p>专业 · 精准 · 可信赖 &nbsp;|&nbsp; new.ylfmt.com</p>
   </div>
-</div>
-
-
-<!-- 六、随访与生活建议 -->
-<div class="card alert-yellow">
-  <div class="section-title">
-    <div class="icon">📅</div>
-    六、随访计划与生活建议
-  </div>
-
-  <h3 style="font-size:15px; color:#1a4a2e; margin-bottom:12px;">📆 复查时间建议</h3>
-  <table>
-    <tr>
-      <th>复查节点</th>
-      <th>需关注的核心指标</th>
-    </tr>
-    <tr>
-      <td>干预后 <strong>4–6周</strong></td>
-      <td>B/E比值（菌群平衡）、抗炎能力评分、产气荚膜梭菌丰度</td>
-    </tr>
-    <tr>
-      <td>干预后 <strong>3个月</strong></td>
-      <td>GMWI2健康指数、双歧杆菌/乳杆菌丰度、致病潜力指数、湿疹症状评分</td>
-    </tr>
-    <tr>
-      <td>干预后 <strong>6个月</strong></td>
-      <td>全套菌群检测，评估菌群结构稳定性；复查溃疡性结肠炎/炎症性肠病风险评分</td>
-    </tr>
-  </table>
-
-  <h3 style="font-size:15px; color:#1a4a2e; margin:20px 0 12px;">🥗 饮食与生活建议</h3>
-  <ul class="tips-list">
-    <li><strong>增加高膳食纤维食物</strong>：每日摄入25–30g膳食纤维，优先选择燕麦、洋蓟、豌豆、树莓、苹果（带皮）等，为有益菌提供"口粮"</li>
-    <li><strong>积极补充维生素D</strong>：本次检测显示维生素D合成能力为0，建议每日晒太阳20–30分钟，并在医生指导下考虑额外补充维生素D3制剂</li>
-    <li><strong>适当发酵食品</strong>：每日适量摄入酸奶（无添加糖）、泡菜等，补充活性乳酸菌，改善肠道微环境</li>
-    <li><strong>减少精加工食品</strong>：高糖、高脂、超加工食品会"喂饱"有害菌，加重菌群失衡，湿疹过敏期间尤其要减少摄入</li>
-    <li><strong>清淡低致敏饮食</strong>：鉴于多种食物过敏菌群保护力不足，暂时减少牛奶、鸡蛋、花生等高致敏食物，逐步再次引入</li>
-    <li><strong>管理压力与睡眠</strong>：慢性压力会破坏菌群平衡，推荐规律作息，每日保证7–8小时优质睡眠</li>
-    <li><strong>适度规律运动</strong>：每周150分钟中等强度有氧运动（如快走、游泳），可直接提升肠道菌群多样性</li>
-    <li><strong>戒烟，限制酒精</strong>：吸烟和饮酒均会损伤肠道黏膜和菌群结构</li>
-    <li><strong>谨慎使用抗生素</strong>：抗生素会大量杀灭有益菌，必须使用时应在疗程结束后积极补充益生菌</li>
-    <li><strong>皮肤护理</strong>：使用温和无刺激保湿乳，维持皮肤屏障，减少外源性刺激</li>
-  </ul>
-</div>
-
-
-<!-- 七、总结提醒 -->
-<div class="card" style="border-left-color: #9b59b6;">
-  <div class="section-title">
-    <div class="icon">📋</div>
-    七、总结与重要提醒
-  </div>
-
-  <div class="eczema-highlight">
-    <h4>🩺 核心结论（针对湿疹/过敏）</h4>
-    <p>华鹏程先生的肠道菌群检测揭示了<strong>湿疹过敏的重要内部根源</strong>：</p>
-    <ol style="margin-left:20px; margin-top:10px; line-height:2.2; font-size:14px;">
-      <li>有益菌（双歧杆菌、乳杆菌、艾克曼菌）严重不足，免疫调控"失守"</li>
-      <li>致炎菌群超标（螺杆菌、产气荚膜梭菌等），持续制造肠道炎症环境</li>
-      <li>肠道抗炎能力弱（51分），无力对抗慢性炎症积累</li>
-      <li>维生素D、E等关键抗过敏营养素合成能力极低</li>
-      <li>炎症性肠病和溃疡性结肠炎双高风险，说明肠道黏膜屏障功能已受损</li>
-    </ol>
-    <p style="margin-top:10px;"><strong>好消息：</strong>肠道多样性指数4.88（正常范围2–10），说明菌群基础尚可，通过系统干预改善空间较大。</p>
-  </div>
-
-  <div class="warning-box">
-    <strong>⚠️ 重要免责声明：</strong>
-    <ul style="margin-left:16px; margin-top:8px; line-height:2; font-size:13px;">
-      <li>本检测报告<strong>仅评估肠道菌群健康状况</strong>，不作为任何疾病的临床诊断依据</li>
-      <li>上述疾病风险提示代表菌群层面的风险倾向，<strong>不代表疾病已经发生</strong></li>
-      <li>出现以下情况请立即就医：<strong>便血、持续剧烈腹痛、皮肤大面积溃烂、呼吸困难、情绪严重异常</strong></li>
-      <li>所有干预方案（包括菌群移植）须在<strong>专业医疗人员指导下</strong>进行</li>
-      <li>菌群检测结果受动态变化影响，本报告仅代表检测当下的菌群状态</li>
-    </ul>
-  </div>
-</div>
-
-<!-- 底部 -->
-<div class="footer">
-  <p>🌿 见微知著 · 肠治久安</p>
-  <p style="opacity:0.7; font-size:12px; margin-top:6px;">
-    本解读由专业肠道微生态分析生成 · 报告日期：2026-04-16 · 样本编号：TG2620100304
-  </p>
-</div>
-
-</div><!-- /container -->
-
 </body>
 </html>
