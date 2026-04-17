@@ -7,3 +7,13 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+
+[[redirects]]
+  from = "/reports/huapengcheng"
+  to = "/reports/huapengcheng/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/reports/huapengcheng/"
+  to = "/reports/huapengcheng/index.html"
+  status = 200
