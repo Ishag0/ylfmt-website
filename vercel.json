@@ -1,10 +1,7 @@
 {
-  "framework": null,
   "version": 2,
-  "buildCommand": null,
-  "installCommand": null,
-  "outputDirectory": ".",
-  "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
-  ]
+  "public": true,
+  "github": {
+    "enabled": false
+  }
 }
