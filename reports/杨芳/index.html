@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杨芳 · 肠道菌群检测报告解读 | 源龄生命</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:       #1B4D89;
+    --blue-mid:   #2563EB;
+    --blue-light: #3B82F6;
+    --teal:       #0891B2;
+    --teal-light: #22D3EE;
+    --green:      #10B981;
+    --bg:         #FFFFFF;
+    --bg2:        #F8FAFC;
+    --bg3:        #F1F5F9;
+    --text:       #0F172A;
+    --text2:      #334155;
+    --text3:      #64748B;
+    --border:     #E2E8F0;
+    --shadow:     0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 12px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.08);
+    --radius:     12px;
+    --radius-lg:  20px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg2);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 800px; margin: 0 auto; padding: 24px; }
+
+  /* 顶部导航栏 */
+  .nav {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    margin: -24px -24px 24px -24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .nav-logo-img { height: 38px; width: auto; border-radius: 8px; object-fit: contain; }
+  .nav-logo-text { display: flex; flex-direction: column; }
+  .nav-logo-en { font-size: 0.55rem; color: var(--blue-light); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+
+  /* 顶部Banner */
+  .banner {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    color: white;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  .banner::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .banner::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .banner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+  .banner-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #10B981; }
+  .banner-title { font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.02em; position: relative; z-index: 1; }
+  .banner-subtitle { font-size: 16px; opacity: 0.85; font-weight: 400; position: relative; z-index: 1; }
+
+  /* 基本信息卡 */
+  .info-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(27,77,137,0.2), transparent);
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .info-item { display: flex; flex-direction: column; gap: 4px; }
+  .info-label { font-size: 13px; color: var(--text3); font-weight: 500; }
+  .info-value { font-size: 15px; font-weight: 600; color: var(--text); }
+
+  /* 核心结论 */
+  .alert-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+    border: 1px solid #fbbf24;
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .alert-title { font-size: 17px; font-weight: 700; color: #b45309; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .alert-body { font-size: 15px; color: #92400e; line-height: 1.8; }
+  .alert-body li { margin-bottom: 8px; list-style: none; padding-left: 20px; position: relative; }
+  .alert-body li::before { content: '▸'; position: absolute; left: 0; color: #f59e0b; }
+
+  /* 评分区 */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .score-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .score-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .score-value { font-size: 32px; font-weight: 800; }
+  .score-label { font-size: 13px; color: var(--text3); margin-top: 8px; line-height: 1.4; font-weight: 500; }
+  .red { color: #ef4444; }
+  .orange { color: #f97316; }
+  .green { color: var(--green); }
+  .blue { color: var(--blue); }
+
+  /* 章节卡片 */
+  .section-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .section-block { margin-bottom: 28px; }
+  .section-block:last-child { margin-bottom: 0; }
+  .section-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    padding-left: 12px;
+    border-left: 3px solid var(--blue);
+  }
+  .section-text { font-size: 14px; color: var(--text2); line-height: 1.8; }
+  .section-text ul { margin-left: 18px; margin-top: 10px; }
+  .section-text li { margin-bottom: 8px; }
+
+  /* 标签 */
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .badge-success { background: #d1fae5; color: #065f46; }
+  .badge-warning { background: #fef3c7; color: #92400e; }
+  .badge-danger { background: #fee2e2; color: #991b1b; }
+
+  /* 提示框 */
+  .note-box {
+    background: #eff6ff;
+    border-left: 4px solid var(--blue);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  /* HMT方案卡片 */
+  .hmt-card {
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    border: 1px solid #6ee7b7;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .hmt-title { font-size: 18px; font-weight: 700; color: #047857; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .hmt-phase {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .hmt-phase:last-child { margin-bottom: 0; }
+  .hmt-phase-title { font-size: 15px; font-weight: 700; color: #065f46; margin-bottom: 12px; }
+  .hmt-phase-content { font-size: 14px; color: var(--text2); line-height: 1.8; }
+  .hmt-phase-content li { list-style: disc; margin-left: 18px; margin-bottom: 6px; }
+
+  /* 时间线 */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--blue-light));
+    border-radius: 2px;
+  }
+  .timeline-item { position: relative; margin-bottom: 24px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot {
+    position: absolute;
+    left: -28px; top: 2px;
+    width: 18px; height: 18px;
+    background: var(--blue);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+  .timeline-content { padding-left: 12px; }
+  .timeline-time { font-size: 14px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+  .timeline-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+  /* 底部 */
+  .footer {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    color: white;
+    margin-top: 8px;
+    box-shadow: var(--shadow-md);
+  }
+  .footer-brand { font-size: 20px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .footer-desc { font-size: 14px; opacity: 0.85; line-height: 1.8; }
+  .footer-logo { height: 48px; margin-bottom: 16px; opacity: 0.95; }
+
+  /* 响应式 */
+  @media (max-width: 540px) {
+    .score-grid { grid-template-columns: 1fr 1fr; }
+    .info-grid { grid-template-columns: 1fr; }
+    .banner-title { font-size: 24px; }
+    .banner { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 导航栏 -->
+  <div class="nav">
+    <div class="nav-logo">
+      <img src="https://new.ylfmt.com/assets/logo.png" alt="源龄生命" class="nav-logo-img">
+      <div class="nav-logo-text">
+        源龄生命
+        <span class="nav-logo-en">YUANLING LIFE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 顶部Banner -->
+  <div class="banner">
+    <div class="banner-badge">
+      <span class="banner-badge-dot"></span>
+      肠道微生态专项检测
+    </div>
+    <div class="banner-title">肠道菌群检测报告解读</div>
+    <div class="banner-subtitle">基于16S rRNA基因测序的精准菌群分析</div>
+  </div>
+
+  <!-- 基本信息 -->
+  <div class="info-card">
+    <div class="card-title">👤 基本信息</div>
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="info-label">姓名</span>
+        <span class="info-value">杨芳</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">样本编号</span>
+        <span class="info-value">990033875617</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">报告日期</span>
+        <span class="info-value">2026年02月11日</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">检测机构</span>
+        <span class="info-value">杭州迪安医学检验中心</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="alert-card">
+    <div class="alert-title">🎯 核心发现与建议</div>
+    <div class="alert-body">
+      <ul>
+        <li><strong>菌群健康处于亚健康状态：</strong>健康总分64分，菌群健康55分，有益菌严重偏低（12分）</li>
+        <li><strong>免疫调节菌群不足：</strong>双歧杆菌1.30%、乳杆菌0.85%，远低于正常水平，影响免疫功能</li>
+        <li><strong>特定菌属异常：</strong>经黏液真杆菌属（Blautia）超标4.5倍，可能与肠道炎症相关</li>
+        <li><strong>营养缺乏：</strong>纤维素、铁元素、维生素B5、维生素D偏低</li>
+        <li><strong>癌症辅助治疗建议：</strong>对于肺癌晚期患者，肠道菌群移植（FMT）可作为联合治疗手段，通过重建肠道微生态，增强免疫功能，改善营养吸收，提高生活质量</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 健康评分 -->
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="score-value orange">64</div>
+      <div class="score-label">健康总分<br><span style="font-size:11px;color:#999">60-75为亚健康</span></div>
+    </div>
+    <div class="score-card">
+      <div class="score-value orange">55</div>
+      <div class="score-label">菌群健康<br><span style="font-size:11px;color:#999">正常≥60</span></div>
+    </div>
+    <div class="score-card">
+      <div class="score-value green">66</div>
+      <div class="score-label">疾病控制<br><span style="font-size:11px;color:#999">正常范围</span></div>
+    </div>
+    <div class="score-card">
+      <div class="score-value green">73</div>
+      <div class="score-label">营养均衡<br><span style="font-size:11px;color:#999">正常范围</span></div>
+    </div>
+    <div class="score-card">
+      <div class="score-value red">12</div>
+      <div class="score-label">有益菌<br><span style="font-size:11px;color:#999">正常≥50</span></div>
+    </div>
+    <div class="score-card">
+      <div class="score-value green">7</div>
+      <div class="score-label">有害菌<br><span style="font-size:11px;color:#999">正常范围</span></div>
+    </div>
+  </div>
+
+  <!-- 菌群分布 -->
+  <div class="section-card">
+    <div class="card-title">🔬 肠道菌群精准分布</div>
+    <div class="section-block">
+      <div class="section-subtitle">菌群平衡指标</div>
+      <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;">
+        <thead>
+          <tr style="background:var(--bg3);">
+            <th style="padding:12px;text-align:left;border-radius:8px 0 0 0;">检测项目</th>
+            <th style="padding:12px;text-align:center;">评估分值</th>
+            <th style="padding:12px;text-align:center;">参考范围</th>
+            <th style="padding:12px;text-align:center;border-radius:0 8px 0 0;">评估结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">菌群平衡</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">74</td>
+            <td style="padding:12px;text-align:center;color:var(--text3);">61-100</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">健康</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">菌群多样性</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">73</td>
+            <td style="padding:12px;text-align:center;color:var(--text3);">50-90</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">稳定</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">有益菌</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#ef4444;">12</td>
+            <td style="padding:12px;text-align:center;color:var(--text3);">>50</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-danger">偏低</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">有害菌</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">7</td>
+            <td style="padding:12px;text-align:center;color:var(--text3);">0-49</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px;">B/E指数</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">1.27</td>
+            <td style="padding:12px;text-align:center;color:var(--text3);">>1</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">关键菌属分析</div>
+      <div class="section-text">
+        <ul>
+          <li><strong>双歧杆菌属（1.30%）：</strong>严重偏低，正常范围0.19%-14.60%。双歧杆菌是重要的益生菌，具有调节免疫、抑制有害菌、改善肠道屏障功能的作用。</li>
+          <li><strong>乳杆菌属（0.85%）：</strong>偏低，正常范围0.17%-7.28%。乳杆菌可产生乳酸，降低肠道pH值，抑制病原菌生长。</li>
+          <li><strong>经黏液真杆菌属 Blautia（14.74%）：</strong><span style="color:#ef4444;font-weight:600;">超标4.5倍</span>，正常范围0.34%-3.24%。该菌属与慢性失眠、炎症因子IL-1水平相关，可能通过影响线粒体功能影响健康。</li>
+          <li><strong>粪杆菌属 Faecalibacterium（10.47%）：</strong>正常范围内，是重要的产丁酸菌，具有抗炎作用。</li>
+          <li><strong>罗氏菌属 Roseburia（8.77%）：</strong>正常范围内，可产生短链脂肪酸，调节肠道-脑轴。</li>
+        </ul>
+        <div class="note-box">
+          💡 <strong>临床意义：</strong>对于肺癌晚期患者，肠道菌群失衡会影响免疫功能和营养吸收。有益菌的严重缺乏可能导致免疫监视功能下降，影响抗肿瘤免疫应答。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 疾病风险评估 -->
+  <div class="section-card">
+    <div class="card-title">⚠️ 疾病风险评估</div>
+    <div class="section-block">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <thead>
+          <tr style="background:var(--bg3);">
+            <th style="padding:12px;text-align:left;border-radius:8px 0 0 0;">项目分类</th>
+            <th style="padding:12px;text-align:left;">检测项目</th>
+            <th style="padding:12px;text-align:center;">评估分值</th>
+            <th style="padding:12px;text-align:center;border-radius:0 8px 0 0;">评估结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;" rowspan="5">消化系统</td>
+            <td style="padding:12px;">溃疡性结肠炎</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">1.7</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">低风险</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">克罗恩病</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">0.5</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">低风险</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">肠易激综合征</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">2.2</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">低风险</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">感染性腹泻</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">7.8</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">中风险</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">胃病</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">3.5</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">注意</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">免疫系统</td>
+            <td style="padding:12px;">自身免疫疾病</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">4.5</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">注意</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">循环系统</td>
+            <td style="padding:12px;">心脑血管疾病</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">1.8</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">低风险</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;" rowspan="2">内分泌系统</td>
+            <td style="padding:12px;">糖尿病</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">3.7</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">注意</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px;">甲状腺疾病</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">3.9</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">注意</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:16px;font-size:13px;color:var(--text3);">评分参考：0-3分低风险，3-6分注意，6-8分中风险，8-10分高风险</p>
+    </div>
+  </div>
+
+  <!-- 营养健康评估 -->
+  <div class="section-card">
+    <div class="card-title">🥗 营养健康评估</div>
+    <div class="section-block">
+      <div class="section-subtitle">主要营养构成</div>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:20px;">
+        <thead>
+          <tr style="background:var(--bg3);">
+            <th style="padding:12px;text-align:left;border-radius:8px 0 0 0;">检测项目</th>
+            <th style="padding:12px;text-align:center;">评估分值</th>
+            <th style="padding:12px;text-align:center;border-radius:0 8px 0 0;">评估结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">碳水化合物</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">6.1</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">蛋白质</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">6.7</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">脂肪</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">7.7</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px;">纤维素</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">3.3</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">偏低</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">微量元素代谢</div>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:20px;">
+        <thead>
+          <tr style="background:var(--bg3);">
+            <th style="padding:12px;text-align:left;border-radius:8px 0 0 0;">检测项目</th>
+            <th style="padding:12px;text-align:center;">评估分值</th>
+            <th style="padding:12px;text-align:center;border-radius:0 8px 0 0;">评估结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">铁元素</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">4.0</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">偏低</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px;">锌元素</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">5.1</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">维生素代谢</div>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <thead>
+          <tr style="background:var(--bg3);">
+            <th style="padding:12px;text-align:left;border-radius:8px 0 0 0;">检测项目</th>
+            <th style="padding:12px;text-align:center;">评估分值</th>
+            <th style="padding:12px;text-align:center;border-radius:0 8px 0 0;">评估结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">维生素A</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">4.9</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">维生素B1</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">4.5</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">维生素B2</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">5.7</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">维生素B5</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">3.9</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">偏低</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">维生素B6</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">5.4</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">叶酸</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">5.1</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">维生素B12</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">4.1</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px;">维生素C</td>
+            <td style="padding:12px;text-align:center;font-weight:600;">6.0</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-success">正常</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px;">维生素D</td>
+            <td style="padding:12px;text-align:center;font-weight:600;color:#f97316;">3.8</td>
+            <td style="padding:12px;text-align:center;"><span class="badge badge-warning">偏低</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 癌症与肠道菌群 -->
+  <div class="section-card">
+    <div class="card-title">🎯 肠道菌群与肺癌联合治疗</div>
+    <div class="section-block">
+      <div class="section-subtitle">肠道菌群与肿瘤免疫</div>
+      <div class="section-text">
+        <p style="margin-bottom:12px;">研究表明，肠道菌群在肿瘤免疫治疗中发挥关键作用：</p>
+        <ul>
+          <li><strong>免疫调节：</strong>肠道菌群可影响PD-1/PD-L1抑制剂的疗效。特定的菌群组成与免疫检查点抑制剂的响应率密切相关。</li>
+          <li><strong>炎症调控：</strong>肠道菌群通过短链脂肪酸（丁酸、丙酸、乙酸）调节全身炎症水平，影响肿瘤微环境。</li>
+          <li><strong>营养支持：</strong>健康的肠道菌群有助于改善营养吸收，增强机体对放化疗的耐受性。</li>
+          <li><strong>肠道屏障：</strong>益生菌可维护肠道屏障功能，减少细菌易位和感染风险。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">杨芳的菌群特征与治疗建议</div>
+      <div class="section-text">
+        <ul>
+          <li><strong>有益菌严重不足：</strong>双歧杆菌和乳杆菌水平偏低，建议通过FMT快速重建益生菌群。</li>
+          <li><strong>Blautia超标：</strong>该菌属与炎症和失眠相关，需要通过菌群移植进行菌群结构调整。</li>
+          <li><strong>营养缺乏：</strong>纤维素、铁、维生素B5、维生素D偏低，需要在FMT后配合营养干预。</li>
+          <li><strong>感染风险：</strong>感染性腹泻风险中等（7.8分），FMT前需进行充分的肠道准备。</li>
+        </ul>
+        <div class="note-box">
+          💡 <strong>FMT联合治疗潜在获益：</strong>通过重建健康的肠道微生态，可能增强免疫功能，改善营养状态，提高对肿瘤治疗的耐受性，改善生活质量。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HMT 4.0 方案 -->
+  <div class="hmt-card">
+    <div class="hmt-title">💊 HMT 4.0 肠道菌群移植方案（肿瘤患者专用）</div>
+
+    <div class="section-text" style="background:white;padding:16px;border-radius:8px;margin-bottom:20px;">
+      <p style="font-size:14px;color:var(--text2);line-height:1.8;">
+        鉴于杨芳目前处于肺癌晚期，肠道菌群失衡状态依靠自身能力回归至正常水平较困难，需要采取额外的菌群干预措施。FMT可作为肿瘤联合治疗手段，通过重建肠道微生态，增强免疫功能。
+      </p>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第一阶段：肠道准备 (Intestinal Preparation)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:var(--text2);">基于国际通用的功能医学肠道调理干预方法，第一步，清肠消杀有害菌，为菌群移植建立良好的生存环境。</p>
+        <ul>
+          <li><strong>方案：</strong>利福昔明抗生素，每天3次，每次1粒（药店自购）</li>
+          <li><strong>周期：</strong>第1-3天</li>
+          <li><strong>目的：</strong>清肠消杀有害菌，减少肠道炎症负荷</li>
+          <li><strong>肿瘤患者注意：</strong>需在肿瘤科医生指导下进行，评估抗生素与当前治疗方案的相互作用</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第二阶段：种 (Reinoculation)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:var(--text2);">在肠道准备的基础上，重新种植上千种菌种，20万亿具有活力、菌群平衡的菌株种子，快速重建肠道微生态。</p>
+        <ul>
+          <li><strong>方案：</strong>全菌谱益生菌种植，每天5粒，连续6天</li>
+          <li><strong>周期：</strong>第4-10天（第4天休息，第5天开始移植）</li>
+          <li><strong>规格：</strong>2号胶囊30粒/6天，> 2.5×10¹²CFU</li>
+          <li><strong>肿瘤患者专用供体：</strong>建议选择经过严格筛选的健康供体，菌群多样性高、有益菌丰富</li>
+        </ul>
+        <div class="note-box" style="margin-top:16px;">
+          <strong>详细服用步骤：</strong>
+          <ol style="margin-top:8px;margin-left:20px;line-height:1.8;">
+            <li>前一晚9点后禁食</li>
+            <li>晨起空腹，取出1瓶菌株</li>
+            <li>室温化冻或放手心温热5-10分钟</li>
+            <li>用少量温水（<strong>小于37℃</strong>）冲送服共<strong>5粒</strong></li>
+            <li><strong>逐粒吞服，3分钟以内服完</strong></li>
+            <li>服用后30分钟保持身体直立状态</li>
+            <li>1小时后可以进食</li>
+          </ol>
+        </div>
+        <div class="note-box" style="background:#fff8e1;border-left-color:#ffb300;margin-top:12px;">
+          <strong>饮食过渡：</strong>
+          <ul style="margin-top:8px;margin-left:20px;">
+            <li>第5天：流质无渣饮食</li>
+            <li>第6-7天：半流质食物</li>
+            <li>第8-10天：清淡饮食</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第三阶段：调 (Rebalance)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:var(--text2);">种植有益种子后需要持续的养护，为微生态提供养分，帮助重建的微生态繁荣充满活力。</p>
+        <ul>
+          <li><strong>方案：</strong>每天1袋益生元，持续养护</li>
+          <li><strong>周期：</strong>第11-30天（菌株服用完2天后开始）</li>
+          <li><strong>目的：</strong>帮助微生态繁荣，持续抑制有害菌</li>
+          <li><strong>营养补充：</strong>同步补充铁剂、维生素B5、维生素D</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 生活方式管理（移植后1个月内）</div>
+      <div class="hmt-phase-content">
+        <ul>
+          <li>✅ <strong>饮食原则：</strong>蛋白质丰富、少糖、少油腻、高纤维</li>
+          <li>❌ <strong>禁忌：</strong>戒辛辣刺激、控烟控酒</li>
+          <li>💡 <strong>肿瘤患者特别提示：</strong>保持充足营养摄入，必要时咨询营养师制定个性化饮食方案</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 疗程规划</div>
+      <div class="hmt-phase-content">
+        <ul>
+          <li>30天为1个疗程，建议连续3个疗程</li>
+          <li>第1疗程结束间隔10天，复测肠道菌群检测</li>
+          <li>根据报告匹配制备第2疗程，依此类推，直至完成3个疗程</li>
+          <li><strong>肿瘤患者建议：</strong>与肿瘤治疗周期协调安排，在化疗间歇期进行FMT</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 服务费用 -->
+  <div class="section-card">
+    <div class="card-title">💰 入组服务费用及疗程情况</div>
+    
+    <div class="section-block">
+      <div class="section-text" style="background:var(--bg2);padding:16px;border-radius:8px;margin-bottom:20px;">
+        <p style="font-size:14px;color:var(--text2);line-height:1.8;">
+          鉴于本课题组致力于科学研究及公共健康福祉，对于符合条件的参与者，课题组将承担主要的科研成本，包括但不限于样本采集、检测分析、数据存储等费用。
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">科研入组项目费用表</div>
+      <table style="margin-top:12px;width:100%;border-collapse:collapse;font-size:14px;">
+        <thead>
+          <tr style="background:linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);color:white;">
+            <th style="padding:14px 12px;text-align:left;border-radius:8px 0 0 0;">项目</th>
+            <th style="padding:14px 12px;text-align:center;">疗程</th>
+            <th style="padding:14px 12px;text-align:center;">规格</th>
+            <th style="padding:14px 12px;text-align:right;border-radius:0 8px 0 0;">价格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:var(--bg2);">
+            <td style="padding:16px 12px;font-weight:600;color:var(--text);">
+              HMT4.0肠道菌群移植
+            </td>
+            <td style="padding:16px 12px;text-align:center;color:var(--text);">3个月/疗程</td>
+            <td style="padding:16px 12px;text-align:center;color:var(--text);">
+              2号胶囊30粒/6天<br>
+              > 2.5×10¹²CFU
+            </td>
+            <td style="padding:16px 12px;text-align:right;color:#ef4444;font-weight:700;font-size:18px;">
+              38,000<br>
+              <span style="font-size:13px;color:var(--text3);font-weight:400;">(二送一)</span>
+            </td>
+          </tr>
+          <tr style="background:#ecfdf5;">
+            <td style="padding:14px 12px;font-weight:600;color:#065f46;" colspan="2">🎁 赠送</td>
+            <td style="padding:14px 12px;text-align:center;color:#065f46;" colspan="2">
+              肠道基因组检测×2次 + 益生元1个月
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box" style="background:#eff6ff;border-left-color:var(--blue);margin-top:20px;">
+      💡 <strong>费用说明</strong>：
+      <ul style="margin-top:8px;margin-left:20px;">
+        <li>课题组承担科研成本（样本采集、检测分析、数据存储等）</li>
+        <li>参与者仅需支付供体筛选、菌液提取及移植等特殊程序的补贴后费用</li>
+        <li>「二送一」优惠：支付2个疗程费用，可获得3个疗程服务</li>
+      </ul>
+    </div>
+
+    <div class="note-box" style="background:#fef3c7;border-left-color:#f59e0b;margin-top:16px;">
+      💡 <strong>杨芳专属建议</strong>：鉴于您目前有益菌严重缺乏（仅12分），且处于肺癌晚期需要免疫支持，建议参与本科研入组项目，通过HMT4.0精准菌群移植重建肠道微生态，作为肿瘤联合治疗手段，可能增强免疫功能，改善营养吸收，提高生活质量。
+    </div>
+  </div>
+
+  <!-- 底部品牌 -->
+  <div class="footer">
+    <img src="https://new.ylfmt.com/assets/logo.png" alt="源龄生命" class="footer-logo">
+    <div class="footer-brand">源龄生命</div>
+    <div class="footer-desc">
+      专注肠道微生态健康管理<br>
+      专业 · 精准 · 可信赖<br>
+      <span style="opacity:0.7;font-size:12px">本报告基于菌群检测数据分析，具体诊疗请结合临床医生建议</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

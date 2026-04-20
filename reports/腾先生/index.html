@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>腾先生 · 肠道菌群检测报告解读 | 源龄生命</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:       #1B4D89;
+    --blue-mid:   #2563EB;
+    --blue-light: #3B82F6;
+    --teal:       #0891B2;
+    --teal-light: #22D3EE;
+    --green:      #10B981;
+    --bg:         #FFFFFF;
+    --bg2:        #F8FAFC;
+    --bg3:        #F1F5F9;
+    --text:       #0F172A;
+    --text2:      #334155;
+    --text3:      #64748B;
+    --border:     #E2E8F0;
+    --shadow:     0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 12px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.08);
+    --radius:     12px;
+    --radius-lg:  20px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg2);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 800px; margin: 0 auto; padding: 24px; }
+
+  /* 顶部导航栏 */
+  .nav {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    margin: -24px -24px 24px -24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .nav-logo-img { height: 38px; width: auto; border-radius: 8px; object-fit: contain; }
+  .nav-logo-text { display: flex; flex-direction: column; }
+  .nav-logo-en { font-size: 0.55rem; color: var(--blue-light); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+
+  /* 顶部Banner */
+  .banner {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    color: white;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  .banner::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .banner::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .banner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+  .banner-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #10B981; }
+  .banner-title { font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.02em; position: relative; z-index: 1; }
+  .banner-subtitle { font-size: 16px; opacity: 0.85; font-weight: 400; position: relative; z-index: 1; }
+
+  /* 基本信息卡 */
+  .info-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(27,77,137,0.2), transparent);
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .info-item { display: flex; flex-direction: column; gap: 4px; }
+  .info-label { font-size: 12px; color: #999; }
+  .info-value { font-size: 15px; font-weight: 600; color: #333; }
+
+  /* 核心结论 */
+  .alert-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+    border: 1px solid #fbbf24;
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .alert-title { font-size: 17px; font-weight: 700; color: #b45309; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .alert-body { font-size: 15px; color: #92400e; line-height: 1.8; }
+  .alert-body li { margin-bottom: 8px; list-style: none; padding-left: 20px; position: relative; }
+  .alert-body li::before { content: '▸'; position: absolute; left: 0; color: #f59e0b; }
+
+  /* 评分区 */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .score-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .score-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .score-value { font-size: 32px; font-weight: 800; }
+  .score-label { font-size: 13px; color: var(--text3); margin-top: 8px; line-height: 1.4; font-weight: 500; }
+  .red { color: #ef4444; }
+  .orange { color: #f97316; }
+  .green { color: var(--green); }
+  .orange { color: #fb8c00; }
+  .green { color: #43a047; }
+
+  /* 指标表格 */
+  .table-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    background: #f5f6ff;
+    color: #667eea;
+    font-weight: 700;
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 2px solid #e8eaf6;
+  }
+  td { padding: 12px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafafa; }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .badge-danger { background: #ffebee; color: #c62828; }
+  .badge-warning { background: #fff3e0; color: #e65100; }
+  .badge-success { background: #e8f5e9; color: #2e7d32; }
+  .badge-info { background: #e3f2fd; color: #1565c0; }
+
+  /* 分段解读 */
+  .section-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .section-block { margin-bottom: 28px; }
+  .section-block:last-child { margin-bottom: 0; }
+  .section-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #424242;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .section-text { font-size: 14px; color: #555; line-height: 1.85; }
+  .section-text li { margin-bottom: 8px; list-style: none; padding-left: 22px; position: relative; }
+  .section-text li::before { content: '·'; position: absolute; left: 8px; color: #667eea; font-size: 18px; top: -1px; }
+  .highlight { color: #e53935; font-weight: 600; }
+  .highlight-orange { color: #e65100; font-weight: 600; }
+  .highlight-green { color: #2e7d32; font-weight: 600; }
+  .note-box {
+    background: #f5f6ff;
+    border-left: 4px solid #667eea;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #666;
+  }
+
+  /* HMT方案 */
+  .hmt-card {
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    border: 1px solid #6ee7b7;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .hmt-title { font-size: 18px; font-weight: 700; color: #047857; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .hmt-phase {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .hmt-phase:last-child { margin-bottom: 0; }
+  .hmt-phase-title { font-size: 15px; font-weight: 700; color: #065f46; margin-bottom: 12px; }
+  .hmt-phase-content { font-size: 14px; color: var(--text2); line-height: 1.8; }
+  .hmt-phase-content li { list-style: disc; margin-left: 18px; margin-bottom: 6px; }
+
+  /* 复查节点 */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .timeline-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .timeline-content { flex: 1; }
+  .timeline-time { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 4px; }
+  .timeline-desc { font-size: 13px; color: #666; }
+
+  /* 底部 */
+  .footer {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    color: white;
+    margin-top: 8px;
+    box-shadow: var(--shadow-md);
+  }
+  .footer-brand { font-size: 20px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .footer-desc { font-size: 14px; opacity: 0.85; line-height: 1.8; }
+  .footer-logo { height: 48px; margin-bottom: 16px; opacity: 0.95; }
+
+  /* 响应式 */
+  @media (max-width: 540px) {
+    .score-grid { grid-template-columns: 1fr 1fr; }
+    .info-grid { grid-template-columns: 1fr 1fr; }
+    .banner-title { font-size: 24px; }
+    .banner { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 导航栏 -->
+  <div class="nav">
+    <div class="nav-logo">
+      <img src="https://new.ylfmt.com/assets/logo.png" alt="源龄生命" class="nav-logo-img">
+      <div class="nav-logo-text">
+        源龄生命
+        <span class="nav-logo-en">YUANLING LIFE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 顶部Banner -->
+  <div class="banner">
+    <div class="banner-badge">
+      <span class="banner-badge-dot"></span>
+      肠道微生态专项检测
+    </div>
+    <div class="banner-title">肠道菌群检测报告解读</div>
+    <div class="banner-subtitle">专业解读 · 精准干预 · 还原健康活力</div>
+  </div>
+
+  <!-- 基本信息 -->
+  <div class="info-card">
+    <div class="card-title">👤 受检者信息</div>
+    <div class="info-grid">
+      <div class="info-item"><span class="info-label">姓名</span><span class="info-value">腾先生</span></div>
+      <div class="info-item"><span class="info-label">年龄</span><span class="info-value">32岁</span></div>
+      <div class="info-item"><span class="info-label">性别</span><span class="info-value">男</span></div>
+      <div class="info-item"><span class="info-label">样本编码</span><span class="info-value">585536412</span></div>
+      <div class="info-item"><span class="info-label">报告日期</span><span class="info-value">2025-01-14</span></div>
+      <div class="info-item"><span class="info-label">肠型</span><span class="info-value">普雷沃氏菌型</span></div>
+    </div>
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="alert-card">
+    <div class="alert-title">⚠️ 核心结论</div>
+    <div class="alert-body">
+      <ul>
+        <li>肠道菌群整体处于<strong>「亚健康」状态</strong>，健康总分67分（良好水平）</li>
+        <li>存在<strong>多种氨基酸缺乏</strong>（亮氨酸、苯丙氨酸、丙氨酸、脯氨酸），提示蛋白质代谢异常</li>
+        <li><strong>神经递质合成严重失衡</strong>：血清素合成能力仅1分（严重缺乏），多巴胺99分（过多）</li>
+        <li><strong>有害菌水平偏高</strong>（71分），有益菌相对不足（54分），菌群平衡需改善</li>
+        <li>双歧杆菌、乳杆菌等益生菌<strong>严重缺失</strong>，低于正常人群水平</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 关键评分 -->
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="score-value orange">67</div>
+      <div class="score-label">健康总分<br>亚健康状态</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value orange">44</div>
+      <div class="score-label">菌群平衡<br>中等水平</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value red">1</div>
+      <div class="score-label">血清素合成<br>严重缺乏</div>
+    </div>
+  </div>
+
+  <!-- 关键菌群指标 -->
+  <div class="table-card">
+    <div class="card-title">📊 关键菌群指标</div>
+    <table>
+      <thead>
+        <tr>
+          <th>菌群/指标</th>
+          <th>检测结果</th>
+          <th>参考范围</th>
+          <th>状态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>菌群多样性</strong></td>
+          <td style="font-weight:700">43分 / 394种</td>
+          <td>30-50中等</td>
+          <td><span class="badge badge-warning">中等多样</span></td>
+        </tr>
+        <tr>
+          <td><strong>有害菌</strong></td>
+          <td class="orange" style="font-weight:700">71分</td>
+          <td>&lt; 50正常</td>
+          <td><span class="badge badge-warning">较多</span></td>
+        </tr>
+        <tr>
+          <td><strong>双歧杆菌属</strong></td>
+          <td style="color:#c62828;font-weight:700">0.04%（26%人群水平）</td>
+          <td>0.19%-14.6%</td>
+          <td><span class="badge badge-danger">严重不足</span></td>
+        </tr>
+        <tr>
+          <td><strong>乳杆菌属</strong></td>
+          <td style="color:#c62828;font-weight:700">0.05%（35%人群水平）</td>
+          <td>0.17%-6.58%</td>
+          <td><span class="badge badge-danger">严重不足</span></td>
+        </tr>
+        <tr>
+          <td><strong>考拉杆菌属</strong></td>
+          <td class="orange" style="font-weight:700">12.48%（97%人群水平）</td>
+          <td>0-8.87%</td>
+          <td><span class="badge badge-warning">超标</span></td>
+        </tr>
+        <tr>
+          <td><strong>萨特氏菌属</strong></td>
+          <td class="orange" style="font-weight:700">5.84%（99%人群水平）</td>
+          <td>0-2.27%</td>
+          <td><span class="badge badge-warning">超标2.6倍</span></td>
+        </tr>
+        <tr>
+          <td><strong>脆弱拟杆菌</strong></td>
+          <td class="orange" style="font-weight:700">1.26%（79%人群水平）</td>
+          <td>0-0.42%</td>
+          <td><span class="badge badge-warning">超标3倍</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 疾病风险评估 -->
+  <div class="table-card">
+    <div class="card-title">🏥 疾病风险评估</div>
+    <table>
+      <thead>
+        <tr>
+          <th>疾病</th>
+          <th>风险评分</th>
+          <th>风险等级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>炎症性肠炎</td>
+          <td style="font-weight:700;color:#2e7d32">0.28</td>
+          <td><span class="badge badge-success">低风险</span></td>
+        </tr>
+        <tr>
+          <td>结直肠癌</td>
+          <td style="font-weight:700;color:#2e7d32">0.23</td>
+          <td><span class="badge badge-success">低风险</span></td>
+        </tr>
+        <tr>
+          <td>肠易激综合征</td>
+          <td style="font-weight:700;color:#2e7d32">0.15</td>
+          <td><span class="badge badge-success">低风险</span></td>
+        </tr>
+        <tr>
+          <td>II型糖尿病</td>
+          <td style="font-weight:700;color:#2e7d32">0.11</td>
+          <td><span class="badge badge-success">低风险</span></td>
+        </tr>
+        <tr>
+          <td>抑郁症</td>
+          <td style="font-weight:700;color:#2e7d32">0.26</td>
+          <td><span class="badge badge-success">低风险</span></td>
+        </tr>
+        <tr>
+          <td>心脑血管疾病</td>
+          <td style="font-weight:700;color:#2e7d32">0.18</td>
+          <td><span class="badge badge-success">低风险</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 神经递质与情绪专项 -->
+  <div class="section-card">
+    <div class="card-title">🧠 神经递质与情绪健康专项解读</div>
+
+    <div class="section-block">
+      <div class="section-subtitle">1. 血清素合成能力严重缺乏（1分）</div>
+      <div class="section-text">
+        <p>腾先生的肠道菌群血清素合成能力仅<span class="highlight">1分</span>，远低于正常水平（15-95分），这是本次报告中最突出的异常指标。</p>
+        <ul style="margin-top:10px">
+          <li><span class="highlight">血清素（5-HT）</span>是调节情绪、睡眠、食欲的关键神经递质，人体90%的血清素在肠道中合成</li>
+          <li>血清素缺乏与<span class="highlight">焦虑、抑郁、失眠、情绪不稳</span>密切相关</li>
+          <li>可能导致注意力难以集中、疲劳感、慢性疼痛敏感性增加</li>
+          <li>长期缺乏可能诱发强迫症、慢性疲劳综合征等</li>
+        </ul>
+        <div class="note-box">💡 建议：增加富含色氨酸的食物（禽类、海鲜、豆类、坚果），配合维生素B6补充，避免咖啡因摄入，保证充足光照和规律运动。</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">2. 多巴胺水平过高（99分）</div>
+      <div class="section-text">
+        <p>多巴胺评估值高达<span class="highlight">99分</span>，处于过量状态。</p>
+        <ul style="margin-top:10px">
+          <li>多巴胺过多可能导致<span class="highlight">精神紧张、失眠、偏执、上瘾倾向</span></li>
+          <li>与血清素缺乏形成"失衡对"，加剧情绪波动</li>
+          <li>建议减少精制糖和加工食品，增加Omega-3脂肪酸摄入</li>
+          <li>保持充足睡眠，避免过度刺激</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">3. GABA不足（13分）</div>
+      <div class="section-text">
+        <p>γ-氨基丁酸（GABA）评估值<span class="highlight">13分</span>，处于不足状态（正常≥15分）。</p>
+        <ul style="margin-top:10px">
+          <li>GABA是主要的抑制性神经递质，具有镇静、抗焦虑作用</li>
+          <li>不足时可能出现<span class="highlight">焦虑、失眠、肌肉紧张</span></li>
+          <li>建议摄入发酵食品（酸奶、味增）、富含维生素B6的食物（鸡肉、豆类）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 氨基酸缺乏分析 -->
+  <div class="section-card">
+    <div class="card-title">🥩 氨基酸代谢异常分析</div>
+    <div class="section-block">
+      <div class="section-subtitle">缺乏的必需氨基酸</div>
+      <div class="section-text">
+        <table style="width:100%;margin-top:12px;font-size:13px;">
+          <thead>
+            <tr style="background:#f5f6ff;">
+              <th style="padding:10px;text-align:left;">氨基酸</th>
+              <th style="padding:10px;text-align:center;">评分</th>
+              <th style="padding:10px;text-align:left;">功能影响</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px;"><strong>亮氨酸</strong></td>
+              <td style="padding:10px;text-align:center;color:#e53935;font-weight:700;">4分</td>
+              <td style="padding:10px;">肌肉修复、血糖控制、能量供应</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px;"><strong>苯丙氨酸</strong></td>
+              <td style="padding:10px;text-align:center;color:#e53935;font-weight:700;">5分</td>
+              <td style="padding:10px;">合成酪氨酸→多巴胺、甲状腺激素</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;"><strong>丙氨酸</strong></td>
+              <td style="padding:10px;text-align:center;color:#e53935;font-weight:700;">5分</td>
+              <td style="padding:10px;">能量代谢、运动耐力</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px;"><strong>脯氨酸</strong></td>
+              <td style="padding:10px;text-align:center;color:#e53935;font-weight:700;">5分</td>
+              <td style="padding:10px;">胶原蛋白合成、皮肤健康</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note-box" style="margin-top:16px;">💡 建议：增加优质蛋白摄入，包括糙米、红肉、坚果、豆类、脱脂牛奶等。蛋白质摄入不足可能影响神经递质合成和肌肉健康。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 肠道屏障与代谢 -->
+  <div class="section-card">
+    <div class="card-title">🛡️ 肠道屏障与代谢功能</div>
+    <div class="section-block">
+      <div class="section-text">
+        <table style="width:100%;font-size:13px;">
+          <thead>
+            <tr style="background:#f5f6ff;">
+              <th style="padding:10px;text-align:left;">指标</th>
+              <th style="padding:10px;text-align:center;">评估值</th>
+              <th style="padding:10px;text-align:center;">状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px;">肠道屏障</td>
+              <td style="padding:10px;text-align:center;">44</td>
+              <td style="padding:10px;text-align:center;"><span class="badge badge-success">正常</span></td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px;">肠道炎症水平</td>
+              <td style="padding:10px;text-align:center;">47</td>
+              <td style="padding:10px;text-align:center;"><span class="badge badge-success">正常</span></td>
+            </tr>
+            <tr>
+              <td style="padding:10px;">脂多糖LPS</td>
+              <td style="padding:10px;text-align:center;">60</td>
+              <td style="padding:10px;text-align:center;"><span class="badge badge-success">正常</span></td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px;">丁酸盐</td>
+              <td style="padding:10px;text-align:center;">30</td>
+              <td style="padding:10px;text-align:center;"><span class="badge badge-success">正常</span></td>
+            </tr>
+            <tr>
+              <td style="padding:10px;">丙酸盐</td>
+              <td style="padding:10px;text-align:center;">78</td>
+              <td style="padding:10px;text-align:center;"><span class="badge badge-success">正常</span></td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:10px;">乙酸盐</td>
+              <td style="padding:10px;text-align:center;">16</td>
+              <td style="padding:10px;text-align:center;"><span class="badge badge-success">正常</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:16px;font-size:14px;color:#555;">肠道屏障功能和炎症指标均在正常范围内，短链脂肪酸代谢良好，说明肠道基础功能尚可，主要问题在于菌群构成失衡和神经递质合成异常。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 饮食建议 -->
+  <div class="section-card">
+    <div class="card-title">🥗 个性化饮食建议</div>
+    <div class="section-block">
+      <div class="section-subtitle">重点推荐食物（基于菌群分析）</div>
+      <div class="section-text">
+        <ul>
+          <li><strong>蔬菜类：</strong>南瓜（56分）、羽衣甘蓝（66分）、大白菜（64分）、白萝卜（64分）、四季豆（62分）、菠菜（61分）</li>
+          <li><strong>水果类：</strong>黑莓（53分）、杨桃（43分）、柠檬（43分）、葡萄柚（41分）、蓝莓（40分）</li>
+          <li><strong>蛋白质：</strong>石斑鱼（13分）、猪肝（12分）、鹅肝（12分）、蟹（11分）、牡蛎（11分）</li>
+          <li><strong>主食：</strong>燕麦（31分）、玉米（38分）、栗子（49分）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="section-subtitle">建议限制食物</div>
+      <div class="section-text">
+        <ul>
+          <li><strong>高脂肪：</strong>黄油（-24分）、肥猪肉（-15分）、肥羊肉（-15分）、牛油果（-9分）</li>
+          <li><strong>加工食品：</strong>鸡米花（-8分）、煎蛋（-8分）、热狗（-6分）</li>
+          <li><strong>高糖：</strong>葡萄干（-19分）、苹果汁（-15分）</li>
+        </ul>
+        <div class="note-box">💡 建议增加膳食纤维摄入（当前纤维素89分，可适当维持），通过多样化饮食改善菌群多样性。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HMT 4.0 方案流程 -->
+  <div class="hmt-card">
+    <div class="hmt-title">💊 HMT 4.0 肠道菌群移植方案</div>
+
+    <div class="section-text" style="background:white;padding:16px;border-radius:8px;margin-bottom:20px;">
+      <p style="font-size:14px;color:#555;line-height:1.8;">
+        综合本次肠道菌群检测结果，鉴于目前处于失衡状态，肠道菌群依靠自身能力回归至正常水平较困难，需要采取额外的菌群干预措施。
+      </p>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第一阶段：肠道准备 (Intestinal Preparation)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:#555;">基于国际通用的功能医学肠道调理干预方法，第一步，清肠消杀有害菌，减少刺激性食物为菌群建立良好的生存环境。</p>
+        <ul>
+          <li><strong>方案：</strong>利福昔明抗生素，每天3次，每次1粒（药店自购）</li>
+          <li><strong>周期：</strong>第1-3天</li>
+          <li><strong>目的：</strong>清肠消杀有害菌，为菌群移植建立良好的生存环境</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第二阶段：种 (Reinoculation)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:#555;">在肠道准备的基础上，我们重新种植上千种菌种，20万亿具有活力、菌群平衡的菌株种子，快速重建您的肠道微生态。</p>
+        <ul>
+          <li><strong>方案：</strong>全菌谱益生菌种植，每天5粒，连续6天</li>
+          <li><strong>周期：</strong>第4-10天（第4天休息，第5天开始移植）</li>
+          <li><strong>规格：</strong>2号胶囊30粒/6天，> 2.5×10¹²CFU</li>
+        </ul>
+        <div class="note-box" style="margin-top:16px;">
+          <strong>详细服用步骤：</strong>
+          <ol style="margin-top:8px;margin-left:20px;line-height:1.8;">
+            <li>前一晚9点后禁食</li>
+            <li>晨起空腹，取出1瓶菌株</li>
+            <li>室温化冻或放手心温热5-10分钟</li>
+            <li>用少量温水（<strong>小于37℃</strong>）冲送服共<strong>5粒</strong></li>
+            <li><strong>逐粒吞服，3分钟以内服完</strong></li>
+            <li>服用后30分钟保持身体直立状态</li>
+            <li>1小时后可以进食</li>
+          </ol>
+        </div>
+        <div class="note-box" style="background:#fff8e1;border-left-color:#ffb300;margin-top:12px;">
+          <strong>饮食过渡：</strong>
+          <ul style="margin-top:8px;margin-left:20px;">
+            <li>第5天：流质无渣饮食</li>
+            <li>第6-7天：半流质食物</li>
+            <li>第8-10天：清淡饮食</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第三阶段：调 (Rebalance)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:#555;">种植有益种子后需要持续的养护，为微生态提供养分，帮助重建的微生态繁荣充满活力，为机体提供有益物质抑制有害菌。</p>
+        <ul>
+          <li><strong>方案：</strong>每天1袋益生元，持续养护</li>
+          <li><strong>周期：</strong>第11-30天（菌株服用完2天后开始）</li>
+          <li><strong>目的：</strong>帮助微生态繁荣，持续抑制有害菌</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 生活方式管理（移植后1个月内）</div>
+      <div class="hmt-phase-content">
+        <ul>
+          <li>✅ <strong>饮食原则：</strong>蛋白质丰富、少糖、少油腻</li>
+          <li>❌ <strong>禁忌：</strong>戒辛辣刺激、控烟控酒</li>
+          <li>💡 <strong>提示：</strong>服用产品期间，有任何疑问及身体调理反应，请及时与健康管家联系</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 疗程规划</div>
+      <div class="hmt-phase-content">
+        <ul>
+          <li>30天为1个疗程，建议连续3个疗程</li>
+          <li>第1疗程结束间隔10天，复测肠道菌群检测</li>
+          <li>根据报告匹配制备第2疗程，依此类推，直至完成3个疗程</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 复查节点 -->
+  <div class="section-card">
+    <div class="card-title">📅 复查节点规划</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <div class="timeline-time">第4~6周 · 第1次复查</div>
+          <div class="timeline-desc">评估益生菌定植情况；血清素合成能力变化；情绪睡眠主观评估</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <div class="timeline-time">第3个月 · 第2次复查</div>
+          <div class="timeline-desc">全项菌群复测；评估双歧杆菌/乳杆菌恢复情况；神经递质指标改善</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-content">
+          <div class="timeline-time">第6个月 · 第3次复查</div>
+          <div class="timeline-desc">巩固评估；判断是否达到长期稳态；制定后续维持方案</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 服务费用及疗程 -->
+  <div class="section-card">
+    <div class="card-title">💰 入组服务费用及疗程情况</div>
+    
+    <div class="section-block">
+      <div class="section-text" style="background:#f8f9fa;padding:16px;border-radius:8px;margin-bottom:20px;">
+        <p style="font-size:14px;color:#555;line-height:1.8;">
+          鉴于本课题组致力于科学研究及公共健康福祉，对于符合条件的参与者，课题组将承担主要的科研成本，包括但不限于样本采集、检测分析、数据存储等费用。因此，本人无需直接支付任何参与费用。
+        </p>
+        <p style="font-size:14px;color:#555;line-height:1.8;margin-top:10px;">
+          在参与本研究的过程中，若需进行供体筛选、提取菌液及后续的移植等特殊程序，将产生以下部分补贴后费用：
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">科研入组项目费用表</div>
+      <table style="margin-top:12px;width:100%;">
+        <thead>
+          <tr style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);color:white;">
+            <th style="padding:14px 12px;text-align:left;border-radius:8px 0 0 0;">项目</th>
+            <th style="padding:14px 12px;text-align:center;">疗程</th>
+            <th style="padding:14px 12px;text-align:center;">规格</th>
+            <th style="padding:14px 12px;text-align:right;border-radius:0 8px 0 0;">价格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#f8f9fa;">
+            <td style="padding:16px 12px;font-weight:600;color:#333;">
+              HMT4.0肠道菌群移植
+            </td>
+            <td style="padding:16px 12px;text-align:center;color:#333;">3个月/疗程</td>
+            <td style="padding:16px 12px;text-align:center;color:#333;">
+              2号胶囊30粒/6天<br>
+              > 2.5×10¹²CFU
+            </td>
+            <td style="padding:16px 12px;text-align:right;color:#e53935;font-weight:700;font-size:18px;">
+              30,000<br>
+              <span style="font-size:13px;color:#666;font-weight:400;">(二送一)</span>
+            </td>
+          </tr>
+          <tr style="background:#e8f5e9;">
+            <td style="padding:14px 12px;font-weight:600;color:#2e7d32;" colspan="2">🎁 赠送</td>
+            <td style="padding:14px 12px;text-align:center;color:#2e7d32;" colspan="2">
+              肠道基因组检测×2次 + 益生元1个月
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box" style="background:#e3f2fd;border-left-color:#1976d2;margin-top:20px;">
+      💡 <strong>费用说明</strong>：
+      <ul style="margin-top:8px;margin-left:20px;">
+        <li>课题组承担科研成本（样本采集、检测分析、数据存储等）</li>
+        <li>参与者仅需支付供体筛选、菌液提取及移植等特殊程序的补贴后费用</li>
+        <li>「二送一」优惠：支付2个疗程费用，可获得3个疗程服务</li>
+      </ul>
+    </div>
+
+    <div class="note-box" style="background:#fff8e1;border-left-color:#ffb300;margin-top:16px;">
+      💡 <strong>腾先生专属建议</strong>：鉴于您当前血清素合成能力严重缺乏（仅1分），且存在多种氨基酸缺乏，建议参与本科研入组项目，通过HMT4.0精准菌群移植重建肠道微生态，改善神经递质合成能力。
+    </div>
+  </div>
+
+  <!-- 底部品牌 -->
+  <div class="footer">
+    <img src="https://new.ylfmt.com/assets/logo.png" alt="源龄生命" class="footer-logo">
+    <div class="footer-brand">源龄生命</div>
+    <div class="footer-desc">
+      专注肠道微生态健康管理<br>
+      专业 · 精准 · 可信赖<br>
+      <span style="opacity:0.7;font-size:12px">本报告基于菌群检测数据分析，具体诊疗请结合临床医生建议</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
