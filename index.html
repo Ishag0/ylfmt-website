@@ -1883,7 +1883,7 @@
     if (!name) { box.innerHTML = '<div class="search-empty"><div class="search-empty-icon">⚠️</div><div>请输入姓名</div></div>'; return; }
     if (!reportCache) { box.innerHTML = '<div class="search-loading">加载中...</div>'; return; }
 
-    const results = reportCache.filter(r => r.name.includes(name));
+    const results = reportCache.filter(r => r.name === name);
     if (results.length === 0) {
       box.innerHTML = `<div class="search-empty">
         <div class="search-empty-icon">😔</div>

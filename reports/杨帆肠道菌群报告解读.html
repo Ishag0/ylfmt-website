@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杨帆 · 肠道菌群检测报告解读 | 源龄生命</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:       #1B4D89;
+    --blue-mid:   #2563EB;
+    --blue-light: #3B82F6;
+    --teal:       #0891B2;
+    --teal-light: #22D3EE;
+    --green:      #10B981;
+    --bg:         #FFFFFF;
+    --bg2:        #F8FAFC;
+    --bg3:        #F1F5F9;
+    --text:       #0F172A;
+    --text2:      #334155;
+    --text3:      #64748B;
+    --border:     #E2E8F0;
+    --shadow:     0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 12px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.08);
+    --radius:     12px;
+    --radius-lg:  20px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg2);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 800px; margin: 0 auto; padding: 24px; }
+
+  /* 导航栏 */
+  .nav {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    margin: -24px -24px 24px -24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .nav-logo-img { height: 38px; width: auto; border-radius: 8px; object-fit: contain; }
+  .nav-logo-text { display: flex; flex-direction: column; }
+  .nav-logo-en { font-size: 0.55rem; color: var(--blue-light); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+
+  /* Banner */
+  .banner {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    color: white;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  .banner::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .banner::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .banner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+  .banner-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #10B981; }
+  .banner-title { font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.02em; position: relative; z-index: 1; }
+  .banner-subtitle { font-size: 16px; opacity: 0.85; font-weight: 400; position: relative; z-index: 1; }
+  .banner-meta {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .banner-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .banner-meta-label { font-size: 11px; opacity: 0.7; letter-spacing: 0.05em; }
+  .banner-meta-value { font-size: 15px; font-weight: 600; }
+
+  /* 评分区 */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .score-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 20px 14px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .score-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .score-value { font-size: 30px; font-weight: 800; }
+  .score-label { font-size: 12px; color: var(--text3); margin-top: 6px; line-height: 1.4; font-weight: 500; }
+  .red { color: #ef4444; }
+  .orange { color: #f97316; }
+  .yellow { color: #f59e0b; }
+  .green { color: var(--green); }
+  .blue { color: var(--blue-mid); }
+
+  /* 核心结论 */
+  .alert-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+    border: 1px solid #fbbf24;
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .alert-title { font-size: 17px; font-weight: 700; color: #b45309; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .alert-body { font-size: 15px; color: #92400e; line-height: 1.8; }
+  .alert-body li { margin-bottom: 8px; list-style: none; padding-left: 20px; position: relative; }
+  .alert-body li::before { content: '▸'; position: absolute; left: 0; color: #f59e0b; }
+
+  /* 卡片通用 */
+  .info-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(27,77,137,0.2), transparent);
+  }
+
+  /* 信息表格 */
+  .info-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .info-table tr { border-bottom: 1px solid var(--border); }
+  .info-table tr:last-child { border-bottom: none; }
+  .info-table td { padding: 12px 8px; }
+  .info-table td:first-child { color: var(--text3); font-weight: 500; width: 30%; }
+  .info-table td:last-child { color: var(--text); font-weight: 600; }
+
+  /* section卡片 */
+  .section-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .section-block { margin-bottom: 28px; }
+  .section-block:last-child { margin-bottom: 0; }
+  .section-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    padding-left: 12px;
+    border-left: 3px solid var(--blue-mid);
+  }
+  .section-text { font-size: 14px; color: var(--text2); line-height: 1.85; }
+  .section-text p { margin-bottom: 10px; }
+  .section-text p:last-child { margin-bottom: 0; }
+  .section-text ul, .section-text ol { margin-left: 20px; margin-bottom: 10px; }
+  .section-text li { margin-bottom: 6px; }
+
+  /* 数据表格 */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 12px; }
+  .data-table thead tr { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%); color: white; }
+  .data-table thead th { padding: 12px 10px; text-align: left; font-weight: 600; }
+  .data-table thead th:first-child { border-radius: 8px 0 0 0; }
+  .data-table thead th:last-child { border-radius: 0 8px 0 0; }
+  .data-table tbody tr { border-bottom: 1px solid var(--border); }
+  .data-table tbody tr:hover { background: var(--bg2); }
+  .data-table tbody td { padding: 12px 10px; }
+
+  /* 标签 */
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .tag-red { background: #fef2f2; color: #ef4444; }
+  .tag-orange { background: #fff7ed; color: #f97316; }
+  .tag-yellow { background: #fefce8; color: #ca8a04; }
+  .tag-green { background: #f0fdf4; color: #16a34a; }
+  .tag-blue { background: #eff6ff; color: var(--blue-mid); }
+
+  /* 注意框 */
+  .note-box {
+    background: #f0fdf4;
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #065f46;
+    line-height: 1.8;
+    margin-top: 12px;
+  }
+  .note-box ul, .note-box ol { margin-left: 20px; }
+  .note-box li { margin-bottom: 4px; }
+
+  /* HMT方案 */
+  .hmt-card {
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    border: 1px solid #6ee7b7;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .hmt-title { font-size: 18px; font-weight: 700; color: #047857; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .hmt-phase {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .hmt-phase:last-child { margin-bottom: 0; }
+  .hmt-phase-title { font-size: 15px; font-weight: 700; color: #065f46; margin-bottom: 12px; }
+  .hmt-phase-content { font-size: 14px; color: var(--text2); line-height: 1.8; }
+  .hmt-phase-content li { list-style: disc; margin-left: 18px; margin-bottom: 6px; }
+
+  /* 费用表 */
+  .fee-highlight {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-top: 16px;
+    border: 1px solid #93c5fd;
+  }
+  .fee-price {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: -0.02em;
+  }
+  .fee-unit { font-size: 16px; font-weight: 500; color: var(--text3); margin-left: 4px; }
+
+  /* 底部 */
+  .footer {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    color: white;
+    margin-top: 8px;
+    box-shadow: var(--shadow-md);
+  }
+  .footer-logo { height: 48px; margin-bottom: 16px; opacity: 0.95; }
+  .footer-brand { font-size: 20px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .footer-desc { font-size: 14px; opacity: 0.85; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 导航栏 -->
+  <div class="nav">
+    <div class="nav-logo">
+      <img src="https://new.ylfmt.com/assets/logo.png" alt="源龄生命" class="nav-logo-img">
+      <div class="nav-logo-text">
+        源龄生命
+        <span class="nav-logo-en">YUANLING LIFE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="banner-badge">
+      <span class="banner-badge-dot"></span>
+      肠道菌群微生态专项检测报告解读
+    </div>
+    <div class="banner-title">杨帆 · 肠道菌群检测报告解读</div>
+    <div class="banner-subtitle">基于16S rRNA三代纳米孔测序 · 源龄生命健康管理中心</div>
+    <div class="banner-meta">
+      <div class="banner-meta-item">
+        <span class="banner-meta-label">受检者</span>
+        <span class="banner-meta-value">杨帆</span>
+      </div>
+      <div class="banner-meta-item">
+        <span class="banner-meta-label">性别/年龄</span>
+        <span class="banner-meta-value">男 / 30岁</span>
+      </div>
+      <div class="banner-meta-item">
+        <span class="banner-meta-label">主诉</span>
+        <span class="banner-meta-value">增肥增重、自免病</span>
+      </div>
+      <div class="banner-meta-item">
+        <span class="banner-meta-label">样本编号</span>
+        <span class="banner-meta-value">100442712372</span>
+      </div>
+      <div class="banner-meta-item">
+        <span class="banner-meta-label">报告日期</span>
+        <span class="banner-meta-value">2024年07月17日</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 健康总评 -->
+  <div class="alert-card">
+    <div class="alert-title">⚠️ 核心结论</div>
+    <div class="alert-body">
+      <ul>
+        <li><strong>主诉关联分析</strong>：患者主诉「增肥增重、自免病」与检测报告高度吻合——有益菌严重不足（5分）导致营养吸收障碍，维生素B12偏低（3.9）影响蛋白质代谢，这是增重困难的根本原因；同时自身免疫疾病风险处于注意级（3.1分），与菌群-免疫轴失衡直接相关。</li>
+        <li><strong>整体处于亚健康状态（总分67分）</strong>，主要问题是有益菌严重偏低（5分），肠道定植抗力明显削弱（B/E指数0.13）。</li>
+        <li><strong>最突出异常</strong>：益生菌双歧杆菌和乳杆菌严重不足，肠道防御屏障明显受损，有益菌占比远低于正常水平。</li>
+        <li><strong>重点关注风险</strong>：感染性腹泻（注意级）、肝病（注意级）、<strong>自身免疫疾病（注意级，与主诉相关）</strong>需持续监测。</li>
+        <li><strong>营养不足</strong>：维生素B12（3.9，偏低）、维生素D（4.0，偏低），需针对性补充。</li>
+        <li>✅ 好消息：消化系统、心脑血管、代谢系统等大多数指标处于低风险范围，菌群多样性稳定（53分）。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 综合评分 -->
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="score-value yellow">67</div>
+      <div class="score-label">健康总分<br>（亚健康）</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value red">47</div>
+      <div class="score-label">菌群健康<br>（偏低）</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value blue">76</div>
+      <div class="score-label">疾病控制<br>（良好）</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value green">79</div>
+      <div class="score-label">营养均衡<br>（良好）</div>
+    </div>
+  </div>
+
+  <!-- 基本信息 -->
+  <div class="info-card">
+    <div class="card-title">👤 受检者基本信息</div>
+    <table class="info-table">
+      <tr><td>姓名</td><td>杨帆</td></tr>
+      <tr><td>性别/年龄</td><td>男 / 30岁</td></tr>
+      <tr><td>检测方法</td><td>三代纳米孔16S rDNA测序（迪谱孔®）</td></tr>
+      <tr><td>样本编号</td><td>100442712372</td></tr>
+      <tr><td>采样日期</td><td>2024年07月09日</td></tr>
+      <tr><td>报告日期</td><td>2024年07月17日</td></tr>
+      <tr><td>检测菌种数</td><td>411种（香农多样性指数4.59）</td></tr>
+    </table>
+  </div>
+
+  <!-- 一、菌群分布分析 -->
+  <div class="section-card">
+    <div class="card-title">🔬 一、肠道菌群分布分析</div>
+
+    <div class="section-block">
+      <div class="section-subtitle">1.1 菌群总览指标</div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>检测项目</th>
+            <th>评估分值</th>
+            <th>参考范围</th>
+            <th>评估结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>菌群平衡</td>
+            <td><strong>80分</strong></td>
+            <td>61-100</td>
+            <td><span class="tag tag-green">健康</span></td>
+          </tr>
+          <tr>
+            <td>菌群多样性</td>
+            <td><strong>53分</strong></td>
+            <td>50-90</td>
+            <td><span class="tag tag-blue">稳定</span></td>
+          </tr>
+          <tr>
+            <td>有益菌指数</td>
+            <td><strong>5分</strong></td>
+            <td>&gt;50</td>
+            <td><span class="tag tag-orange">偏低</span></td>
+          </tr>
+          <tr>
+            <td>有害菌指数</td>
+            <td><strong>8分</strong></td>
+            <td>0-49</td>
+            <td><span class="tag tag-green">正常</span></td>
+          </tr>
+          <tr>
+            <td>B/E指数（定植抗力）</td>
+            <td><strong>0.13</strong></td>
+            <td>&gt;1</td>
+            <td><span class="tag tag-orange">偏低</span></td>
+          </tr>
+          <tr>
+            <td>F/B指数</td>
+            <td><strong>0.66</strong></td>
+            <td>—</td>
+            <td><span class="tag tag-blue">拟杆菌型</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">1.2 有益菌严重偏低——核心问题</div>
+      <div class="section-text">
+        <p>杨帆的有益菌指数仅为 <strong style="color:#ef4444;">5分（正常需≥50分）</strong>，是本次报告最核心的异常问题。</p>
+        <p><strong>具体表现：</strong></p>
+        <ul>
+          <li>双歧杆菌（Bifidobacterium）：<strong>0.1043%</strong>，正常范围0.19%~14.60%，明显低于正常下限</li>
+          <li>乳杆菌（Lactobacillus）：<strong>0.4296%</strong>，仅处于参考范围低端</li>
+          <li>大多数双歧杆菌亚种（青春双歧、动物双歧、双歧双歧等）均低于检测下限（ND）</li>
+        </ul>
+        <p style="margin-top:12px;"><strong>这意味着什么？</strong>双歧杆菌和乳杆菌是肠道健康的"基石菌"，它们不足会导致：</p>
+        <ul>
+          <li>肠道免疫系统调节能力下降，Th2过激，过敏风险升高</li>
+          <li>短链脂肪酸（乙酸、丁酸）产生减少，肠道屏障功能削弱</li>
+          <li>有害菌缺乏有效抑制，条件致病菌更容易异常增殖</li>
+          <li>肠-脑轴受到影响，可能出现情绪波动、睡眠质量下降</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">1.3 B/E指数偏低——定植抗力受损</div>
+      <div class="section-text">
+        <p>B/E指数（双歧杆菌/肠杆菌科比值）= <strong style="color:#ef4444;">0.13</strong>，正常应 &gt;1，说明肠道定植抗力明显受损。</p>
+        <p>通俗理解：肠道的"抵抗外来入侵者"的能力大幅减弱，当饮食不洁或环境病原菌入侵时，肠道更难抵御感染，这也解释了感染性腹泻风险偏高（4.4分，注意级别）的原因。</p>
+        <div class="note-box">
+          💡 <strong>检测还发现</strong>：鼠伤寒沙门氏菌（0.0651%）、肺炎克雷伯氏菌（0.0426%）检出，正常参考范围为0。这两者均为潜在条件致病菌，在免疫力下降时可能引发感染，需要关注。
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">1.4 菌群结构特点</div>
+      <div class="section-text">
+        <p>杨帆的肠道菌群以<strong>普雷沃氏菌型</strong>为主导（Segatella copri 35.7%），这是素食/高碳水低蛋白饮食人群的特征菌群。</p>
+        <p><strong>主要优势菌（Top5）：</strong></p>
+        <ul>
+          <li>Segatella copri（普雷沃氏菌）：35.7%——与高碳水饮食相关，丰度过高与炎症和失眠有一定关联</li>
+          <li>Phocaeicola vulgatus（噬胆汁杆菌）：12.1%——拟杆菌目，较正常</li>
+          <li>Roseburia inulinivorans（食葡糖罗斯拜瑞氏菌）：5.5%——产丁酸的有益菌，偏高于正常范围，但整体是正向指标</li>
+          <li>Faecalibacterium prausnitzii（普氏粪杆菌）：2.6%——强效抗炎菌，正常范围</li>
+          <li>Blautia wexlerae（经黏液真杆菌）：3.95%，略高于正常上限（3.24%）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 二、疾病风险分析 -->
+  <div class="section-card">
+    <div class="card-title">⚕️ 二、疾病风险评估</div>
+
+    <div class="section-block">
+      <div class="section-subtitle">2.1 疾病风险总览</div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>疾病类别</th>
+            <th>评估分值</th>
+            <th>风险等级</th>
+            <th>解读说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>感染性腹泻</td>
+            <td>4.4</td>
+            <td><span class="tag tag-yellow">⚠️ 注意</span></td>
+            <td>B/E低+沙门氏菌检出，肠道防御力弱</td>
+          </tr>
+          <tr>
+            <td>肝病</td>
+            <td>3.9</td>
+            <td><span class="tag tag-yellow">⚠️ 注意</span></td>
+            <td>菌群失衡可通过肠-肝轴影响肝脏代谢</td>
+          </tr>
+          <tr>
+            <td>自身免疫疾病</td>
+            <td>3.1</td>
+            <td><span class="tag tag-yellow">⚠️ 注意</span></td>
+            <td>有益菌不足，免疫调节失衡风险升高</td>
+          </tr>
+          <tr>
+            <td>溃疡性结肠炎</td>
+            <td>1.4</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>克罗恩病</td>
+            <td>0.4</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>肠易激综合征</td>
+            <td>1.8</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>胃病</td>
+            <td>2.8</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>心脑血管疾病</td>
+            <td>1.9</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>糖尿病</td>
+            <td>1.9</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>肾病</td>
+            <td>0.6</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>肺病</td>
+            <td>2.4</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>甲状腺疾病</td>
+            <td>1.9</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>抑郁症</td>
+            <td>1.9</td>
+            <td><span class="tag tag-green">✅ 低风险</span></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">2.2 感染性腹泻风险（注意级）分析</div>
+      <div class="section-text">
+        <p>感染性腹泻风险评分4.4分（注意级），关键因素：</p>
+        <ul>
+          <li><strong>肠道定植抗力削弱（B/E=0.13）</strong>：有益菌不足，肠道对病原菌的自然抵抗力下降</li>
+          <li><strong>鼠伤寒沙门氏菌（0.065%）检出</strong>：超过正常范围（参考值0），是常见食源性致病菌</li>
+          <li><strong>变形菌门（3.74%）偏高</strong>：该菌门含多种条件致病菌，丰度高与感染风险相关</li>
+        </ul>
+        <p style="margin-top:10px;"><strong>建议</strong>：注意饮食卫生，避免生食，出行时尤其谨慎饮食，定期复查。</p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">2.3 亚健康相关菌评估</div>
+      <div class="section-text">
+        <p>报告显示多个亚健康相关菌群存在异常，需要关注：</p>
+        <ul>
+          <li><strong>失眠相关</strong>：Blautia（3.95%，超标）、Romboutsia（0.44%，超标）、普雷沃氏菌丰度较高——这三类与失眠正相关菌均偏高，如有睡眠问题需关注</li>
+          <li><strong>抑郁相关</strong>：Oscillibacter（0.15%）、Flavonifractor（0.21%）检出超标，两者均消耗GABA（抑制性神经递质），可能影响情绪稳定性</li>
+          <li><strong>过敏相关</strong>：Ruminococcus gnavus（0.775%）、Citrobacter（0.054%）、肠杆菌科（0.83%）均在过敏正相关菌中检出超标，双歧杆菌低于正常下限（过敏保护菌不足）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 三、营养代谢分析 -->
+  <div class="section-card">
+    <div class="card-title">🥗 三、营养代谢功能评估</div>
+
+    <div class="section-block">
+      <div class="section-subtitle">3.1 营养指标总览</div>
+      <div class="section-text">
+        <p>整体营养均衡指数 <strong style="color:#10B981;">79分</strong>（良好），大多数营养指标在正常范围内。需重点关注以下偏低指标：</p>
+      </div>
+      <table class="data-table" style="margin-top:14px;">
+        <thead>
+          <tr>
+            <th>营养项目</th>
+            <th>评分</th>
+            <th>状态</th>
+            <th>影响说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>维生素B12</strong></td>
+            <td style="color:#f97316;font-weight:700;">3.9</td>
+            <td><span class="tag tag-orange">偏低</span></td>
+            <td>神经系统保护、造血功能关键维生素</td>
+          </tr>
+          <tr>
+            <td><strong>维生素D</strong></td>
+            <td style="color:#f97316;font-weight:700;">4.0</td>
+            <td><span class="tag tag-orange">偏低</span></td>
+            <td>免疫调节、骨骼健康、情绪稳定</td>
+          </tr>
+          <tr>
+            <td>碳水化合物</td>
+            <td>4.9</td>
+            <td><span class="tag tag-green">正常</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>蛋白质</td>
+            <td>6.7</td>
+            <td><span class="tag tag-green">正常</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>脂肪</td>
+            <td>6.5</td>
+            <td><span class="tag tag-green">正常</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>纤维素</td>
+            <td>5.0</td>
+            <td><span class="tag tag-green">正常</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>短链脂肪酸（乙/丙/丁酸）</td>
+            <td>5.6 / 5.2 / 4.4</td>
+            <td><span class="tag tag-green">正常</span></td>
+            <td>肠道屏障维护能力尚可</td>
+          </tr>
+          <tr>
+            <td>铁元素 / 锌元素</td>
+            <td>4.2 / 6.5</td>
+            <td><span class="tag tag-green">正常</span></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">3.2 维生素B12偏低——神经保护不足</div>
+      <div class="section-text">
+        <p>维生素B12（钴胺素）是唯一含金属元素的维生素，也是唯一需要"胃壁细胞内源因子"才能吸收的维生素，对神经髓鞘保护至关重要。</p>
+        <p><strong>缺乏B12的常见表现</strong>：疲劳乏力、注意力下降、手脚麻木刺痛、情绪波动。长期不足可损伤神经，引起记忆力下降甚至痴呆风险。</p>
+        <div class="note-box">
+          <strong>📌 补充建议</strong>：多摄入鱼类、贝类海鲜、瘦牛肉、猪肉、鸡肉等动物性食物。如长期素食，建议额外补充B12补剂（每日2.4微克）。
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">3.3 维生素D偏低——免疫与情绪影响</div>
+      <div class="section-text">
+        <p>维生素D不仅维持骨骼健康，更是免疫系统的重要调节者。缺乏维生素D与自身免疫疾病风险升高密切相关，而杨帆的自身免疫疾病风险也处于注意级——两者相互印证。</p>
+        <p><strong>缺乏维生素D的表现</strong>：免疫力下降、易感冒、抑郁情绪、四肢无力、多汗。</p>
+        <div class="note-box">
+          <strong>📌 补充建议</strong>：每天户外活动晒太阳30分钟（上午10点前/下午4点后），多食鱼肝油、牛奶、蛋黄，必要时补充维生素D3（建议医生评估剂量）。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 四、综合健康分析 -->
+  <div class="section-card">
+    <div class="card-title">🧬 四、综合健康分析</div>
+
+    <div class="section-block">
+      <div class="section-subtitle">4.1 一句话总结</div>
+      <div class="section-text">
+        <p style="font-size:16px;font-weight:600;color:var(--blue);padding:16px;background:var(--bg2);border-radius:10px;border-left:4px solid var(--blue-mid);">
+          杨帆的肠道菌群处于亚健康状态，核心问题是益生菌严重不足、肠道定植抗力削弱，当前菌群失衡状态依靠自身难以恢复至正常水平，需要采取主动干预措施。
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">4.2 菌群-肠-肝轴分析</div>
+      <div class="section-text">
+        <p>报告显示肝病风险处于注意级（3.9分）。肠道菌群与肝脏通过"肠-肝轴"密切相连：</p>
+        <ul>
+          <li>有害菌产生的脂多糖（LPS内毒素）经门静脉直接进入肝脏，长期累积可导致慢性肝脏炎症</li>
+          <li>埃希氏菌属（0.26%）检出，能够产生酒精，是非酒精性脂肪肝的潜在因素</li>
+          <li>菌群失衡影响胆汁酸代谢，进而影响脂肪的消化吸收</li>
+        </ul>
+        <p style="margin-top:10px;"><strong>建议</strong>：控制高脂饮食摄入，减少酒精，通过补充益生菌和改善菌群结构来保护肝脏健康。</p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">4.3 菌群-免疫轴分析（与主诉「自免病」相关）</div>
+      <div class="section-text">
+        <p>自身免疫疾病风险3.1分（注意级），与菌群失衡密切相关，这也是患者主诉「自免病」的菌群学基础：</p>
+        <ul>
+          <li>双歧杆菌严重不足 → 肠道Th1/Th2平衡失调 → 免疫过激风险</li>
+          <li>短链脂肪酸产生能力虽在正常范围，但有益菌基数太少，长期维持存在隐患</li>
+          <li>维生素D偏低进一步削弱了免疫调节能力</li>
+        </ul>
+        <p style="margin-top:10px;">通过菌群重建，系统性提升双歧杆菌和乳杆菌丰度，是改善免疫功能的根本路径。</p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">4.4 饮食特征分析（与主诉「增肥增重」相关）</div>
+      <div class="section-text">
+        <p>从菌群结构来看，杨帆目前饮食结构呈现以下特点，这也是「增肥增重」困难的菌群学原因：</p>
+        <ul>
+          <li>碳水化合物摄入比例较高（Segatella copri为优势菌，为高碳水/植物性饮食标志菌），但<strong>蛋白质消化吸收能力受限</strong></li>
+          <li>双歧杆菌严重不足导致蛋白质分解和氨基酸吸收效率下降，影响肌肉合成</li>
+          <li>维生素B12（3.9偏低）是蛋白质代谢和红细胞生成的关键辅酶，缺乏直接影响营养利用</li>
+          <li>肥胖相关菌群中，颤杆菌克属（Oscillibacter, 0.15%）超标，提示代谢方面需关注</li>
+          <li>食物推荐指数最高的食物：燕麦（55）、小米（37）、菠菜（61）、豌豆（60）、水煮蛋（57）——说明该菌群结构下，这些食物是最理想的选择</li>
+        </ul>
+        <div class="note-box" style="background:#fff8e1;border-left-color:#f59e0b;margin-top:12px;">
+          <strong>💡 增重建议</strong>：在菌群重建基础上，重点补充优质蛋白（水煮蛋、鱼类、瘦肉）和维生素B12，配合益生菌干预，可逐步改善营养吸收效率，为健康增重奠定基础。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 五、HMT4.0干预方案 -->
+  <div class="hmt-card">
+    <div class="hmt-title">💊 HMT 4.0 肠道菌群移植方案</div>
+
+    <div class="section-text" style="background:white;padding:16px;border-radius:8px;margin-bottom:20px;">
+      <p style="font-size:14px;color:#555;line-height:1.8;">
+        综合本次肠道菌群检测结果，鉴于目前处于失衡状态（有益菌指数5分，B/E指数0.13），肠道菌群依靠自身能力回归至正常水平较困难，需要采取额外的菌群干预措施。
+      </p>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第一阶段：肠道准备 (Intestinal Preparation)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:#555;">基于国际通用的功能医学肠道调理干预方法，第一步，清肠消杀有害菌，减少刺激性食物为菌群建立良好的生存环境。</p>
+        <ul>
+          <li><strong>方案：</strong>利福昔明抗生素，每天3次，每次1粒（药店自购）</li>
+          <li><strong>周期：</strong>第1-3天</li>
+          <li><strong>目的：</strong>清肠消杀有害菌，尤其针对沙门氏菌、克雷伯氏菌等条件致病菌</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第二阶段：种 (Reinoculation)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:#555;">在肠道准备的基础上，我们重新种植上千种菌种，20万亿具有活力、菌群平衡的菌株种子，快速重建您的肠道微生态。</p>
+        <ul>
+          <li><strong>方案：</strong>全菌谱益生菌种植，每天5粒，连续6天</li>
+          <li><strong>周期：</strong>第4-10天（第4天休息，第5天开始移植）</li>
+          <li><strong>规格：</strong>2号胶囊30粒/6天，> 2.5×10¹²CFU</li>
+        </ul>
+        <div class="note-box" style="margin-top:16px;">
+          <strong>详细服用步骤：</strong>
+          <ol style="margin-top:8px;margin-left:20px;line-height:1.8;">
+            <li>前一晚9点后禁食</li>
+            <li>晨起空腹，取出1瓶菌株</li>
+            <li>室温化冻或放手心温热5-10分钟</li>
+            <li>用少量温水（<strong>小于37℃</strong>）冲送服共<strong>5粒</strong></li>
+            <li><strong>逐粒吞服，3分钟以内服完</strong></li>
+            <li>服用后30分钟保持身体直立状态</li>
+            <li>1小时后可以进食</li>
+          </ol>
+        </div>
+        <div class="note-box" style="background:#fff8e1;border-left-color:#ffb300;margin-top:12px;">
+          <strong>饮食过渡：</strong>
+          <ul style="margin-top:8px;margin-left:20px;">
+            <li>第5天：流质无渣饮食</li>
+            <li>第6-7天：半流质食物</li>
+            <li>第8-10天：清淡饮食</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 第三阶段：调 (Rebalance)</div>
+      <div class="hmt-phase-content">
+        <p style="margin-bottom:12px;color:#555;">种植有益种子后需要持续的养护，为微生态提供养分，帮助重建的微生态繁荣充满活力，为机体提供有益物质抑制有害菌。</p>
+        <ul>
+          <li><strong>方案：</strong>每天1袋益生元，持续养护</li>
+          <li><strong>周期：</strong>第11-30天（菌株服用完2天后开始）</li>
+          <li><strong>目的：</strong>帮助微生态繁荣，持续抑制有害菌，特别是重建双歧杆菌和乳杆菌的生态优势</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 生活方式管理（移植后1个月内）</div>
+      <div class="hmt-phase-content">
+        <ul>
+          <li>✅ <strong>饮食原则：</strong>蛋白质丰富、少糖、少油腻</li>
+          <li>✅ <strong>重点补充：</strong>富含维生素B12的食物（鱼类、贝类、瘦肉），增加户外日照补充维生素D</li>
+          <li>✅ <strong>推荐食物：</strong>燕麦、豌豆、菠菜、黄豆、水煮蛋（个性化推荐指数最高）</li>
+          <li>✅ <strong>增重策略：</strong>在菌群重建后，逐步增加优质蛋白摄入（每日1.5-2g/kg体重），配合适量力量训练</li>
+          <li>❌ <strong>禁忌：</strong>戒辛辣刺激、控烟控酒，减少高脂肥肉摄入</li>
+          <li>💡 <strong>提示：</strong>服用产品期间，有任何疑问及身体调理反应，请及时与健康管家联系</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hmt-phase">
+      <div class="hmt-phase-title">📍 疗程规划</div>
+      <div class="hmt-phase-content">
+        <ul>
+          <li>30天为1个疗程，建议连续3个疗程</li>
+          <li>第1疗程结束间隔10天，复测肠道菌群检测</li>
+          <li>根据报告匹配制备第2疗程，依此类推，直至完成3个疗程</li>
+          <li><strong>预期目标</strong>：
+            <ul style="margin-top:8px;">
+              <li>有益菌指数从5分提升至50分以上，B/E指数恢复至&gt;1</li>
+              <li>改善营养吸收能力，为健康增重奠定基础</li>
+              <li>调节免疫平衡，降低自身免疫疾病风险</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 六、费用 -->
+  <div class="section-card">
+    <div class="card-title">💰 入组服务费用及疗程情况</div>
+
+    <div class="section-block">
+      <div class="section-text" style="background:var(--bg2);padding:16px;border-radius:8px;margin-bottom:20px;">
+        <p style="font-size:14px;color:var(--text2);line-height:1.8;">
+          鉴于本课题组致力于科学研究及公共健康福祉，对于符合条件的参与者，课题组将承担主要的科研成本，包括但不限于样本采集、检测分析、数据存储等费用。
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">科研入组项目费用表</div>
+      <table style="margin-top:12px;width:100%;border-collapse:collapse;font-size:14px;">
+        <thead>
+          <tr style="background:linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);color:white;">
+            <th style="padding:14px 12px;text-align:left;border-radius:8px 0 0 0;">项目</th>
+            <th style="padding:14px 12px;text-align:center;">疗程</th>
+            <th style="padding:14px 12px;text-align:center;">规格</th>
+            <th style="padding:14px 12px;text-align:right;border-radius:0 8px 0 0;">价格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:white;">
+            <td style="padding:16px 12px;">
+              <strong style="color:var(--blue);">HMT4.0肠道菌群移植</strong><br>
+              <span style="font-size:12px;color:var(--text3);">赠：肠道基因组检测×2次 + 益生元1个月</span>
+            </td>
+            <td style="padding:16px 12px;text-align:center;color:var(--text2);">
+              3个月/疗程
+            </td>
+            <td style="padding:16px 12px;text-align:center;color:var(--text2);">
+              2号胶囊30粒/6天<br>
+              > 2.5×10¹²CFU
+            </td>
+            <td style="padding:16px 12px;text-align:right;color:#ef4444;font-weight:700;font-size:18px;">
+              30,000<br>
+              <span style="font-size:13px;color:var(--text3);font-weight:400;">(二送一)</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box" style="background:#eff6ff;border-left-color:var(--blue);margin-top:20px;">
+      💡 <strong>费用说明</strong>：
+      <ul style="margin-top:8px;margin-left:20px;">
+        <li>课题组承担科研成本（样本采集、检测分析、数据存储等）</li>
+        <li>参与者仅需支付供体筛选、菌液提取及移植等特殊程序的补贴后费用</li>
+        <li>「二送一」优惠：支付2个疗程费用，可获得3个疗程服务</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 七、随访计划 -->
+  <div class="section-card">
+    <div class="card-title">📅 七、随访计划与饮食建议</div>
+
+    <div class="section-block">
+      <div class="section-subtitle">7.1 复查时间节点</div>
+      <div class="section-text">
+        <ul>
+          <li>干预后 <strong>30天</strong>：第1疗程结束，复测肠道菌群，评估有益菌恢复情况</li>
+          <li>干预后 <strong>3个月</strong>：评估B/E指数、有益菌指数恢复至正常范围的进度</li>
+          <li>干预后 <strong>6个月</strong>：全面评估健康总分，确认是否进入维持阶段</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">7.2 重点复查指标</div>
+      <div class="section-text">
+        <ul>
+          <li>有益菌指数（目标：从5分→50分以上）</li>
+          <li>B/E指数（目标：从0.13→&gt;1）</li>
+          <li>双歧杆菌丰度（目标：恢复至0.19%以上）</li>
+          <li>维生素B12、维生素D水平</li>
+          <li>感染性腹泻风险分值变化</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">7.3 个性化饮食建议（基于菌群推荐表）</div>
+      <div class="section-text">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>推荐类别</th>
+              <th>推荐食物（推荐指数）</th>
+              <th>原因</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🌟 强烈推荐</td>
+              <td>菠菜(61)、豌豆(60)、燕麦(55)、藜(55)、小米(57)</td>
+              <td>富含纤维、维生素，与菌群结构高度匹配</td>
+            </tr>
+            <tr>
+              <td>✅ 建议多食</td>
+              <td>黄豆(47)、苦瓜(53)、牛肝(30)、鸡蛋(39)、水煮蛋(57)</td>
+              <td>补充蛋白质、B12、维生素D</td>
+            </tr>
+            <tr>
+              <td>⚠️ 控制摄入</td>
+              <td>肥猪肉(-56)、肥羊肉(-57)、猪培根(-60)、牛肉肥(-59)</td>
+              <td>高脂肉类加剧菌群失衡，增加肥胖风险</td>
+            </tr>
+            <tr>
+              <td>❌ 避免摄入</td>
+              <td>黄油(-73)、苹果汁(-48)、甜瓜(-37)、枣(-42)</td>
+              <td>高糖、高脂对当前菌群结构不利</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-subtitle">7.4 生活方式建议</div>
+      <div class="section-text">
+        <ul>
+          <li>✅ <strong>规律作息</strong>：保证7-8小时睡眠（注意普雷沃氏菌过高与失眠相关）</li>
+          <li>✅ <strong>户外运动</strong>：每天30分钟日照，补充维生素D，改善情绪稳定性</li>
+          <li>✅ <strong>饮食多样化</strong>：增加蔬菜种类（每日≥5种颜色），多吃发酵食品</li>
+          <li>✅ <strong>饮食卫生</strong>：重视食物安全，避免生食，出行注意饮水卫生（感染性腹泻风险偏高）</li>
+          <li>❌ <strong>限制</strong>：精制糖、加工食品、高脂肉类</li>
+          <li>❌ <strong>避免</strong>：非必要抗生素（破坏菌群多样性）</li>
+          <li>❌ <strong>控制</strong>：酒精摄入（已检出肝病注意级风险）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 总结 -->
+  <div class="alert-card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#93c5fd;">
+    <div class="alert-title" style="color:var(--blue);">📋 总结要点</div>
+    <div class="alert-body" style="color:var(--text2);">
+      <ul>
+        <li><strong>主诉对应</strong>：「增肥增重困难」与有益菌不足（5分）、维生素B12偏低（3.9）导致的营养吸收障碍直接相关；「自免病」与自身免疫疾病风险（3.1分）、菌群-免疫轴失衡高度吻合</li>
+        <li><strong>最关键异常</strong>：有益菌严重不足（5分），B/E定植抗力指数0.13，双歧杆菌低于正常下限，肠道防御屏障明显受损</li>
+        <li><strong>最优先干预</strong>：通过HMT 4.0三阶段菌群移植方案，系统重建肠道有益菌群，目标将有益菌指数提升至50分以上</li>
+        <li><strong>配合补充</strong>：维生素B12 + 维生素D针对性补充，改善神经保护和免疫调节，同时改善蛋白质代谢助力增重</li>
+        <li><strong>预期改善周期</strong>：3个疗程（约3个月）可完成菌群重建，6个月后全面评估营养吸收和增重效果</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <img src="https://new.ylfmt.com/assets/logo.png" alt="源龄生命" class="footer-logo">
+    <div class="footer-brand">源龄生命</div>
+    <div class="footer-desc">
+      专注肠道微生态健康管理<br>
+      专业 · 精准 · 可信赖<br>
+      <span style="opacity:0.7;font-size:12px;">本报告基于菌群检测数据分析，具体诊疗请结合临床医生建议</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
