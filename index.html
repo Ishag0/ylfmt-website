@@ -457,6 +457,28 @@
     .case-tag { padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.72rem; font-weight: 500; background: var(--bg3); color: var(--text3); }
     .case-result { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 600; color: var(--green); }
 
+    /* ===== CONSENSUS ===== */
+    .cf-btn { padding:0.35rem 1rem; border-radius:50px; font-size:0.78rem; font-weight:600; border:1.5px solid var(--border); background:#fff; color:var(--text3); cursor:pointer; transition:all 0.2s; }
+    .cf-btn:hover,.cf-btn.active { background:var(--blue); color:#fff; border-color:var(--blue); }
+    .consensus-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+    .consensus-card { display:flex; gap:1rem; background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem; transition:all 0.3s; text-decoration:none; color:inherit; cursor:pointer; }
+    .consensus-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--blue); }
+    .consensus-card:hover .cc-title { color:var(--blue); }
+    .cc-icon { width:48px; height:48px; min-width:48px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; }
+    .cc-body { flex:1; min-width:0; }
+    .cc-tags { display:flex; flex-wrap:wrap; gap:0.3rem; margin-bottom:0.4rem; }
+    .cc-tag { padding:0.15rem 0.5rem; border-radius:4px; font-size:0.68rem; font-weight:600; background:var(--bg3); color:var(--text3); }
+    .cc-tag.blue { background:#EFF6FF; color:#1D4ED8; }
+    .cc-tag.green { background:#F0FDF4; color:#15803D; }
+    .cc-tag.purple { background:#FDF4FF; color:#7E22CE; }
+    .cc-tag.red { background:#FFF1F2; color:#BE123C; }
+    .cc-tag.orange { background:#FFF7ED; color:#C2410C; }
+    .cc-tag.yellow { background:#FFFBEB; color:#92400E; }
+    .cc-title { font-size:0.88rem; font-weight:700; color:var(--text); line-height:1.45; margin-bottom:0.4rem; }
+    .cc-desc { font-size:0.78rem; color:var(--text3); line-height:1.55; margin-bottom:0.5rem; }
+    .cc-meta { display:flex; justify-content:space-between; font-size:0.72rem; color:var(--text4); }
+    .consensus-card.hidden { display:none; }
+
     /* ===== NEWS ===== */
     .news-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
     .news-card {
@@ -742,6 +764,7 @@
       .products-grid { grid-template-columns: repeat(2, 1fr); }
       .cases-grid { grid-template-columns: repeat(2, 1fr); }
       .news-grid { grid-template-columns: 1fr 1fr; }
+      .consensus-grid { grid-template-columns: repeat(2,1fr); }
       .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-top { grid-template-columns: repeat(3, 1fr); }
       .footer { padding: 3rem 2rem 1.5rem; }
@@ -779,6 +802,7 @@
       .product-card p { font-size: 0.8rem; }
       .cases-grid { grid-template-columns: 1fr; }
       .news-grid { grid-template-columns: 1fr; }
+      .consensus-grid { grid-template-columns: 1fr; }
       .science-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -911,6 +935,7 @@
     <li><a href="#products">产品服务</a></li>
     <li><a href="#cases">临床验证</a></li>
     <li><a href="#news">资讯中心</a></li>
+    <li><a href="#consensus">权威共识</a></li>
     <li><a href="#join">招商加盟</a></li>
   </ul>
   <a href="#contact" class="nav-cta">立即咨询</a>
@@ -1429,73 +1454,73 @@
       <div class="news-card reveal reveal-delay-1">
         <div class="news-thumb news-thumb-1" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🦠</div>
         <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#ff2442;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">热门</span> <span>❤️ 1672</span> <span style="margin-left:auto;">2026-04-20</span></div>
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#ff2442;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">热门</span> <span>❤️ 1672</span> <span style="margin-left:auto;">2026-04-27</span></div>
           <h4>柳叶刀预警：90后的肠道正在经历癌变</h4>
           <p>年轻人结直肠癌发病率急剧上升，《柳叶刀》数据震惊医学界，肠道菌群失衡是核心诱因之一。</p>
         </div>
       </div>
       <div class="news-card reveal reveal-delay-2">
-        <div class="news-thumb news-thumb-2" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">😷</div>
-        <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#ff2442;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">热门</span> <span>❤️ 593</span> <span style="margin-left:auto;">2026-04-20</span></div>
-          <h4>误诊2年！你以为是绝症，其实是肠道发霉？</h4>
-          <p>肠道念珠菌过度增殖引发的症状常被误诊为多种慢性病，菌群移植重建微生态才是根本解法。</p>
-        </div>
-      </div>
-      <div class="news-card reveal reveal-delay-3">
         <div class="news-thumb news-thumb-3" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">💊</div>
         <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#ff6b35;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">热门</span> <span>❤️ 506</span> <span style="margin-left:auto;">2026-04-20</span></div>
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#ff2442;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">热门</span> <span>❤️ 517</span> <span style="margin-left:auto;">2026-04-27</span></div>
           <h4>一次抗生素，肠道伤8年？</h4>
           <p>研究证实，一次抗生素治疗可导致肠道菌群多样性下降长达8年。HMT是抗生素后菌群重建的有效手段。</p>
         </div>
       </div>
-      <div class="news-card reveal reveal-delay-1">
+      <div class="news-card reveal reveal-delay-3">
         <div class="news-thumb" style="height:140px;background:linear-gradient(135deg,#FDF4FF,#F3E8FF);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">⚡</div>
         <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#9333ea;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">关注</span> <span>❤️ 400</span> <span style="margin-left:auto;">2026-04-20</span></div>
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#9333ea;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">关注</span> <span>❤️ 400</span> <span style="margin-left:auto;">2026-04-27</span></div>
           <h4>光脚走路、冰地睡觉，自闭孩子喜冷背后真相</h4>
           <p>自闭症儿童的感觉异常行为与肠道菌群紊乱密切相关，肠脑轴研究揭示了行为背后的生物学机制。</p>
         </div>
       </div>
-      <div class="news-card reveal reveal-delay-2">
+      <div class="news-card reveal reveal-delay-1">
         <div class="news-thumb" style="height:140px;background:linear-gradient(135deg,#FFF7ED,#FED7AA);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🌿</div>
         <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#ea580c;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">热议</span> <span>❤️ 347</span> <span style="margin-left:auto;">2026-04-20</span></div>
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#ea580c;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">热议</span> <span>❤️ 348</span> <span style="margin-left:auto;">2026-04-27</span></div>
           <h4>老祖宗没骗你！中医脾虚湿气重的千古悬案</h4>
           <p>现代肠道菌群研究破译中医"脾虚湿气"的科学本质，特定菌群失衡正是湿邪困脾的微生物学解释。</p>
         </div>
       </div>
-      <div class="news-card reveal reveal-delay-3">
+      <div class="news-card reveal reveal-delay-2">
         <div class="news-thumb" style="height:140px;background:linear-gradient(135deg,#FFF1F2,#FFE4E6);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🫀</div>
         <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#0284c7;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科普</span> <span>❤️ 271</span> <span style="margin-left:auto;">2026-04-20</span></div>
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#0284c7;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科普</span> <span>❤️ 270</span> <span style="margin-left:auto;">2026-04-27</span></div>
           <h4>癫痫家长必看</h4>
           <p>肠道菌群与癫痫发作频率存在显著关联，临床研究表明HMT干预可使部分难治性癫痫患者发作减少。</p>
         </div>
       </div>
-      <div class="news-card reveal reveal-delay-1">
+      <div class="news-card reveal reveal-delay-3">
         <div class="news-thumb" style="height:140px;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🫁</div>
         <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#059669;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科研</span> <span>❤️ 198</span> <span style="margin-left:auto;">2026-04-20</span></div>
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#059669;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科研</span> <span>❤️ 198</span> <span style="margin-left:auto;">2026-04-27</span></div>
           <h4>肝脏的"救命稻草"找到了！</h4>
           <p>最新研究发现，特定肠道菌群产生的短链脂肪酸是保护肝细胞的关键信号分子，为肝病防治提供新思路。</p>
         </div>
       </div>
-      <div class="news-card reveal reveal-delay-2">
+      <div class="news-card reveal reveal-delay-1">
         <div class="news-thumb" style="height:140px;background:linear-gradient(135deg,#EFF6FF,#BFDBFE);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🔥</div>
         <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#1d4ed8;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科普</span> <span>❤️ 171</span> <span style="margin-left:auto;">2026-04-20</span></div>
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#1d4ed8;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科普</span> <span>❤️ 172</span> <span style="margin-left:auto;">2026-04-27</span></div>
           <h4>消除身体慢性炎症只需3步</h4>
           <p>慢性低度炎症是百病之源，通过调整饮食结构、优化菌群组成、靶向干预炎症通路，三步重建免疫平衡。</p>
         </div>
       </div>
-      <div class="news-card reveal reveal-delay-3">
+      <div class="news-card reveal reveal-delay-2">
         <div class="news-thumb" style="height:140px;background:linear-gradient(135deg,#FFFBEB,#FEF3C7);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🍄</div>
         <div class="news-body">
-          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#d97706;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科普</span> <span>❤️ 152</span> <span style="margin-left:auto;">2026-04-20</span></div>
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#d97706;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科普</span> <span>❤️ 153</span> <span style="margin-left:auto;">2026-04-27</span></div>
           <h4>这种"长毛"食物，竟是肠道的顶级救星？</h4>
           <p>发酵食品中的益生菌和益生元协同作用，被证实能显著提升肠道菌群多样性，是日常菌群维护的天然选择。</p>
+        </div>
+      </div>
+      <div class="news-card reveal reveal-delay-3">
+        <div class="news-thumb" style="height:140px;background:linear-gradient(135deg,#F0F9FF,#E0F2FE);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🏆</div>
+        <div class="news-body">
+          <div class="news-date" style="display:flex;align-items:center;gap:6px;"><span style="background:#0369a1;color:#fff;border-radius:4px;padding:1px 6px;font-size:0.68rem;font-weight:700;">科研</span> <span>❤️ 144</span> <span style="margin-left:auto;">2026-04-27</span></div>
+          <h4>练肌肉逆转脑龄？62岁开始也能让大脑年轻！</h4>
+          <p>最新研究揭示，规律力量训练可通过肠-脑轴改善认知功能，激活神经可塑性，有效逆转大脑老化进程。</p>
         </div>
       </div>
     </div>
@@ -1504,6 +1529,297 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
         查看更多科普内容 →
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONSENSUS -->
+<section class="section section-bg" id="consensus">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Evidence & Guidelines</div>
+      <h2 class="section-title">权威共识与报道</h2>
+      <p class="section-subtitle">来自国内外权威机构发布的肠道菌群移植指南、专家共识与最新研究报告</p>
+    </div>
+    <!-- 筛选标签 -->
+    <div class="consensus-filters reveal" style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2rem;">
+      <button class="cf-btn active" onclick="filterConsensus('all',this)">全部</button>
+      <button class="cf-btn" onclick="filterConsensus('指南共识',this)">指南共识</button>
+      <button class="cf-btn" onclick="filterConsensus('孤独症',this)">孤独症</button>
+      <button class="cf-btn" onclick="filterConsensus('炎症性肠病',this)">炎症性肠病</button>
+      <button class="cf-btn" onclick="filterConsensus('肠脑轴',this)">肠脑轴</button>
+      <button class="cf-btn" onclick="filterConsensus('市场报告',this)">市场报告</button>
+      <button class="cf-btn" onclick="filterConsensus('国际研究',this)">国际研究</button>
+    </div>
+    <div class="consensus-grid" id="consensusGrid">
+
+      <!-- 1 -->
+      <a class="consensus-card reveal" data-tags="指南共识" href="consensus/%E3%80%90%E6%8C%87%E5%8D%97%E4%B8%8E%E5%85%B1%E8%AF%86%E3%80%91%E8%82%A0%E9%81%93%E8%8F%8C%E7%BE%A4%E7%A7%BB%E6%A4%8D%E4%B8%B4%E5%BA%8A%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86%E4%B8%AD%E5%9B%BD%E4%B8%93%E5%AE%B6%E5%85%B1%E8%AF%86%EF%BC%882022%E7%89%88%EF%BC%89.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">📋</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag blue">指南共识</span><span class="cc-tag">中国</span></div>
+          <h4 class="cc-title">肠道菌群移植临床应用管理中国专家共识（2022版）</h4>
+          <p class="cc-desc">国家卫生系统权威发布，规范FMT临床操作流程、适应症筛选、供体管理及安全评估标准，是国内FMT领域最高指导依据。</p>
+          <div class="cc-meta"><span>中国专家委员会</span><span>2022 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a class="consensus-card reveal reveal-delay-1" data-tags="指南共识" href="consensus/%E3%80%8A%E6%B4%97%E6%B6%A4%E7%B2%AA%E8%8F%8C%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6%E5%92%8C%E7%B2%AA%E8%8F%8C%E6%A0%B7%E6%9C%AC%E5%88%86%E7%BA%A7%E3%80%8BGBT%2B41910-2022-%E5%89%AF%E6%9C%AC.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);">🏛️</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag green">国家标准</span><span class="cc-tag">质控</span></div>
+          <h4 class="cc-title">《洗涤粪菌质量控制和粪菌样本分级》GB/T 41910-2022</h4>
+          <p class="cc-desc">国家推荐性标准，首次从国家层面规范洗涤粪菌制备的质控流程和样本分级体系，是菌群制备合规化的重要里程碑。</p>
+          <div class="cc-meta"><span>国家标准化管理委员会</span><span>2022 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a class="consensus-card reveal reveal-delay-2" data-tags="孤独症" href="consensus/%E8%82%A0%E8%8F%8C%E7%A7%BB%E6%A4%8D%E6%B2%BB%E7%96%97%E5%84%BF%E7%AB%A5%E5%AD%A4%E7%8B%AC%E7%97%87%E8%B0%B1%E7%B3%BB%E9%9A%9C%E7%A2%8D%E4%B8%AD%E5%9B%BD%E4%B8%93%E5%AE%B6%E5%85%B1%E8%AF%86%EF%BC%882024%EF%BC%89(3).pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FDF4FF,#F3E8FF);">🧩</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag purple">孤独症</span><span class="cc-tag">2024</span></div>
+          <h4 class="cc-title">肠菌移植治疗儿童孤独症谱系障碍中国专家共识（2024）</h4>
+          <p class="cc-desc">国内首部针对儿童ASD菌群移植治疗的专家共识，明确适应症、剂量、疗程及疗效评估标准，为ASD家庭提供循证依据。</p>
+          <div class="cc-meta"><span>中国专家委员会</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a class="consensus-card reveal" data-tags="炎症性肠病 指南共识" href="consensus/%E8%82%A0%E8%8F%8C%E7%A7%BB%E6%A4%8D%E6%B2%BB%E7%96%97%E7%82%8E%E7%97%87%E6%80%A7%E8%82%A0%E7%97%85%E4%B8%93%E5%AE%B6%E5%85%B1%E8%AF%86%EF%BC%882025%E7%89%88%EF%BC%89.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA);">🔬</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag orange">炎症性肠病</span><span class="cc-tag">2025</span></div>
+          <h4 class="cc-title">肠菌移植治疗炎症性肠病专家共识（2025版）</h4>
+          <p class="cc-desc">最新2025年版IBD菌群移植治疗共识，涵盖克罗恩病、溃疡性结肠炎的移植方案、维持治疗及复发处理策略。</p>
+          <div class="cc-meta"><span>中华医学会</span><span>2025 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a class="consensus-card reveal reveal-delay-1" data-tags="指南共识" href="consensus/%E8%82%9D%E7%A1%AC%E5%8C%96%E6%82%A3%E8%80%85%E7%B2%AA%E8%8F%8C%E7%A7%BB%E6%A4%8D%E6%B2%BB%E7%96%97%E6%8C%87%E5%8D%97.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FFF1F2,#FFE4E6);">🫀</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag red">肝病</span><span class="cc-tag">指南</span></div>
+          <h4 class="cc-title">肝硬化患者粪菌移植治疗指南</h4>
+          <p class="cc-desc">针对肝硬化肝性脑病、自发性腹膜炎等并发症，系统阐述FMT干预时机、路径选择及安全性监测的临床指南。</p>
+          <div class="cc-meta"><span>肝病学会</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a class="consensus-card reveal reveal-delay-2" data-tags="孤独症" href="consensus/%E5%AD%A4%E7%8B%AC%E7%97%87%E8%B0%B1%E7%B3%BB%E9%9A%9C%E7%A2%8D%E5%84%BF%E7%AB%A5%E5%81%A5%E5%BA%B7%E7%AE%A1%E7%90%86%E4%B8%93%E5%AE%B6%E5%85%B1%E8%AF%86.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">👶</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag green">孤独症</span><span class="cc-tag">健康管理</span></div>
+          <h4 class="cc-title">孤独症谱系障碍儿童健康管理专家共识</h4>
+          <p class="cc-desc">系统性覆盖ASD儿童膳食营养、行为干预、肠道管理等健康管理全流程，为综合干预提供权威参考框架。</p>
+          <div class="cc-meta"><span>儿童健康专家组</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 7 -->
+      <a class="consensus-card reveal" data-tags="孤独症" href="consensus/%E7%B2%AA%E8%8F%8C%E7%A7%BB%E6%A4%8D%E6%B2%BB%E7%96%97%E5%84%BF%E7%AB%A5%E5%AD%A4%E7%8B%AC%E7%97%87%E8%B0%B1%E7%B3%BB%E9%9A%9C%E7%A2%8D%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95_%E7%8E%8B%E4%B8%BD%E7%BA%A2.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE);">🧬</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag blue">孤独症</span><span class="cc-tag">研究进展</span></div>
+          <h4 class="cc-title">粪菌移植治疗儿童孤独症谱系障碍的研究进展</h4>
+          <p class="cc-desc">系统综述FMT干预ASD儿童的国内外临床研究数据，汇总肠道菌群改善与行为症状改善的相关性证据。</p>
+          <div class="cc-meta"><span>王丽红 等</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 8 -->
+      <a class="consensus-card reveal reveal-delay-1" data-tags="孤独症" href="consensus/%E5%AD%A4%E7%8B%AC%E7%97%87%E8%B0%B1%E7%B3%BB%E9%9A%9C%E7%A2%8D%E5%84%BF%E7%AB%A5%E9%A3%9F%E7%89%A9%E4%B8%8D%E8%80%90%E5%8F%97%E7%BB%93%E6%9E%9C%E7%9A%84%E5%88%86%E5%B8%83%E7%89%B9%E5%BE%81_%E5%BC%A0%E6%99%93%E5%8F%8C.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7);">🍽️</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag yellow">孤独症</span><span class="cc-tag">食物不耐受</span></div>
+          <h4 class="cc-title">孤独症谱系障碍儿童食物不耐受结果的分布特征</h4>
+          <p class="cc-desc">揭示ASD儿童食物不耐受的菌群机制，分析小麦、牛奶等常见过敏原与肠道菌群失调的关联规律。</p>
+          <div class="cc-meta"><span>张晓双 等</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 9 -->
+      <a class="consensus-card reveal reveal-delay-2" data-tags="孤独症" href="consensus/%E5%AD%A4%E7%8B%AC%E7%97%87%E8%B0%B1%E7%B3%BB%E9%9A%9C%E7%A2%8D%E6%82%A3%E5%84%BF%E5%B8%B8%E8%A7%81%E5%85%B1%E6%82%A3%E9%97%AE%E9%A2%98%E7%9A%84%E8%AF%86%E5%88%AB%E4%B8%8E%E5%A4%84%E7%90%86%E5%8E%9F%E5%88%99.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FDF4FF,#F3E8FF);">🏥</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag purple">孤独症</span><span class="cc-tag">共患病</span></div>
+          <h4 class="cc-title">孤独症谱系障碍患儿常见共患问题的识别与处理原则</h4>
+          <p class="cc-desc">针对ASD儿童便秘、腹泻、睡眠障碍等高发共患问题，提供规范化识别标准和肠道干预处理方案。</p>
+          <div class="cc-meta"><span>专家共识组</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 10 -->
+      <a class="consensus-card reveal" data-tags="孤独症 肠脑轴" href="consensus/%E8%84%91%E7%A7%91%E5%AD%A6%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E5%84%BF%E7%AB%A5%E6%97%A9%E6%9C%9F%E5%8F%91%E5%B1%95.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">🧠</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag blue">肠脑轴</span><span class="cc-tag">儿童发展</span></div>
+          <h4 class="cc-title">脑科学视角下的儿童早期发展</h4>
+          <p class="cc-desc">从神经科学与肠脑轴双重视角阐释早期肠道菌群定植对大脑发育的关键影响，揭示菌群干预的最佳时间窗口。</p>
+          <div class="cc-meta"><span>儿童发展研究院</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 11 -->
+      <a class="consensus-card reveal reveal-delay-1" data-tags="肠脑轴" href="consensus/2_%E4%BB%8E%E8%82%A0%E8%84%91%E8%BD%B4%E7%90%86%E8%AE%BA%E6%8E%A2%E8%AE%A8%E6%A4%8D%E7%89%A9%E4%B9%B3%E6%9D%86%E8%8F%8CPS128%E5%9C%A8%E7%B2%BE%E7%A5%9E%E3%80%81%E5%BF%83%E7%90%86%E7%96%BE%E7%97%85%E7%9A%84%E5%BA%94%E7%94%A8_202410.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);">🌿</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag green">益生菌</span><span class="cc-tag">肠脑轴</span></div>
+          <h4 class="cc-title">植物乳杆菌PS128在精神、心理疾病的应用</h4>
+          <p class="cc-desc">系统综述植物乳杆菌PS128（情绪益生菌）通过肠脑轴干预焦虑、抑郁、ASD等精神心理疾病的临床证据。</p>
+          <div class="cc-meta"><span>2024年最新综述</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 12 -->
+      <a class="consensus-card reveal reveal-delay-2" data-tags="肠脑轴" href="consensus/%E4%B9%B3%E7%B3%96%E5%9C%A8%E8%82%A0%E9%81%93%E7%9A%84%E4%BB%A3%E8%B0%A2%E4%B8%8E%E4%B9%B3%E7%B3%96%E4%B8%8D%E8%80%90%E5%8F%97%E7%97%87.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA);">🥛</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag orange">营养代谢</span><span class="cc-tag">肠道</span></div>
+          <h4 class="cc-title">乳糖在肠道的代谢与乳糖不耐受症</h4>
+          <p class="cc-desc">深入解析乳糖不耐受的菌群机制，说明肠道菌群组成如何决定个体乳糖代谢能力，为饮食干预提供科学依据。</p>
+          <div class="cc-meta"><span>消化营养学研究</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 13 -->
+      <a class="consensus-card reveal" data-tags="肠脑轴 孤独症" href="consensus/%E7%BB%B4%E7%94%9FD%E8%B0%83%E8%8A%82%E8%82%A0%E9%81%93%E8%8F%8C%E7%BE%A4%E6%94%B9%E5%96%84%E5%AD%A4%E7%8B%AC%E7%97%87%E8%B0%B1%E7%B3%BB%E9%9A%9C%E7%A2%8D%E5%84%BF%E7%AB%A5%E4%B8%B4%E5%BA%8A%E7%97%87%E7%8A%B6_%E4%BB%BB%E5%A7%A3%E5%A7%A3.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FFF1F2,#FFE4E6);">☀️</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag red">维生素D</span><span class="cc-tag">孤独症</span></div>
+          <h4 class="cc-title">维生素D调节肠道菌群改善孤独症谱系障碍儿童临床症状</h4>
+          <p class="cc-desc">临床研究证实维生素D通过调节肠道菌群组成，显著改善ASD儿童的社交障碍、刻板行为等核心症状。</p>
+          <div class="cc-meta"><span>任姣姣 等</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 14 -->
+      <a class="consensus-card reveal reveal-delay-1" data-tags="市场报告" href="consensus/2024%E8%82%A0%E9%81%93%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84%E7%A0%94%E7%A9%B6%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">📊</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag green">市场报告</span><span class="cc-tag">行业</span></div>
+          <h4 class="cc-title">2024肠道微生物组研究白皮书</h4>
+          <p class="cc-desc">全面梳理全球肠道微生物组研究现状、技术突破与市场规模，预测未来5年肠道健康产业的核心发展趋势。</p>
+          <div class="cc-meta"><span>行业研究机构</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 15 -->
+      <a class="consensus-card reveal reveal-delay-2" data-tags="市场报告" href="consensus/%E8%8F%8C%E7%BE%A4%E7%A7%BB%E6%A4%8D%E7%9A%84%E5%B8%82%E5%9C%BA%E5%89%8D%E6%99%AF%E5%88%86%E6%9E%90.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE);">💹</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag blue">市场分析</span><span class="cc-tag">前景</span></div>
+          <h4 class="cc-title">菌群移植的市场前景分析</h4>
+          <p class="cc-desc">深度分析菌群移植赛道的市场规模、竞争格局和政策红利，揭示FMT/HMT商业化进程的核心驱动力与投资逻辑。</p>
+          <div class="cc-meta"><span>产业研究报告</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 16 -->
+      <a class="consensus-card reveal" data-tags="指南共识" href="consensus/%E4%B8%8A%E6%B5%B7%E5%B8%82%E5%8D%AB%E7%94%9F%E5%81%A5%E5%BA%B7%E5%A7%94%E5%91%98%E4%BC%9A%E5%85%B3%E4%BA%8E%E5%8D%B0%E5%8F%91%E4%B8%8A%E6%B5%B7%E5%B8%82%E8%8F%8C%E7%BE%A4%E7%A7%BB...(FBM-CLI.14.4242710).pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FDF4FF,#F3E8FF);">🏙️</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag purple">地方政策</span><span class="cc-tag">上海</span></div>
+          <h4 class="cc-title">上海市卫生健康委关于印发上海市菌群移植管理规范的通知</h4>
+          <p class="cc-desc">上海率先出台地方性菌群移植管理规范，从机构资质、操作规程到患者保护全流程立规，具有重要示范意义。</p>
+          <div class="cc-meta"><span>上海市卫健委</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 17 -->
+      <a class="consensus-card reveal reveal-delay-1" data-tags="指南共识" href="consensus/%E5%85%B3%E4%BA%8E%E5%BC%80%E5%B1%95%E3%80%8A%E8%82%A0%E7%82%8E%E6%B2%BB%E7%96%97%E7%94%A8%E5%97%9C%E9%BB%8F%E8%9B%8B%E7%99%BD%E9%98%BF%E5%85%8B%E6%9B%BC%E6%B0%8F%E8%8F%8C%EF%BC%88Akk%EF%BC%89%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83%E3%80%8B%E7%AD%89%E4%BA%94%E9%A1%B9%E5%9B%A2%E4%BD%93%E6%A0%87%E5%87%86%E7%AB%8B%E9%A1%B9%E8%B0%83%E7%A0%94%E7%9A%84%E9%80%9A%E7%9F%A5.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA);">📜</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag orange">团体标准</span><span class="cc-tag">Akk菌</span></div>
+          <h4 class="cc-title">《肠炎治疗用嗜黏蛋白阿克曼氏菌（Akk）技术规范》等五项团体标准立项</h4>
+          <p class="cc-desc">中国首批Akkermansia相关团体标准立项，推动新一代益生菌制备技术的标准化、规范化进程，具有里程碑意义。</p>
+          <div class="cc-meta"><span>中国标准化协会</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 18 -->
+      <a class="consensus-card reveal reveal-delay-2" data-tags="国际研究" href="consensus/Akkermansia%20muciniphila%20PROBIO%20ameliorates%20overweight%20via%20gut%20microbiota%20modulation%EF%BC%9Aa%20randomized%20controlled%20trial.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">🌍</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag green">国际研究</span><span class="cc-tag">Akk菌</span></div>
+          <h4 class="cc-title">Akkermansia muciniphila PROBIO通过肠道菌群调节改善超重</h4>
+          <p class="cc-desc">国际随机对照临床试验证实，补充A. muciniphila可显著改善超重人群的体重、胰岛素抵抗和代谢指标。</p>
+          <div class="cc-meta"><span>随机对照试验</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 19 -->
+      <a class="consensus-card reveal" data-tags="国际研究 肠脑轴" href="consensus/PIIS0092867424012042.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">🔬</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag blue">Cell</span><span class="cc-tag">顶刊研究</span></div>
+          <h4 class="cc-title">Cell期刊 · 肠道菌群与疾病最新研究成果</h4>
+          <p class="cc-desc">发表于顶级学术期刊Cell的肠道菌群领域突破性研究，揭示微生物组与宿主免疫、代谢及神经功能调控的新机制。</p>
+          <div class="cc-meta"><span>Cell · Nature出版集团</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 20 -->
+      <a class="consensus-card reveal reveal-delay-1" data-tags="国际研究 肠脑轴" href="consensus/s12940-025-01208-0.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FFF1F2,#FFE4E6);">🧪</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag red">Nature子刊</span><span class="cc-tag">环境健康</span></div>
+          <h4 class="cc-title">Environmental Health Perspectives · 环境因素与肠道菌群</h4>
+          <p class="cc-desc">研究揭示环境污染物通过扰乱肠道菌群组成影响人体健康，为菌群干预在环境暴露防护中的应用提供新方向。</p>
+          <div class="cc-meta"><span>环境健康展望</span><span>2025 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 21 -->
+      <a class="consensus-card reveal reveal-delay-2" data-tags="国际研究" href="consensus/s41467-025-61544-0.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7);">⚡</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag yellow">Nature Communications</span><span class="cc-tag">2025</span></div>
+          <h4 class="cc-title">Nature Communications · 肠道菌群与宿主互作新机制</h4>
+          <p class="cc-desc">2025年最新研究阐明肠道菌群与宿主细胞互作的分子机制，为精准菌群干预提供新的靶点和理论基础。</p>
+          <div class="cc-meta"><span>Nature Communications</span><span>2025 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 22 -->
+      <a class="consensus-card reveal" data-tags="肠脑轴" href="consensus/PS128%E6%83%85%E7%BB%AA%E7%9B%8A%E7%94%9F%E8%8F%8C01.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE);">😊</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag blue">益生菌</span><span class="cc-tag">情绪</span></div>
+          <h4 class="cc-title">PS128情绪益生菌 · 肠脑轴与精神健康研究（一）</h4>
+          <p class="cc-desc">PS128菌株在抑郁症、焦虑症、睡眠障碍中的临床干预数据与肠脑轴调控机制研究报告。</p>
+          <div class="cc-meta"><span>益生菌临床研究</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 23 -->
+      <a class="consensus-card reveal reveal-delay-1" data-tags="国际研究" href="consensus/%5BPDF%5D%E8%82%A0%E9%81%93%E8%8F%8C%E7%BE%A4%E7%A7%BB%E6%A4%8D%E4%B8%B4%E5%BA%8A%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86%E4%B8%AD%E5%9B%BD%E4%B8%93%E5%AE%B6%E5%85%B1%E8%AF%86%20-%20NIHA(1).pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);">🏆</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag green">国际指南</span><span class="cc-tag">NIHA</span></div>
+          <h4 class="cc-title">NIHA · 肠道菌群移植临床应用管理国际共识</h4>
+          <p class="cc-desc">国际权威机构NIHA发布的FMT临床应用管理指南，从全球视角规范菌群移植的操作标准与患者保护要求。</p>
+          <div class="cc-meta"><span>NIHA · 国际指南</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+      <!-- 24 -->
+      <a class="consensus-card reveal reveal-delay-2" data-tags="肠脑轴 国际研究" href="consensus/PS128%E7%B2%BE%E7%A5%9E%E3%80%81%E5%BF%83%E7%90%86%E7%96%BE%E7%97%85%E7%9A%84%E5%BA%94%E7%94%A803.pdf" target="_blank">
+        <div class="cc-icon" style="background:linear-gradient(135deg,#FDF4FF,#F3E8FF);">🧬</div>
+        <div class="cc-body">
+          <div class="cc-tags"><span class="cc-tag purple">益生菌</span><span class="cc-tag">精神健康</span></div>
+          <h4 class="cc-title">PS128情绪益生菌 · 肠脑轴与精神健康研究（二）</h4>
+          <p class="cc-desc">PS128在ASD儿童、帕金森症等神经系统疾病中的应用研究，验证肠脑轴双向调控对神经功能的改善机制。</p>
+          <div class="cc-meta"><span>益生菌精神健康研究</span><span>2024 · 点击查看原文 →</span></div>
+        </div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:2rem;" class="reveal">
+      <p style="font-size:0.82rem;color:var(--text4);">以上文献均来自国内外权威机构、学术期刊及专家委员会正式发布</p>
     </div>
   </div>
 </section>
@@ -1909,6 +2225,20 @@
         <div class="report-arrow">→</div>
       </a>`;
     }).join('');
+  }
+
+  // ===== CONSENSUS FILTER =====
+  function filterConsensus(tag, btn) {
+    document.querySelectorAll('.cf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.consensus-card').forEach(card => {
+      if (tag === 'all') {
+        card.classList.remove('hidden');
+      } else {
+        const tags = card.dataset.tags || '';
+        card.classList.toggle('hidden', !tags.includes(tag));
+      }
+    });
   }
 
   // ===== AI CHAT =====
