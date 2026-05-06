@@ -18,11 +18,11 @@ module.exports = async (req, res) => {
     }
 
     const pay = new WxPay({
-      appid: process.env.WECHAT_APP_ID,
+      appid: process.env.WECHAT_APPID,
       mchid: process.env.WECHAT_MCH_ID,
       publicKey: process.env.WECHAT_PUBLIC_KEY || '',
       privateKey: process.env.WECHAT_PRIVATE_KEY,
-      key: process.env.WECHAT_APIV3_KEY,
+      key: process.env.WECHAT_API_V3_KEY,
     });
 
     // 解密通知内容（AES-256-GCM，密钥为 APIv3 Key）
@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
         resource.ciphertext,
         resource.associated_data,
         resource.nonce,
-        process.env.WECHAT_APIV3_KEY
+        process.env.WECHAT_API_V3_KEY
       );
     } catch (e) {
       console.error('decrypt error:', e);
@@ -43,7 +43,7 @@ module.exports = async (req, res) => {
     console.log('Payment notification:', JSON.stringify(data));
 
     // 验证 appid
-    if (data.appid !== process.env.WECHAT_APP_ID) {
+    if (data.appid !== process.env.WECHAT_APPID) {
       console.error('appid mismatch:', data.appid);
       return res.status(400).json({ code: 'FAIL', message: 'AppID mismatch' });
     }

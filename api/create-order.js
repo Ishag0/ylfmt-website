@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
     // 1. 用 code 换取 openid
     let openid;
     try {
-      const tokenUrl = `https://api.weixin.qq.com/sns/jscode2session?appid=${process.env.WECHAT_APP_ID}&secret=${process.env.WECHAT_APP_SECRET}&js_code=${code}&grant_type=authorization_code`;
+      const tokenUrl = `https://api.weixin.qq.com/sns/jscode2session?appid=${process.env.WECHAT_APPID}&secret=${process.env.WECHAT_SECRET}&js_code=${code}&grant_type=authorization_code`;
       const tokenRes = await fetch(tokenUrl);
       const tokenData = await tokenRes.json();
 
@@ -54,11 +54,11 @@ module.exports = async (req, res) => {
 
     // 2. 创建微信支付实例
     const pay = new WxPay({
-      appid: process.env.WECHAT_APP_ID,
+      appid: process.env.WECHAT_APPID,
       mchid: process.env.WECHAT_MCH_ID,
       publicKey: process.env.WECHAT_PUBLIC_KEY || '',
       privateKey: process.env.WECHAT_PRIVATE_KEY,
-      key: process.env.WECHAT_APIV3_KEY,
+      key: process.env.WECHAT_API_V3_KEY,
     });
 
     const notifyUrl = process.env.NOTIFY_URL || 'https://new.ylfmt.com/api/order-notify';
