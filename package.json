@@ -1,0 +1,8 @@
+{
+  "name": "ylfmt-website",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "wechatpay-node-v3": "^2.2.1"
+  }
+}
