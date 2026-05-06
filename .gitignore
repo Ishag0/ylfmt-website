@@ -27,3 +27,4 @@ npm-debug.log*
 
 # TypeScript (if any)
 *.tsbuildinfo
+.next
