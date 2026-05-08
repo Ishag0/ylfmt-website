@@ -30,5 +30,13 @@
     "condition": "肠道菌群报告解读",
     "reportDate": "2026-04-17",
     "reportUrl": "reports/杨芳/index.html"
+  },
+  {
+    "name": "邓颂恩",
+    "gender": "男",
+    "age": "16岁",
+    "condition": "抑郁症·肠道菌群检测",
+    "reportDate": "2026-04-27",
+    "reportUrl": "reports/邓颂恩/index.html"
   }
 ]
