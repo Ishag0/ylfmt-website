@@ -20,14 +20,9 @@ module.exports = async (req, res) => {
       return res.status(400).json({ code: -1, message: 'messages is required' });
     }
 
-    const API_KEY = process.env.SILICONFLOW_API_KEY || '';
+    const API_KEY = process.env.SILICONFLOW_API_KEY || 'sk-kajavhpqdyxfhknamkcfmsbnwtcvnjturbwajdvywxyhkhdw';
     const API_URL = 'https://api.siliconflow.cn/v1/chat/completions';
     const MODEL = process.env.AI_MODEL || 'Qwen/Qwen2.5-7B-Instruct';
-
-    if (!API_KEY) {
-      console.error('SILICONFLOW_API_KEY is not configured');
-      return res.status(500).json({ code: -1, message: 'AI service not configured' });
-    }
 
     const SYSTEM_PROMPT = `你是"源龄生命"的 AI 健康顾问，专注肠道微生态领域。公司主营肠道菌群移植（HMT/FMT）、16S 肠道菌群检测、复合益生元产品。
 
