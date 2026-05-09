@@ -45,9 +45,21 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { resource } = req.body || {};
+    // Vercel 会自动解析 JSON body，但做兜底处理以防万一
+    let body = req.body;
+    if (!body || !body.resource) {
+      try {
+        const raw = typeof req.rawBody === 'string' ? req.rawBody : '';
+        if (raw) body = JSON.parse(raw);
+      } catch (_) {
+        // 忽略解析错误
+      }
+    }
+
+    const { resource } = body || {};
 
     if (!resource) {
+      console.error('order-notify: missing resource, body:', JSON.stringify(body).slice(0, 500));
       return res.status(400).json({ code: 'FAIL', message: 'Missing resource' });
     }
 
