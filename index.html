@@ -3,34 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>源龄生命 | 从源头管理健康</title>
-  <meta name="description" content="源龄生命——依托深圳P2级实验室，拥有亚洲超规模化肠菌供体库，专注肠道菌群移植（HMT/FMT）精准医疗服务。肠年轻，长年轻。" />
+  <title>源龄生命 | 肠道菌群移植HMT精准医疗 | 深圳P2级实验室</title>
+  <meta name="description" content="源龄生命——深圳专业肠道菌群移植（HMT/FMT）机构，依托P2级实验室与亚洲超规模化肠菌供体库，AI精准配方，为炎症性肠病、自闭症、代谢性疾病等提供创新治疗。" />
+  <meta name="keywords" content="肠道菌群移植,HMT,FMT,深圳,肠道健康,炎症性肠病,自闭症,肠道菌群检测,益生菌" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --blue:       #1B4D89;
-      --blue-mid:   #2563EB;
-      --blue-light: #3B82F6;
-      --teal:       #0891B2;
-      --teal-light: #22D3EE;
-      --green:      #10B981;
-      --bg:         #FFFFFF;
-      --bg2:        #F8FAFC;
-      --bg3:        #F1F5F9;
-      --bg4:        #E8EEF5;
-      --text:       #0F172A;
-      --text2:      #334155;
-      --text3:      #64748B;
-      --text4:      #94A3B8;
-      --border:     #E2E8F0;
-      --shadow:     0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
-      --shadow-md:  0 4px 12px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.08);
-      --radius:     12px;
-      --radius-lg:  20px;
+      --blue:        #1B4D89;
+      --blue-mid:    #2563EB;
+      --blue-light:  #3B82F6;
+      --blue-glow:   rgba(37,99,235,0.18);
+      --teal:        #0891B2;
+      --teal-light:  #22D3EE;
+      --green:       #10B981;
+      --bg:          #FFFFFF;
+      --bg2:         #F8FAFC;
+      --bg3:         #F1F5F9;
+      --bg4:         #E8EEF5;
+      --text:        #0F172A;
+      --text2:       #334155;
+      --text3:       #64748B;
+      --text4:       #94A3B8;
+      --border:      #E2E8F0;
+      --glass-bg:    rgba(255,255,255,0.72);
+      --glass-border:rgba(255,255,255,0.85);
+      --shadow:      0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      --shadow-md:   0 4px 12px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.08);
+      --shadow-xl:   0 8px 30px rgba(0,0,0,0.1), 0 24px 60px rgba(0,0,0,0.1);
+      --shadow-glow: 0 0 40px rgba(37,99,235,0.15);
+      --radius:      12px;
+      --radius-lg:   20px;
+      --radius-xl:   28px;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -44,45 +51,93 @@
     button { cursor: pointer; border: none; background: none; font-family: inherit; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg2); }
-    ::-webkit-scrollbar-thumb { background: var(--blue-light); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--blue-light), var(--teal)); border-radius: 3px; }
 
-    /* ===== REVEAL ANIMATION ===== */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeSlideUp    { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeSlideDown  { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeSlideLeft  { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
+    @keyframes fadeIn         { from{opacity:0} to{opacity:1} }
+    @keyframes pulse-dot      { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    @keyframes pulse-ring     { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(1.8);opacity:0} }
+    @keyframes float          { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes float2         { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-14px) rotate(2deg)} }
+    @keyframes scroll-left    { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes scroll-line    { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+    @keyframes gradient-shift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+    @keyframes shimmer        { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+    @keyframes orbit          { 0%{transform:rotate(0deg) translateX(110px) rotate(0deg)} 100%{transform:rotate(360deg) translateX(110px) rotate(-360deg)} }
+    @keyframes orbit2         { 0%{transform:rotate(180deg) translateX(80px) rotate(-180deg)} 100%{transform:rotate(540deg) translateX(80px) rotate(-540deg)} }
+    @keyframes countUp        { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes ripple         { 0%{transform:scale(0);opacity:0.5} 100%{transform:scale(4);opacity:0} }
+    @keyframes pulse-expand   { 0%{transform:scale(1);opacity:0.5} 100%{transform:scale(2.2);opacity:0} }
+    @keyframes data-flow      { 0%{stroke-dashoffset:1000} 100%{stroke-dashoffset:0} }
+    @keyframes glow-pulse     { 0%,100%{box-shadow:0 0 20px rgba(37,99,235,0.15),0 0 40px rgba(37,99,235,0.05)} 50%{box-shadow:0 0 30px rgba(37,99,235,0.3),0 0 60px rgba(37,99,235,0.1)} }
+    @keyframes teal-glow      { 0%,100%{box-shadow:0 0 15px rgba(8,145,178,0.2)} 50%{box-shadow:0 0 30px rgba(8,145,178,0.4)} }
+    @keyframes scan-line      { 0%{top:-10%} 100%{top:110%} }
+
+    .reveal        { opacity:0; transform:translateY(28px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible{ opacity:1; transform:translateY(0); }
+    .reveal-delay-1{ transition-delay:0.1s; }
+    .reveal-delay-2{ transition-delay:0.2s; }
+    .reveal-delay-3{ transition-delay:0.3s; }
+    .reveal-delay-4{ transition-delay:0.4s; }
+    .reveal-delay-5{ transition-delay:0.5s; }
 
     /* ===== NAV ===== */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      height: 68px; background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
+      height: 68px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(226,232,240,0.8);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 4rem; transition: box-shadow 0.3s;
+      padding: 0 4rem; transition: box-shadow 0.3s, background 0.3s;
     }
-    .nav.scrolled { box-shadow: var(--shadow); }
+    .nav.scrolled {
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
     .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--text); letter-spacing: -0.01em; }
     .nav-logo-img { height: 38px; width: auto; border-radius: 8px; object-fit: contain; }
-    .nav-logo-en { font-size: 0.55rem; color: #60A5FA; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; display: block; margin-top: -2px; }
-    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-logo-text { display: flex; flex-direction: column; }
+    .nav-logo-cn  { font-size: 1rem; font-weight: 800; color: var(--text); line-height: 1.2; }
+    .nav-logo-en  { font-size: 0.52rem; color: var(--blue-light); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 0.15rem; list-style: none; }
     .nav-links a {
       padding: 0.4rem 0.85rem; border-radius: 8px; font-size: 0.875rem; font-weight: 500;
-      color: var(--text3); transition: all 0.2s;
+      color: var(--text3); transition: all 0.2s; position: relative;
     }
-    .nav-links a:hover { color: var(--blue); background: var(--bg3); }
+    .nav-links a:hover { color: var(--blue); background: rgba(27,77,137,0.06); }
+    .nav-links a.active { color: var(--blue); }
+    .nav-links a.active::after { content:''; position:absolute; bottom:-2px; left:50%; transform:translateX(-50%); width:16px; height:2px; background:var(--blue); border-radius:1px; }
+    .nav-right { display: flex; align-items: center; gap: 0.75rem; }
     .nav-cta {
-      padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
-      background: var(--blue); color: #fff;
+      padding: 0.5rem 1.35rem; border-radius: 10px; font-size: 0.875rem; font-weight: 600;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+      color: #fff;
       box-shadow: 0 2px 8px rgba(27,77,137,0.3);
-      transition: all 0.2s;
+      transition: all 0.25s;
+      position: relative; overflow: hidden;
     }
-    .nav-cta:hover { background: var(--blue-mid); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(27,77,137,0.35); }
+    .nav-cta::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent); opacity:0; transition:opacity 0.2s; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgba(27,77,137,0.38); }
+    .nav-cta:hover::after { opacity:1; }
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 6px; cursor: pointer; }
     .nav-hamburger span { width: 22px; height: 2px; background: var(--text2); border-radius: 2px; transition: all 0.3s; }
-    .nav-mobile { display: none; }
+
+    /* Mobile Nav */
+    .nav-mobile {
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(255,255,255,0.98); backdrop-filter: blur(24px);
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.4rem;
+    }
+    .nav-mobile a { padding: 0.75rem 2.5rem; font-size: 1.1rem; font-weight: 600; color: var(--text2); border-radius: 12px; transition: all 0.2s; }
+    .nav-mobile a:hover { background: var(--bg3); color: var(--blue); }
+    .nav-mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: var(--text3); width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:10px;transition:background 0.2s; }
+    .nav-mobile-close:hover { background:var(--bg3); }
+    .nav-mobile-cta { margin-top:1rem; padding:0.75rem 2.5rem!important; background:var(--blue)!important; color:#fff!important; border-radius:12px!important; }
 
     /* ===== HERO ===== */
     .hero {
@@ -90,386 +145,628 @@
       position: relative; overflow: hidden;
       background: #fff;
     }
-    /* Subtle top-right accent blob */
-    .hero::before {
-      content: '';
-      position: absolute; top: -15%; right: -10%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(27,77,137,0.07) 0%, transparent 70%);
-      border-radius: 50%;
+    /* Animated gradient mesh background */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 70% 20%, rgba(27,77,137,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 20% 80%, rgba(8,145,178,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 90% 70%, rgba(37,99,235,0.06) 0%, transparent 50%);
+      animation: gradient-shift 12s ease infinite;
     }
-    /* Subtle bottom-left accent */
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -10%; left: -5%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%);
-      border-radius: 50%;
+    /* Hero scan line effect */
+    .hero-scan {
+      position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden;
     }
-
-    /* Hero layout */
+    .hero-scan::after {
+      content:''; position:absolute; left:0; right:0; height:1px;
+      background:linear-gradient(90deg,transparent,rgba(37,99,235,0.12),rgba(8,145,178,0.12),transparent);
+      animation:scan-line 6s linear infinite;
+    }
+    /* Concentric pulse rings behind hero image */
+    .hero-pulse-rings {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      pointer-events:none; z-index:0;
+    }
+    .hero-pulse-ring {
+      position:absolute; border-radius:50%;
+      border:1px solid rgba(37,99,235,0.08);
+      transform:translate(-50%,-50%);
+    }
+    /* Decorative grid lines */
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0; opacity: 0.025;
+      background-image: linear-gradient(var(--blue) 1px, transparent 1px), linear-gradient(90deg, var(--blue) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
     .hero-inner {
       width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 3rem;
       display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
       position: relative; z-index: 1;
     }
-
-    /* Badge */
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 0.45rem 1.1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600;
       background: rgba(27,77,137,0.07); color: var(--blue);
-      border: 1px solid rgba(27,77,137,0.15); margin-bottom: 1.5rem;
-      letter-spacing: 0.05em;
+      border: 1px solid rgba(27,77,137,0.18); margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
       animation: fadeSlideDown 0.8s ease both;
     }
-    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: pulse-dot 2s infinite; }
-
-    /* Main headline */
+    .hero-badge-pulse { position:relative; width:8px;height:8px; }
+    .hero-badge-pulse::before { content:'';position:absolute;inset:0;border-radius:50%;background:var(--blue);animation:pulse-dot 2s infinite; }
+    .hero-badge-pulse::after { content:'';position:absolute;inset:-3px;border-radius:50%;border:1.5px solid var(--blue);animation:pulse-ring 2s infinite; }
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1;
+      font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.05;
       color: var(--text); letter-spacing: -0.04em; margin-bottom: 1.5rem;
-      animation: fadeSlideDown 0.8s 0.15s ease both;
+      animation: fadeSlideDown 0.8s 0.1s ease both;
     }
     .hero h1 .hl {
       display: block;
-      background: linear-gradient(135deg, #1B4D89 0%, #2563EB 100%);
+      background: linear-gradient(135deg, #1B4D89 0%, #2563EB 50%, #0891B2 100%);
+      background-size: 200% 200%;
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: fadeSlideDown 0.8s 0.1s ease both, gradient-shift 6s ease infinite;
     }
-
-    /* Subtitle */
     .hero p {
-      font-size: 1.05rem; color: var(--text2); line-height: 1.85;
-      margin-bottom: 2rem; max-width: 520px;
-      animation: fadeSlideDown 0.8s 0.25s ease both;
+      font-size: 1.05rem; color: var(--text2); line-height: 1.9;
+      margin-bottom: 2.25rem; max-width: 520px;
+      animation: fadeSlideDown 0.8s 0.2s ease both;
     }
-
-    /* CTA Buttons */
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeSlideDown 0.8s 0.35s ease both; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeSlideDown 0.8s 0.3s ease both; }
     .btn-primary {
-      padding: 0.85rem 2rem; border-radius: 10px; font-size: 0.9rem; font-weight: 700;
-      background: var(--blue); color: #fff;
-      box-shadow: 0 4px 16px rgba(27,77,137,0.3);
-      transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+      padding: 0.9rem 2rem; border-radius: 12px; font-size: 0.9rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+      color: #fff; box-shadow: 0 4px 20px rgba(27,77,137,0.32);
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      display: inline-flex; align-items: center; gap: 8px;
+      position: relative; overflow: hidden;
     }
-    .btn-primary:hover { background: var(--blue-mid); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(27,77,137,0.35); }
-    .btn-primary svg { transition: transform 0.2s; }
-    .btn-primary:hover svg { transform: translateX(3px); }
+    .btn-primary::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0),rgba(255,255,255,0.15),rgba(255,255,255,0)); transform:translateX(-100%); transition:transform 0.5s; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(27,77,137,0.4); }
+    .btn-primary:hover::before { transform:translateX(100%); }
+    .btn-primary svg { transition: transform 0.25s cubic-bezier(0.16,1,0.3,1); }
+    .btn-primary:hover svg { transform: translateX(4px); }
     .btn-outline {
-      padding: 0.85rem 2rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
-      border: 1.5px solid var(--border); color: var(--text2);
-      background: #fff;
-      transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+      padding: 0.9rem 2rem; border-radius: 12px; font-size: 0.9rem; font-weight: 600;
+      border: 1.5px solid var(--border); color: var(--text2); background: #fff;
+      transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
     }
-    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
-
-    /* Stats row */
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); background: rgba(27,77,137,0.04); transform: translateY(-1px); }
+    .hero-trust { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem; animation: fadeSlideDown 0.8s 0.35s ease both; }
+    .hero-trust-avs { display: flex; }
+    .hero-trust-avs span { width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,var(--blue-light),var(--teal));display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:#fff; }
+    .hero-trust-avs span:not(:first-child) { margin-left:-8px; }
+    .hero-trust-text { font-size:0.8rem;color:var(--text3); }
+    .hero-trust-text strong { color:var(--text2);font-weight:700; }
     .hero-stats {
-      display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem;
+      display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2rem;
       border-top: 1px solid var(--border);
-      animation: fadeSlideDown 0.8s 0.45s ease both;
+      animation: fadeSlideDown 0.8s 0.4s ease both;
     }
     .hero-stat-num {
-      font-size: 2rem; font-weight: 800; color: var(--text);
-      letter-spacing: -0.03em; font-family: 'Inter', sans-serif;
+      font-size: 2.2rem; font-weight: 900; color: var(--text);
+      letter-spacing: -0.04em; font-family: 'Inter', sans-serif;
     }
-    .hero-stat-num .accent { color: var(--blue); }
-    .hero-stat-label { font-size: 0.75rem; color: var(--text3); margin-top: 3px; font-weight: 500; }
+    .hero-stat-num .accent { color: var(--blue-mid); }
+    .hero-stat-label { font-size: 0.73rem; color: var(--text3); margin-top: 2px; font-weight: 500; }
 
-    /* Hero right visual - clean image */
+    /* Hero right visual */
     .hero-visual {
-      position: relative; width: 100%; height: 480px;
-      animation: fadeSlideLeft 1s 0.3s ease both;
+      position: relative; width: 100%; height: 500px;
+      animation: fadeSlideLeft 1s 0.25s ease both;
     }
     .hero-img-wrap {
       position: relative; width: 100%; height: 100%;
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      border-radius: var(--radius-xl); overflow: hidden;
+      box-shadow: var(--shadow-xl);
     }
-    .hero-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
+    .hero-img-wrap img { width:100%;height:100%;object-fit:cover; }
+    .hero-img-wrap::after {
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(to top, rgba(15,23,42,0.35) 0%, transparent 60%);
     }
-    /* Floating info card */
+    /* Orbital element - decorative DNA/atom around image */
+    .hero-orbit-wrap { position:absolute; top:-30px; right:-30px; width:220px;height:220px;pointer-events:none;z-index:2;opacity:0.35; }
+    .hero-orbit-ring { position:absolute;inset:10px;border-radius:50%;border:1.5px dashed var(--blue-light); }
+    .hero-orbit-dot { position:absolute;top:50%;left:50%;width:8px;height:8px;margin:-4px;border-radius:50%;background:var(--blue-mid);animation:orbit 8s linear infinite; }
+    .hero-orbit-dot2 { position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:var(--teal);animation:orbit2 5s linear infinite; }
+    /* Floating glass cards */
     .hero-float-card {
-      position: absolute; background: #fff; border-radius: 14px;
-      padding: 1rem 1.25rem; display: flex; align-items: center; gap: 10px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      border: 1px solid var(--border);
+      position: absolute;
+      background: var(--glass-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px; padding: 0.9rem 1.2rem;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
       white-space: nowrap; font-size: 0.82rem; font-weight: 600; color: var(--text);
+      z-index: 3;
     }
-    .hero-float-card-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .hero-float-card:nth-child(2) { bottom: 10%; left: -5%; }
-    .hero-float-card:nth-child(3) { top: 10%; right: -5%; }
-
-    /* Scroll indicator */
+    .hero-float-card:nth-of-type(1) { bottom: 12%; left: -6%; animation: float 4s ease-in-out infinite; }
+    .hero-float-card:nth-of-type(2) { top: 10%; right: -6%; animation: float 5s ease-in-out 1s infinite; }
+    .hero-float-card-icon { width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
     .hero-scroll {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 6px;
-      color: var(--text4); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
-      animation: fadeSlideDown 1s 1s ease both;
+      color: var(--text4); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em;
+      animation: fadeIn 1s 1.2s ease both; opacity: 0;
     }
-    .hero-scroll-line { width: 1px; height: 36px; background: var(--border); position: relative; overflow: hidden; }
-    .hero-scroll-line::after {
-      content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 50%;
-      background: var(--blue); animation: scroll-line 2s ease-in-out infinite;
-    }
-    @keyframes scroll-line { 0%{transform:scaleY(0); transform-origin:top} 50%{transform:scaleY(1); transform-origin:top} 51%{transform:scaleY(1); transform-origin:bottom} 100%{transform:scaleY(0); transform-origin:bottom} }
-
-    @keyframes fadeSlideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
-    @keyframes fadeSlideLeft { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
-    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .hero-scroll-line { width:1px;height:40px;background:var(--border);position:relative;overflow:hidden; }
+    .hero-scroll-line::after { content:'';position:absolute;top:0;left:50%;width:1px;height:50%;background:var(--blue);animation:scroll-line 2.2s ease-in-out infinite; }
 
     /* ===== SECTION BASE ===== */
     .section { padding: 7rem 4rem; }
     .section-bg { background: var(--bg2); }
-    .section-header { text-align: center; max-width: 640px; margin: 0 auto 4rem; }
+    .section-header { text-align: center; max-width: 660px; margin: 0 auto 4.5rem; }
     .section-label {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--teal); margin-bottom: 0.75rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.85rem;
     }
-    .section-label::before, .section-label::after { content: ''; width: 20px; height: 1.5px; background: var(--teal); opacity: 0.5; }
-    .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--text); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
-    .section-subtitle { font-size: 1rem; color: var(--text3); line-height: 1.7; }
+    .section-label::before, .section-label::after { content:''; width:22px; height:1.5px; background:currentColor; opacity:0.5; }
+    .section-title { font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 900; color: var(--text); letter-spacing: -0.025em; line-height: 1.18; margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1rem; color: var(--text3); line-height: 1.75; }
     .container { max-width: 1200px; margin: 0 auto; }
 
+    /* ===== TRUST BAR (new) ===== */
+    .trust-bar {
+      background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+      padding: 1rem 4rem;
+      display: flex; align-items: center; justify-content: center; gap: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7); font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
+    .trust-item svg { flex-shrink: 0; color: var(--teal-light); }
+    .trust-item strong { color: #fff; }
+
     /* ===== ABOUT ===== */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .about-visual {
-      position: relative; border-radius: var(--radius-lg); overflow: hidden;
-      aspect-ratio: 4/3; background: linear-gradient(135deg, #EFF6FF, #F0FDF4);
+      position: relative; border-radius: var(--radius-xl); overflow: hidden;
+      aspect-ratio: 4/3;
     }
-    .about-visual-inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; }
-    .about-visual-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--blue), var(--blue-mid)); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(27,77,137,0.3); }
-    .about-visual-icon svg { width: 40px; height: 40px; color: #fff; }
-    .about-visual-label { font-size: 1rem; font-weight: 700; color: var(--text); }
-    .about-visual-sub { font-size: 0.8rem; color: var(--text4); }
-    .about-visual-badge {
-      position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
-      background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
-      border-radius: var(--radius); padding: 1rem 1.25rem;
-      display: flex; align-items: center; justify-content: space-around;
-      border: 1px solid var(--border);
+    .about-visual img { width:100%;height:100%;object-fit:cover;position:absolute;inset:0; }
+    .about-visual-overlay { position:absolute;inset:0;background:linear-gradient(to top, rgba(15,23,42,0.7) 0%, rgba(15,23,42,0.1) 50%, transparent 100%); }
+    .about-visual-caption {
+      position:absolute;bottom:0;left:0;right:0;padding:1.75rem 1.5rem;
+      color:#fff;
     }
-    .about-badge-item { text-align: center; }
-    .about-badge-num { font-size: 1.25rem; font-weight: 800; color: var(--blue); font-family: 'Inter', sans-serif; }
-    .about-badge-text { font-size: 0.7rem; color: var(--text4); margin-top: 2px; }
-    .about-text h2 { font-size: 2rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; margin-bottom: 1.25rem; line-height: 1.2; }
-    .about-text h2 span { color: var(--blue-mid); }
-    .about-text p { color: var(--text2); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; }
-    .about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-    .about-tag { padding: 0.35rem 0.9rem; border-radius: 6px; font-size: 0.8rem; font-weight: 500; background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
-    .about-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; font-weight: 600; color: var(--blue-mid); }
-    .about-link svg { transition: transform 0.2s; }
-    .about-link:hover svg { transform: translateX(4px); }
+    .about-visual-caption h4 { font-size:1.05rem;font-weight:800;margin-bottom:0.25rem; }
+    .about-visual-caption p { font-size:0.8rem;opacity:0.75; }
+    .about-visual-stats {
+      position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;
+      background:rgba(255,255,255,0.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius);
+      padding:1rem 1.25rem;
+      display:flex;align-items:center;justify-content:space-around;
+    }
+    .about-stat { text-align:center; }
+    .about-stat-num { font-size:1.3rem;font-weight:900;color:#fff;font-family:'Inter',sans-serif; }
+    .about-stat-label { font-size:0.68rem;color:rgba(255,255,255,0.65);margin-top:2px; }
+    .about-text h2 { font-size:2.1rem;font-weight:900;color:var(--text);letter-spacing:-0.025em;margin-bottom:1.25rem;line-height:1.2; }
+    .about-text h2 .hl { background:linear-gradient(135deg,var(--blue),var(--blue-mid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+    .about-text p { color:var(--text2);margin-bottom:1.4rem;font-size:0.95rem;line-height:1.85; }
+    .about-feats { display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem; }
+    .about-feat { display:flex;align-items:flex-start;gap:0.75rem; }
+    .about-feat-icon { width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--blue),var(--blue-mid));display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px; }
+    .about-feat-icon svg { width:12px;height:12px;color:#fff; }
+    .about-feat-text { font-size:0.875rem;color:var(--text2);line-height:1.6; }
+    .about-feat-text strong { color:var(--text);font-weight:700; }
+    .about-tags { display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem; }
+    .about-tag {
+      padding:0.35rem 0.9rem;border-radius:8px;font-size:0.78rem;font-weight:500;
+      background:var(--bg3);color:var(--text2);border:1px solid var(--border);
+      transition:all 0.2s;
+    }
+    .about-tag:hover { background:rgba(27,77,137,0.07);border-color:var(--blue-light);color:var(--blue); }
+    .about-link { display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;font-weight:700;color:var(--blue-mid); }
+    .about-link svg { transition:transform 0.2s; }
+    .about-link:hover svg { transform:translateX(5px); }
 
     /* ===== PLATFORM ===== */
     .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .platform-card {
       padding: 2rem; border-radius: var(--radius-lg); background: #fff;
-      border: 1px solid var(--border); transition: all 0.3s;
-      position: relative; overflow: hidden;
+      border: 1px solid var(--border); transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+      position: relative; overflow: hidden; cursor: default;
     }
-    .platform-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue), var(--teal)); opacity: 0; transition: opacity 0.3s; }
-    .platform-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: transparent; }
-    .platform-card:hover::before { opacity: 1; }
+    .platform-card-line { position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+    .platform-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); border-color: transparent; }
+    .platform-card:hover .platform-card-line { transform:scaleX(1); }
     .platform-icon {
       width: 52px; height: 52px; border-radius: 14px;
-      background: linear-gradient(135deg, rgba(27,77,137,0.08), rgba(8,145,178,0.08));
+      background: linear-gradient(135deg, rgba(27,77,137,0.1), rgba(8,145,178,0.08));
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 1.25rem; color: var(--blue-mid);
+      transition: all 0.3s;
     }
-    .platform-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
-    .platform-card p { font-size: 0.85rem; color: var(--text3); line-height: 1.7; }
+    .platform-card:hover .platform-icon { background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff; }
+    .platform-card h3 { font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.6rem; }
+    .platform-card p { font-size:0.85rem;color:var(--text3);line-height:1.75; }
 
-    /* ===== HMT TECH ===== */
-    .hmt-intro { max-width: 680px; margin: 0 auto 4rem; text-align: center; }
-    .hmt-steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; position: relative; }
-    .hmt-steps::before { content: ''; position: absolute; top: 28px; left: 8.33%; right: 8.33%; height: 2px; background: var(--border); }
-    .hmt-step { text-align: center; position: relative; }
+    /* ===== HMT PROCESS ===== */
+    .hmt-steps { display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative; }
+    .hmt-steps::before { content:'';position:absolute;top:27px;left:8.33%;right:8.33%;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal)); }
+    .hmt-step { text-align:center;position:relative;padding:0 0.5rem; }
     .hmt-step-num {
-      width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 2px solid var(--blue-light);
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
-      font-size: 1.1rem; font-weight: 800; color: var(--blue-mid); font-family: 'Inter', sans-serif;
-      position: relative; z-index: 1; transition: all 0.3s;
+      width:56px;height:56px;border-radius:50%;
+      background:#fff;border:2.5px solid var(--blue-light);
+      display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;
+      font-size:1.05rem;font-weight:900;color:var(--blue-mid);font-family:'Inter',sans-serif;
+      position:relative;z-index:1;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);
+      box-shadow: 0 4px 14px rgba(27,77,137,0.15);
     }
-    .hmt-step:hover .hmt-step-num { background: var(--blue); color: #fff; transform: scale(1.1); }
-    .hmt-step h4 { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
-    .hmt-step p { font-size: 0.75rem; color: var(--text4); }
+    .hmt-step:hover .hmt-step-num {
+      background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+      color:#fff;transform:scale(1.15);
+      box-shadow:0 8px 24px rgba(27,77,137,0.35);
+      border-color:transparent;
+    }
+    .hmt-step h4 { font-size:0.875rem;font-weight:700;color:var(--text);margin-bottom:0.3rem; }
+    .hmt-step p { font-size:0.75rem;color:var(--text4);line-height:1.5; }
 
     /* ===== INDICATIONS ===== */
-    .indications-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .indications-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem; }
     .indication-card {
-      padding: 1.75rem; border-radius: var(--radius); background: #fff;
-      border: 1px solid var(--border); text-align: center; transition: all 0.3s;
+      padding:1.75rem;border-radius:var(--radius);background:#fff;
+      border:1px solid var(--border);text-align:center;
+      transition:all 0.3s cubic-bezier(0.16,1,0.3,1);cursor:default;
     }
-    .indication-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--blue-light); }
-    .indication-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--bg3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.3rem; }
-    .indication-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
-    .indication-card p { font-size: 0.78rem; color: var(--text4); line-height: 1.5; }
+    .indication-card:hover { transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(59,130,246,0.3);background:linear-gradient(135deg,#f8fbff,#fff); }
+    .indication-icon { width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.4rem;transition:transform 0.3s; }
+    .indication-card:hover .indication-icon { transform:scale(1.1); }
+    .indication-card h4 { font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.4rem; }
+    .indication-card p { font-size:0.78rem;color:var(--text4);line-height:1.55; }
 
     /* ===== PRODUCTS ===== */
-    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .products-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
     .product-card {
-      border-radius: var(--radius-lg); overflow: hidden; background: #fff;
-      border: 1px solid var(--border); transition: all 0.35s;
+      border-radius:var(--radius-lg);overflow:hidden;background:#fff;
+      border:1px solid var(--border);transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
+      cursor:pointer;
     }
-    .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-    .product-img {
-      height: 180px; display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; position: relative; overflow: hidden;
-    }
-    .product-img-1 { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); }
-    .product-img-2 { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); }
-    .product-img-3 { background: linear-gradient(135deg, #FEF3C7, #FDE68A, #FEF9C3); }
-    .product-img-4 { background: linear-gradient(135deg, #FCE7F3, #FBCFE8); }
-    .product-img-5 { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); }
-    .product-img-6 { background: linear-gradient(135deg, #FFF7ED, #FED7AA); }
-    .product-body { padding: 1.5rem; }
-    .product-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
-    .product-body p { font-size: 0.85rem; color: var(--text3); line-height: 1.7; margin-bottom: 1rem; }
-    .product-link { font-size: 0.85rem; font-weight: 600; color: var(--blue-mid); display: inline-flex; align-items: center; gap: 4px; }
-    .product-link:hover { gap: 8px; }
+    .product-card:hover { transform:translateY(-6px);box-shadow:var(--shadow-xl); }
+    .product-img { height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden; }
+    .product-img img { width:100%;height:100%;object-fit:cover;transition:transform 0.5s; }
+    .product-card:hover .product-img img { transform:scale(1.06); }
+    .product-img-1 { background:linear-gradient(135deg,#EFF6FF,#DBEAFE); }
+    .product-img-2 { background:linear-gradient(135deg,#F0FDF4,#DCFCE7); }
+    .product-img-3 { background:linear-gradient(135deg,#FEF3C7,#FDE68A,#FEF9C3); }
+    .product-img-4 { background:linear-gradient(135deg,#FCE7F3,#FBCFE8); }
+    .product-img-5 { background:linear-gradient(135deg,#EDE9FE,#DDD6FE); }
+    .product-img-6 { background:linear-gradient(135deg,#FFF7ED,#FED7AA); }
+    .product-badge { position:absolute;top:10px;left:10px;background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;font-size:0.68rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:5px;letter-spacing:0.05em; }
+    .product-body { padding:1.5rem; }
+    .product-body h3 { font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.5rem; }
+    .product-body p { font-size:0.85rem;color:var(--text3);line-height:1.75;margin-bottom:1.1rem; }
+    .product-link { font-size:0.85rem;font-weight:700;color:var(--blue-mid);display:inline-flex;align-items:center;gap:4px;transition:gap 0.2s; }
+    .product-link:hover { gap:8px; }
 
     /* ===== CASES ===== */
-    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .cases-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
     .case-card {
-      padding: 1.75rem; border-radius: var(--radius-lg); background: #fff;
-      border: 1px solid var(--border); transition: all 0.3s;
+      padding:1.75rem;border-radius:var(--radius-lg);background:#fff;
+      border:1px solid var(--border);transition:all 0.3s;
     }
-    .case-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .case-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-    .case-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; color: #fff; flex-shrink: 0; }
-    .case-info h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); }
-    .case-info p { font-size: 0.75rem; color: var(--text4); }
-    .case-body { font-size: 0.85rem; color: var(--text2); line-height: 1.7; margin-bottom: 1rem; }
-    .case-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .case-tag { padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.72rem; font-weight: 500; background: var(--bg3); color: var(--text3); }
-    .case-result { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 600; color: var(--green); }
+    .case-card:hover { transform:translateY(-3px);box-shadow:var(--shadow-md); }
+    .case-header { display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem; }
+    .case-avatar { width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.9rem;color:#fff;flex-shrink:0; }
+    .case-info h4 { font-size:0.95rem;font-weight:700;color:var(--text); }
+    .case-info p { font-size:0.75rem;color:var(--text4); }
+    .case-body { font-size:0.85rem;color:var(--text2);line-height:1.75;margin-bottom:1rem; }
+    .case-tags { display:flex;flex-wrap:wrap;gap:0.4rem; }
+    .case-tag { padding:0.2rem 0.6rem;border-radius:5px;font-size:0.72rem;font-weight:500;background:var(--bg3);color:var(--text3); }
+    .case-result { margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:700;color:var(--green); }
+    .case-result svg { flex-shrink:0; }
+
+    /* ===== TESTIMONIALS (new) ===== */
+    .testimonials-wrap { position:relative;overflow:hidden; }
+    .testimonials-track { display:flex;gap:1.5rem;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+    .testimonial-card {
+      min-width: calc(33.333% - 1rem);
+      padding:2rem;border-radius:var(--radius-lg);background:#fff;
+      border:1px solid var(--border);flex-shrink:0;
+    }
+    .testimonial-stars { display:flex;gap:2px;margin-bottom:0.75rem; }
+    .testimonial-stars svg { color:#F59E0B; }
+    .testimonial-quote { font-size:0.9rem;color:var(--text2);line-height:1.8;margin-bottom:1.25rem;font-style:italic; }
+    .testimonial-author { display:flex;align-items:center;gap:0.75rem; }
+    .testimonial-avatar { width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.9rem; }
+    .testimonial-name { font-size:0.875rem;font-weight:700;color:var(--text); }
+    .testimonial-meta { font-size:0.75rem;color:var(--text4); }
+    .testimonial-nav { display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:2rem; }
+    .testimonial-dot { width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all 0.3s; }
+    .testimonial-dot.active { width:24px;border-radius:4px;background:var(--blue); }
+    .testimonial-btns { display:flex;gap:0.75rem; }
+    .testimonial-btn { width:40px;height:40px;border-radius:10px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;color:var(--text3); }
+    .testimonial-btn:hover { border-color:var(--blue);color:var(--blue);background:rgba(27,77,137,0.05); }
+
+    /* ===== TEAM (new) ===== */
+    .team-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem; }
+    .team-card {
+      border-radius:var(--radius-lg);overflow:hidden;background:#fff;
+      border:1px solid var(--border);transition:all 0.3s;text-align:center;
+    }
+    .team-card:hover { transform:translateY(-4px);box-shadow:var(--shadow-md); }
+    .team-avatar-wrap { height:180px;position:relative;overflow:hidden; }
+    .team-avatar-bg { position:absolute;inset:0;display:flex;align-items:center;justify-content:center; }
+    .team-avatar-letter { width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;color:#fff; }
+    .team-body { padding:1.25rem; }
+    .team-body h4 { font-size:1rem;font-weight:800;color:var(--text);margin-bottom:0.25rem; }
+    .team-role { font-size:0.78rem;font-weight:600;color:var(--blue-mid);margin-bottom:0.5rem; }
+    .team-desc { font-size:0.78rem;color:var(--text3);line-height:1.65; }
 
     /* ===== NEWS ===== */
-    .news-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+    .news-grid { display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem; }
     .news-card {
-      border-radius: var(--radius-lg); overflow: hidden; background: #fff;
-      border: 1px solid var(--border); transition: all 0.3s;
+      border-radius:var(--radius-lg);overflow:hidden;background:#fff;
+      border:1px solid var(--border);transition:all 0.3s;
     }
-    .news-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .news-thumb { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-    .news-thumb-1 { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); }
-    .news-thumb-2 { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); }
-    .news-thumb-3 { background: linear-gradient(135deg, #FEF3C7, #FDE68A); }
-    .news-body { padding: 1.25rem; }
-    .news-date { font-size: 0.72rem; color: var(--text4); margin-bottom: 0.5rem; }
-    .news-body h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); line-height: 1.5; margin-bottom: 0.5rem; }
-    .news-body p { font-size: 0.82rem; color: var(--text3); line-height: 1.6; }
+    .news-card:hover { transform:translateY(-3px);box-shadow:var(--shadow-md); }
+    .news-thumb { height:160px;display:flex;align-items:center;justify-content:center;font-size:2rem;overflow:hidden;position:relative; }
+    .news-thumb img { width:100%;height:100%;object-fit:cover;transition:transform 0.5s; }
+    .news-card:hover .news-thumb img { transform:scale(1.05); }
+    .news-thumb-1 { background:linear-gradient(135deg,#EFF6FF,#DBEAFE); }
+    .news-thumb-2 { background:linear-gradient(135deg,#F0FDF4,#DCFCE7); }
+    .news-thumb-3 { background:linear-gradient(135deg,#FEF3C7,#FDE68A); }
+    .news-body { padding:1.25rem; }
+    .news-meta { display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem; }
+    .news-date { font-size:0.72rem;color:var(--text4); }
+    .news-cat { font-size:0.7rem;font-weight:600;padding:0.15rem 0.5rem;border-radius:4px;background:rgba(27,77,137,0.07);color:var(--blue); }
+    .news-body h4 { font-size:0.95rem;font-weight:700;color:var(--text);line-height:1.55;margin-bottom:0.5rem; }
+    .news-body p { font-size:0.82rem;color:var(--text3);line-height:1.65; }
+
+    /* ===== FAQ (new) ===== */
+    .faq-list { max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem; }
+    .faq-item {
+      border:1.5px solid var(--border);border-radius:var(--radius);
+      background:#fff;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;
+    }
+    .faq-item.open { border-color:var(--blue-light);box-shadow:0 4px 20px rgba(37,99,235,0.08); }
+    .faq-q {
+      display:flex;align-items:center;justify-content:space-between;
+      padding:1.2rem 1.5rem;cursor:pointer;
+      font-size:0.95rem;font-weight:700;color:var(--text);
+      user-select:none;gap:1rem;
+    }
+    .faq-q span { flex:1; }
+    .faq-icon { width:28px;height:28px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s; }
+    .faq-item.open .faq-icon { background:var(--blue);color:#fff;transform:rotate(45deg); }
+    .faq-a {
+      max-height:0; overflow:hidden; padding:0 1.5rem;
+      font-size:0.875rem;color:var(--text2);line-height:1.8;
+      transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.3s ease;
+    }
+    .faq-item.open .faq-a { max-height:300px; padding:0 1.5rem 1.25rem; }
+
+    /* ===== RIPPLE EFFECT ===== */
+    .btn-primary, .btn-outline, .btn-white, .btn-white-outline, .form-submit, .nav-cta {
+      position:relative; overflow:hidden;
+    }
+    .ripple-effect {
+      position:absolute; border-radius:50%; background:rgba(255,255,255,0.35);
+      transform:scale(0); animation:ripple 0.6s linear; pointer-events:none;
+    }
+
+    /* ===== CARD ENHANCEMENTS ===== */
+    .platform-card:hover { background:linear-gradient(145deg,#fff,#f8fbff); }
+    .product-card { position:relative; }
+    .product-card::after { content:''; position:absolute; inset:0; border-radius:var(--radius-lg); background:linear-gradient(135deg,rgba(27,77,137,0),rgba(27,77,137,0.04)); opacity:0; transition:opacity 0.3s; pointer-events:none; }
+    .product-card:hover::after { opacity:1; }
+    .join-card { position:relative; overflow:hidden; }
+    .join-card::before { content:''; position:absolute; top:-60%; right:-60%; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle,rgba(37,99,235,0.04),transparent 70%); transition:all 0.5s; pointer-events:none; }
+    .join-card:hover::before { transform:scale(1.5); }
+
+    /* ===== SECTION TITLE ACCENT ===== */
+    .section-title-accent {
+      display:inline-block; position:relative;
+    }
+    .section-title-accent::after {
+      content:''; position:absolute; bottom:-6px; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,var(--blue),var(--teal));
+      border-radius:2px; transform:scaleX(0.4); transform-origin:left;
+      transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .section-header:hover .section-title-accent::after { transform:scaleX(1); }
+
+    /* ===== ACTIVE NAV HIGHLIGHT ===== */
+    .nav-links a.active-section { color:var(--blue); background:rgba(27,77,137,0.06); }
 
     /* ===== SCIENCE ===== */
-    .science-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .science-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem; }
     .science-card {
-      padding: 0; border-radius: var(--radius); background: var(--bg2);
-      border: 1px solid var(--border); transition: all 0.3s; overflow: hidden;
+      border-radius:var(--radius);background:var(--bg2);
+      border:1px solid var(--border);transition:all 0.3s;overflow:hidden;
     }
-    .science-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-    .science-card-img { height: 140px; overflow: hidden; }
-    .science-card-img img { width: 100%; height: 100%; object-fit: cover; }
-    .science-card-body { padding: 1.25rem; }
-    .science-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
-    .science-card p { font-size: 0.82rem; color: var(--text3); line-height: 1.6; margin-bottom: 0.75rem; }
-    .science-link { font-size: 0.8rem; font-weight: 600; color: var(--blue-mid); }
+    .science-card:hover { transform:translateY(-2px);box-shadow:var(--shadow); }
+    .science-card-img { height:150px;overflow:hidden; }
+    .science-card-img img { width:100%;height:100%;object-fit:cover;transition:transform 0.5s; }
+    .science-card:hover .science-card-img img { transform:scale(1.05); }
+    .science-card-body { padding:1.25rem; }
+    .science-card h4 { font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.5rem; }
+    .science-card p { font-size:0.82rem;color:var(--text3);line-height:1.65;margin-bottom:0.75rem; }
+    .science-link { font-size:0.8rem;font-weight:700;color:var(--blue-mid); }
 
     /* ===== PARTNERS ===== */
-    .partners-scroll-wrap { overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent); }
-    .partners-track { display: flex; gap: 3rem; animation: scroll-left 30s linear infinite; width: max-content; }
-    .partner-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text4); white-space: nowrap; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.2s; }
-    .partner-item:hover { color: var(--blue-mid); background: var(--bg3); }
-    @keyframes scroll-left { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .partners-scroll-wrap { overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent); }
+    .partners-track { display:flex;gap:3rem;animation:scroll-left 28s linear infinite;width:max-content; }
+    .partner-item {
+      display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:600;
+      color:var(--text4);white-space:nowrap;padding:0.5rem 1rem;border-radius:8px;
+      transition:all 0.2s;
+    }
+    .partner-item:hover { color:var(--blue-mid);background:var(--bg3); }
 
     /* ===== JOIN ===== */
-    .join-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .join-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem; }
     .join-card {
-      padding: 2rem; border-radius: var(--radius-lg); background: #fff;
-      border: 1px solid var(--border); text-align: center; transition: all 0.3s;
+      padding:2.25rem;border-radius:var(--radius-lg);background:#fff;
+      border:1px solid var(--border);text-align:center;
+      transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
     }
-    .join-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--blue-light); }
-    .join-icon { width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, rgba(27,77,137,0.08), rgba(8,145,178,0.08)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; color: var(--blue-mid); }
-    .join-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
-    .join-card p { font-size: 0.85rem; color: var(--text3); line-height: 1.7; margin-bottom: 1.25rem; }
-    .join-card .btn-outline { font-size: 0.85rem; padding: 0.5rem 1.25rem; }
+    .join-card:hover { transform:translateY(-5px);box-shadow:var(--shadow-xl);border-color:transparent; }
+    .join-icon { width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,rgba(27,77,137,0.08),rgba(8,145,178,0.08));display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;color:var(--blue-mid);transition:all 0.3s; }
+    .join-card:hover .join-icon { background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff; }
+    .join-card h3 { font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:0.6rem; }
+    .join-card p { font-size:0.875rem;color:var(--text3);line-height:1.75;margin-bottom:1.5rem; }
+
+    /* ===== CTA BANNER (new) ===== */
+    .cta-banner {
+      background: linear-gradient(135deg, #0F172A 0%, #1B4D89 50%, #0891B2 100%);
+      background-size: 200% 200%;
+      animation: gradient-shift 8s ease infinite;
+      padding: 5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content:''; position:absolute; inset:0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cta-banner-inner { position:relative;z-index:1;max-width:700px;margin:0 auto; }
+    .cta-banner h2 { font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#fff;letter-spacing:-0.025em;margin-bottom:0.75rem;line-height:1.2; }
+    .cta-banner p { font-size:1.05rem;color:rgba(255,255,255,0.75);margin-bottom:2.25rem;line-height:1.75; }
+    .cta-banner-btns { display:flex;gap:1rem;justify-content:center;flex-wrap:wrap; }
+    .btn-white { padding:0.9rem 2rem;border-radius:12px;font-size:0.9rem;font-weight:700;background:#fff;color:var(--blue);transition:all 0.3s;display:inline-flex;align-items:center;gap:8px; }
+    .btn-white:hover { transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.2); }
+    .btn-white-outline { padding:0.9rem 2rem;border-radius:12px;font-size:0.9rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.35);color:rgba(255,255,255,0.9);background:transparent;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px; }
+    .btn-white-outline:hover { background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6); }
+    .cta-stats { display:flex;gap:3rem;justify-content:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.12); }
+    .cta-stat-num { font-size:2rem;font-weight:900;color:#fff;font-family:'Inter',sans-serif;letter-spacing:-0.04em; }
+    .cta-stat-label { font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:2px; }
 
     /* ===== CONTACT ===== */
-    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .contact-info h2 { font-size: 2rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .contact-info p { color: var(--text2); margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.8; }
-    .contact-detail { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-item { display: flex; align-items: center; gap: 1rem; }
-    .contact-item-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--bg3); display: flex; align-items: center; justify-content: center; color: var(--blue-mid); flex-shrink: 0; }
-    .contact-item-label { font-size: 0.75rem; color: var(--text4); }
-    .contact-item-value { font-size: 0.9rem; font-weight: 600; color: var(--text2); }
-    .contact-form { background: var(--bg2); border-radius: var(--radius-lg); padding: 2.5rem; border: 1px solid var(--border); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-    .form-group { margin-bottom: 1rem; }
-    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text2); margin-bottom: 0.4rem; }
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%; padding: 0.7rem 1rem; border-radius: 8px; border: 1.5px solid var(--border);
-      background: #fff; color: var(--text); font-size: 0.875rem; font-family: inherit;
-      transition: border-color 0.2s; outline: none;
+    .contact-layout { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start; }
+    .contact-info h2 { font-size:2rem;font-weight:900;color:var(--text);letter-spacing:-0.025em;margin-bottom:1rem; }
+    .contact-info p { color:var(--text2);margin-bottom:2rem;font-size:0.95rem;line-height:1.85; }
+    .contact-detail { display:flex;flex-direction:column;gap:1.1rem; }
+    .contact-item { display:flex;align-items:flex-start;gap:1rem; }
+    .contact-item-icon { width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,rgba(27,77,137,0.08),rgba(8,145,178,0.08));display:flex;align-items:center;justify-content:center;color:var(--blue-mid);flex-shrink:0; }
+    .contact-item-label { font-size:0.73rem;color:var(--text4);margin-bottom:2px; }
+    .contact-item-value { font-size:0.9rem;font-weight:600;color:var(--text2); }
+    .contact-qrcode { margin-top:1.5rem;padding:1.25rem;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:inline-flex;align-items:center;gap:1rem; }
+    .contact-qrcode-box { width:80px;height:80px;background:var(--bg3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text4);text-align:center; }
+    .contact-qrcode-text h4 { font-size:0.875rem;font-weight:700;color:var(--text);margin-bottom:0.2rem; }
+    .contact-qrcode-text p { font-size:0.78rem;color:var(--text3); }
+    .contact-form { background:#fff;border-radius:var(--radius-lg);padding:2.5rem;border:1px solid var(--border);box-shadow:var(--shadow); }
+    .contact-form-title { font-size:1.15rem;font-weight:800;margin-bottom:0.35rem;color:var(--text); }
+    .contact-form-sub { font-size:0.82rem;color:var(--text3);margin-bottom:1.75rem; }
+    .form-row { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0; }
+    .form-group { margin-bottom:1rem; }
+    .form-group label { display:block;font-size:0.8rem;font-weight:600;color:var(--text2);margin-bottom:0.4rem; }
+    .form-group input,.form-group textarea,.form-group select {
+      width:100%;padding:0.75rem 1rem;border-radius:10px;border:1.5px solid var(--border);
+      background:#fff;color:var(--text);font-size:0.875rem;font-family:inherit;
+      transition:border-color 0.2s,box-shadow 0.2s;outline:none;
     }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--blue-light); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
-    .form-group textarea { height: 100px; resize: vertical; }
-    .form-submit { width: 100%; padding: 0.85rem; border-radius: 10px; background: var(--blue); color: #fff; font-size: 0.95rem; font-weight: 600; transition: all 0.25s; }
-    .form-submit:hover { background: var(--blue-mid); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(27,77,137,0.3); }
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:var(--blue-light);box-shadow:0 0 0 3px rgba(59,130,246,0.12); }
+    .form-group textarea { height:100px;resize:vertical; }
+    .form-submit {
+      width:100%;padding:0.9rem;border-radius:12px;
+      background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+      color:#fff;font-size:0.95rem;font-weight:700;
+      transition:all 0.3s;position:relative;overflow:hidden;
+    }
+    .form-submit::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0),rgba(255,255,255,0.15),rgba(255,255,255,0));transform:translateX(-100%);transition:transform 0.5s; }
+    .form-submit:hover { transform:translateY(-1px);box-shadow:0 6px 20px rgba(27,77,137,0.35); }
+    .form-submit:hover::before { transform:translateX(100%); }
+    .form-privacy { font-size:0.75rem;color:var(--text4);text-align:center;margin-top:0.75rem; }
 
     /* ===== FOOTER ===== */
-    .footer { background: var(--text); color: rgba(255,255,255,0.6); padding: 4rem 4rem 2rem; }
-    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .footer-brand { }
-    .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 1rem; }
-    .footer-logo-img { height: 32px; width: auto; border-radius: 6px; object-fit: contain; }
-    .footer-brand p { font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.5); }
-    .footer-col h4 { font-size: 0.82rem; font-weight: 700; color: #fff; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul a { font-size: 0.82rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-    .footer-col ul a:hover { color: #fff; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
-    .footer-bottom a { color: rgba(255,255,255,0.4); }
-    .footer-bottom a:hover { color: rgba(255,255,255,0.8); }
+    .footer { background:linear-gradient(180deg,#0F172A 0%,#0a1020 100%);color:rgba(255,255,255,0.55);padding:4.5rem 4rem 2rem; }
+    .footer-top { display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08); }
+    .footer-logo { display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:1rem; }
+    .footer-logo-img { height:32px;width:auto;border-radius:6px;object-fit:contain; }
+    .footer-brand p { font-size:0.82rem;line-height:1.75;color:rgba(255,255,255,0.45);margin-bottom:1.25rem; }
+    .footer-social { display:flex;gap:0.5rem; }
+    .footer-social-btn { width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);transition:all 0.2s;font-size:0.75rem;font-weight:600; }
+    .footer-social-btn:hover { border-color:var(--blue-light);color:var(--blue-light);background:rgba(59,130,246,0.08); }
+    .footer-col h4 { font-size:0.8rem;font-weight:700;color:#fff;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem; }
+    .footer-col ul { list-style:none;display:flex;flex-direction:column;gap:0.6rem; }
+    .footer-col ul a { font-size:0.82rem;color:rgba(255,255,255,0.45);transition:color 0.2s; }
+    .footer-col ul a:hover { color:#fff; }
+    .footer-bottom { display:flex;justify-content:space-between;align-items:center;font-size:0.78rem; }
+    .footer-bottom a { color:rgba(255,255,255,0.35);transition:color 0.2s; }
+    .footer-bottom a:hover { color:rgba(255,255,255,0.75); }
 
     /* ===== BACK TO TOP ===== */
     .back-top {
-      position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px;
-      border-radius: 12px; background: var(--blue); color: #fff; display: flex;
-      align-items: center; justify-content: center; cursor: pointer; opacity: 0;
-      visibility: hidden; transition: all 0.3s; box-shadow: 0 4px 16px rgba(27,77,137,0.3);
-      z-index: 999; border: none;
+      position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;
+      border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+      color:#fff;display:flex;align-items:center;justify-content:center;
+      cursor:pointer;opacity:0;visibility:hidden;transition:all 0.3s;
+      box-shadow:0 4px 16px rgba(27,77,137,0.35);z-index:999;
     }
-    .back-top.visible { opacity: 1; visibility: visible; }
-    .back-top:hover { background: var(--blue-mid); transform: translateY(-2px); }
+    .back-top.visible { opacity:1;visibility:visible; }
+    .back-top:hover { transform:translateY(-3px);box-shadow:0 8px 24px rgba(27,77,137,0.5); }
 
-    /* ===== FLOAT ===== */
+    /* ===== TESTIMONIAL QUOTE MARK ===== */
+    .testimonial-card { position:relative; overflow:hidden; }
+    .testimonial-card::before {
+      content:'\201C'; position:absolute; top:-10px; right:16px;
+      font-size:6rem; font-family:'Georgia',serif; line-height:1;
+      color:var(--blue-light); opacity:0.07; pointer-events:none;
+    }
+    .testimonial-card:hover { border-color:rgba(37,99,235,0.2); box-shadow:var(--shadow-md); transform:translateY(-3px); }
+    .testimonial-card { transition:all 0.3s cubic-bezier(0.16,1,0.3,1); }
+
+    /* ===== SECTION LABEL ENHANCED ===== */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.85rem;
+      background: linear-gradient(135deg, rgba(8,145,178,0.08), rgba(37,99,235,0.06));
+      padding: 0.3rem 0.8rem; border-radius: 20px;
+      border: 1px solid rgba(8,145,178,0.15);
+    }
+    .section-label::before, .section-label::after { display:none; }
+
+    /* ===== PLATFORM CARD GRADIENT ICON ===== */
+    .platform-card:nth-child(1) .platform-card-line { background:linear-gradient(90deg,#1B4D89,#2563EB); }
+    .platform-card:nth-child(2) .platform-card-line { background:linear-gradient(90deg,#0891B2,#22D3EE); }
+    .platform-card:nth-child(3) .platform-card-line { background:linear-gradient(90deg,#7C3AED,#8B5CF6); }
+    .platform-card:nth-child(4) .platform-card-line { background:linear-gradient(90deg,#059669,#10B981); }
+    .platform-card:nth-child(5) .platform-card-line { background:linear-gradient(90deg,#D97706,#F59E0B); }
+    .platform-card:nth-child(6) .platform-card-line { background:linear-gradient(90deg,#DC2626,#EF4444); }
+
+    /* ===== HMT STEP CONNECTOR ===== */
+    .hmt-step-num { background: linear-gradient(135deg,#fff,var(--bg2)); }
+    .hmt-step:hover .hmt-step-num { animation: glow-pulse 2s ease infinite; }
+
+    /* ===== CONTACT FORM ENHANCEMENTS ===== */
+    .contact-form { position:relative; overflow:hidden; }
+    .contact-form::before { content:''; position:absolute; top:-80px; right:-80px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle,rgba(37,99,235,0.04),transparent 70%); pointer-events:none; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--blue-mid); box-shadow:0 0 0 4px rgba(37,99,235,0.08); }
+
+    /* ===== PARTNERS TRACK ENHANCED ===== */
+    .partner-item { background:var(--bg2); border:1px solid var(--border); }
+    .partner-item:hover { background:rgba(27,77,137,0.04); border-color:rgba(27,77,137,0.15); }
+
+    /* ===== FLOAT BUTTONS ===== */
     .float-btns {
-      position: fixed; right: 1.5rem; bottom: 6rem; z-index: 999;
-      display: flex; flex-direction: column; gap: 0.75rem;
+      position:fixed;right:1.5rem;bottom:6rem;z-index:999;
+      display:flex;flex-direction:column;gap:0.6rem;
     }
     .float-btn {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 16px rgba(27,77,137,0.3);
-      font-size: 0.72rem; font-weight: 600; writing-mode: vertical-rl; letter-spacing: 0.05em;
+      width:44px;height:44px;border-radius:12px;
+      background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+      color:#fff;display:flex;align-items:center;justify-content:center;
+      cursor:pointer;transition:all 0.25s;box-shadow:0 4px 16px rgba(27,77,137,0.3);
+      font-size:0.7rem;font-weight:600;writing-mode:vertical-rl;letter-spacing:0.05em;
     }
-    .float-btn:hover { background: var(--blue-mid); transform: translateY(-2px); }
+    .float-btn:hover { background:var(--teal);transform:translateY(-2px) scale(1.05);box-shadow:0 8px 24px rgba(8,145,178,0.4); }
+    .float-btn-phone { writing-mode:initial; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .hero { padding: 0 2rem; }
       .hero-visual { display: none; }
-      .hero-content { max-width: 100%; }
+      .hero-inner { grid-template-columns:1fr; }
       .section { padding: 5rem 2rem; }
       .nav { padding: 0 2rem; }
-      .nav-links { display: none; }
+      .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
+      .trust-bar { padding: 1rem 2rem; gap: 2rem; flex-wrap: wrap; justify-content: center; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .platform-grid { grid-template-columns: repeat(2, 1fr); }
       .hmt-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
@@ -478,14 +775,18 @@
       .products-grid { grid-template-columns: repeat(2, 1fr); }
       .cases-grid { grid-template-columns: repeat(2, 1fr); }
       .news-grid { grid-template-columns: 1fr 1fr; }
+      .testimonial-card { min-width: calc(50% - 0.75rem); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       .footer { padding: 3rem 2rem 1.5rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-      .join-grid { grid-template-columns: 1fr; }
+      .join-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+      .cta-banner { padding: 4rem 2rem; }
+      .cta-stats { gap: 2rem; }
     }
     @media (max-width: 640px) {
-      .hero-stats { gap: 2rem; }
+      .hero-stats { gap: 1.5rem; }
       .platform-grid { grid-template-columns: 1fr; }
       .hmt-steps { grid-template-columns: repeat(2, 1fr); }
       .indications-grid { grid-template-columns: 1fr; }
@@ -493,21 +794,15 @@
       .cases-grid { grid-template-columns: 1fr; }
       .news-grid { grid-template-columns: 1fr; }
       .science-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
       .hero-btns { flex-direction: column; }
       .hero-btns .btn-primary, .hero-btns .btn-outline { text-align: center; justify-content: center; }
+      .testimonial-card { min-width: 100%; }
+      .cta-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .trust-bar .trust-item:nth-child(n+3) { display: none; }
     }
-    /* Mobile nav */
-    .nav-mobile {
-      position: fixed; inset: 0; z-index: 999;
-      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 0.5rem;
-    }
-    .nav-mobile a { padding: 0.75rem 2rem; font-size: 1.1rem; font-weight: 600; color: var(--text2); border-radius: 10px; transition: all 0.2s; }
-    .nav-mobile a:hover { background: var(--bg3); color: var(--blue); }
-    .nav-mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: var(--text3); }
   </style>
 </head>
 <body>
@@ -516,8 +811,8 @@
 <nav class="nav" id="nav">
   <div class="nav-logo">
     <img src="assets/logo.png" alt="源龄生命" class="nav-logo-img" />
-    <div>
-      源龄生命
+    <div class="nav-logo-text">
+      <span class="nav-logo-cn">源龄生命</span>
       <span class="nav-logo-en">Yuan Ling Life</span>
     </div>
   </div>
@@ -529,14 +824,16 @@
     <li><a href="#news">资讯中心</a></li>
     <li><a href="#join">招商加盟</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">立即咨询</a>
-  <div class="nav-hamburger" onclick="toggleMobile()">
+  <div class="nav-right">
+    <a href="#contact" class="nav-cta">预约咨询</a>
+  </div>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMobile()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
 <!-- MOBILE NAV -->
-<div class="nav-mobile" id="mobileNav" style="display:none">
+<div class="nav-mobile" id="mobileNav">
   <div class="nav-mobile-close" onclick="toggleMobile()">✕</div>
   <a href="#about" onclick="toggleMobile()">关于我们</a>
   <a href="#platform" onclick="toggleMobile()">核心技术</a>
@@ -544,124 +841,184 @@
   <a href="#cases" onclick="toggleMobile()">临床验证</a>
   <a href="#news" onclick="toggleMobile()">资讯中心</a>
   <a href="#join" onclick="toggleMobile()">招商加盟</a>
-  <a href="#contact" onclick="toggleMobile()" style="color:var(--blue-mid)">立即咨询</a>
+  <a href="#contact" onclick="toggleMobile()" class="nav-mobile-cta">立即预约咨询</a>
 </div>
 
 <!-- HERO -->
 <section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-scan"></div>
   <div class="hero-inner">
-    <!-- LEFT: Content -->
     <div class="hero-content">
       <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        亚洲超规模化肠菌供体库 &nbsp;·&nbsp; P2级实验室
+        <span class="hero-badge-pulse"></span>
+        亚洲超规模化肠菌供体库 &nbsp;·&nbsp; P2级实验室 &nbsp;·&nbsp; GMP生产
       </div>
       <h1>
-        从源头<br/>
-        <span class="hl">管理肠道健康</span>
+        肠年轻，<br/>
+        <span class="hl">长年轻</span>
       </h1>
       <p>
-        源龄生命依托 AI + 精准医学，打造亚洲领先的肠道菌群移植技术平台，
-        为肠道及肠道外疾病提供创新治疗方案，守护人体最强大的免疫屏障。
+        源龄生命依托 AI 精准配方技术与亚洲领先肠菌供体库，
+        打造从菌群检测、精准移植到全程健康管理的微生态精准医疗体系——
+        让肠道健康成为您抗衰长寿的核心引擎。
       </p>
       <div class="hero-btns">
         <a href="#platform" class="btn-primary">
-          了解核心技术
+          探索 HMT 核心技术
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#contact" class="btn-outline">预约专家咨询</a>
+        <a href="#contact" class="btn-outline">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.56-1.56a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          预约免费咨询
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-avs">
+          <span>医</span><span>研</span><span>专</span><span>+</span>
+        </div>
+        <div class="hero-trust-text">已有 <strong>2,000+</strong> 位患者在源龄生命获得专业治疗</div>
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-num">500<span class="accent">+</span></div>
+          <div class="hero-stat-num" data-count="500">0<span class="accent">+</span></div>
           <div class="hero-stat-label">临床合作机构</div>
         </div>
         <div>
-          <div class="hero-stat-num">2000<span class="accent">+</span></div>
+          <div class="hero-stat-num" data-count="2000">0<span class="accent">+</span></div>
           <div class="hero-stat-label">成功治疗案例</div>
         </div>
         <div>
-          <div class="hero-stat-num">20<span class="accent">+</span></div>
+          <div class="hero-stat-num" data-count="20">0<span class="accent">+</span></div>
           <div class="hero-stat-label">核心专利技术</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="94">0<span class="accent">%</span></div>
+          <div class="hero-stat-label">CDI 单次有效率</div>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT: Clean image visual -->
     <div class="hero-visual">
       <div class="hero-img-wrap">
         <img src="assets/banner-lab.png" alt="源龄生命实验室" />
       </div>
-      <!-- Floating info cards -->
-      <div class="hero-float-card" style="bottom: 10%; left: -5%;">
-        <div class="hero-float-card-icon" style="background: rgba(27,77,137,0.1);">
+      <!-- Orbital decoration -->
+      <div class="hero-orbit-wrap">
+        <div class="hero-orbit-ring"></div>
+        <div class="hero-orbit-dot"></div>
+        <div class="hero-orbit-dot2"></div>
+      </div>
+      <!-- Floating cards -->
+      <div class="hero-float-card">
+        <div class="hero-float-card-icon" style="background:rgba(27,77,137,0.1);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B4D89" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
         <div>
-          <div style="font-size:0.8rem;font-weight:700;color:var(--text);">AI 精准配方</div>
-          <div style="font-size:0.7rem;color:var(--text3);">智能匹配供体</div>
+          <div style="font-size:0.8rem;font-weight:800;color:var(--text);">AI 精准配方</div>
+          <div style="font-size:0.7rem;color:var(--text3);">智能供体匹配</div>
         </div>
       </div>
-      <div class="hero-float-card" style="top: 10%; right: -5%;">
-        <div class="hero-float-card-icon" style="background: rgba(37,99,235,0.1);">
+      <div class="hero-float-card">
+        <div class="hero-float-card-icon" style="background:rgba(37,99,235,0.1);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div>
-          <div style="font-size:0.8rem;font-weight:700;color:var(--text);">GMP 标准</div>
+          <div style="font-size:0.8rem;font-weight:800;color:var(--text);">GMP 认证</div>
           <div style="font-size:0.7rem;color:var(--text3);">全流程质量管控</div>
         </div>
       </div>
     </div>
   </div>
   <div class="hero-scroll">
-    <span>向下滑动</span>
+    <span>向下探索</span>
     <div class="hero-scroll-line"></div>
   </div>
 </section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <strong>P2级</strong> 生物安全实验室认证
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    亚洲 <strong>超规模化</strong> 肠菌供体库
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <strong>GMP</strong> 全流程生产标准
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <strong>7×13h</strong> 专业医疗服务
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+    联合 <strong>500+</strong> 临床机构
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section class="section" id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-visual reveal">
-        <img src="assets/scientist.png" alt="源龄生命科研团队" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
-        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);padding:2rem 1.5rem 1.25rem;">
-          <div class="about-visual-label" style="color:#fff;font-weight:700;">源龄生命 · 深圳</div>
-          <div class="about-visual-sub" style="color:rgba(255,255,255,0.7);">P2级微生物实验室 · 亚洲超规模化肠菌供体库</div>
-        </div>
-        <div class="about-visual-badge">
-          <div class="about-badge-item">
-            <div class="about-badge-num">500m²</div>
-            <div class="about-badge-text">实验面积</div>
+        <img src="assets/scientist.png" alt="源龄生命科研团队" loading="lazy" />
+        <div class="about-visual-overlay"></div>
+        <div class="about-visual-stats">
+          <div class="about-stat">
+            <div class="about-stat-num">500m²</div>
+            <div class="about-stat-label">实验面积</div>
           </div>
-          <div class="about-badge-item">
-            <div class="about-badge-num">P2</div>
-            <div class="about-badge-text">生物安全等级</div>
+          <div class="about-stat">
+            <div class="about-stat-num">P2</div>
+            <div class="about-stat-label">生物安全等级</div>
           </div>
-          <div class="about-badge-item">
-            <div class="about-badge-num">GMP</div>
-            <div class="about-badge-text">生产标准</div>
+          <div class="about-stat">
+            <div class="about-stat-num">GMP</div>
+            <div class="about-stat-label">生产标准</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">AI</div>
+            <div class="about-stat-label">精准配方</div>
           </div>
         </div>
       </div>
       <div class="about-text">
         <div class="section-label reveal">About Us</div>
-        <h2 class="reveal reveal-delay-1">以<span>肠道菌群</span>为核心<br/>重新定义精准医疗</h2>
+        <h2 class="reveal reveal-delay-1">以<span class="hl">肠道菌群</span>为核心<br/>重新定义精准医疗</h2>
         <p class="reveal reveal-delay-2">
-          源龄健康产业科技（深圳）有限责任公司是一家专注于肠道菌群移植（HMT/FMT）技术研发与临床应用的生物科技企业。公司总部位于深圳，依托P2级微生物实验室与亚洲超规模化肠菌供体库，为肠道及多种肠道外疾病提供创新治疗方案。
+          源龄健康产业科技（深圳）有限责任公司专注于肠道菌群移植（HMT/FMT）技术研发与临床应用，总部位于深圳。依托 P2 级微生物实验室与亚洲超规模化肠菌供体库，为肠道及多种肠道外疾病提供创新治疗方案。
         </p>
-        <p class="reveal reveal-delay-2">
-          我们将AI技术与精准医学相结合，自主研发HMT 4.0精准移植体系，实现从菌群检测、配方筛选到精准移植的全流程标准化管控，填补华南地区肠道微生态精准医疗的技术空白。
-        </p>
+        <div class="about-feats reveal reveal-delay-2">
+          <div class="about-feat">
+            <div class="about-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="about-feat-text"><strong>HMT 4.0 精准移植体系</strong> — AI大模型与精准医学深度融合，全流程标准化管控，菌群成活率行业领先</div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="about-feat-text"><strong>亚洲超规模化供体库</strong> — 近百项供体筛查指标，超声冷冻保存技术，持续动态监测保障原料品质</div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="about-feat-text"><strong>填补华南区域空白</strong> — 率先落地深圳的HMT精准医疗机构，多项研究成果纳入临床指南</div>
+          </div>
+        </div>
         <div class="about-tags reveal reveal-delay-3">
           <span class="about-tag">肠道菌群移植</span>
           <span class="about-tag">AI精准配方</span>
           <span class="about-tag">16S基因检测</span>
           <span class="about-tag">复合益生元</span>
           <span class="about-tag">健康管理</span>
+          <span class="about-tag">深圳P2实验室</span>
+          <span class="about-tag">GMP生产标准</span>
+          <span class="about-tag">科研合作</span>
         </div>
         <a href="#platform" class="about-link reveal reveal-delay-4">
-          了解更多核心技术
+          探索五大核心技术平台
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -675,50 +1032,56 @@
     <div class="section-header reveal">
       <div class="section-label">Technology Platform</div>
       <h2 class="section-title">五大技术平台</h2>
-      <p class="section-subtitle">覆盖从菌群检测、AI配方研发、精准移植到生产质控的全流程技术体系</p>
+      <p class="section-subtitle">覆盖从菌群检测、AI配方研发、精准移植到生产质控的全流程技术体系，构建不可复制的核心竞争力</p>
     </div>
     <div class="platform-grid">
       <div class="platform-card reveal reveal-delay-1">
+        <div class="platform-card-line"></div>
         <div class="platform-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </div>
         <h3>生物信息平台</h3>
-        <p>AI驱动肠道菌群基因测序与大数据分析，深度解析菌群结构与功能特征，为精准移植提供数据支撑。</p>
+        <p>AI 驱动肠道菌群基因测序与大数据分析，深度解析菌群结构与功能特征，千人基因组数据库持续积累，为精准移植提供强大数据支撑。</p>
       </div>
       <div class="platform-card reveal reveal-delay-2">
+        <div class="platform-card-line"></div>
         <div class="platform-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
         </div>
         <h3>微生物供体库</h3>
-        <p>亚洲超规模化健康肠菌供体库，严格筛选与动态监测，储备多样性菌群资源，保障移植原料品质。</p>
+        <p>亚洲超规模化健康肠菌供体库，经过 1,000+ 项健康筛查，动态监测与定期复检确保供体持续健康，菌群多样性与丰度在行业领先。</p>
       </div>
       <div class="platform-card reveal reveal-delay-3">
+        <div class="platform-card-line"></div>
         <div class="platform-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <h3>AI配方筛选平台</h3>
-        <p>基于机器学习算法，根据患者肠道特征与疾病分型，智能匹配最优菌群配方，实现个性化精准移植。</p>
+        <p>基于深度机器学习，根据患者肠道 16S 测序特征与疾病分型，从供体库中智能匹配最优菌群配方，个性化精准度行业第一。</p>
       </div>
       <div class="platform-card reveal reveal-delay-1">
+        <div class="platform-card-line"></div>
         <div class="platform-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
         <h3>制剂研发平台</h3>
-        <p>专利菌群保存与制剂工艺，确保活性菌群在存储、运输、移植全程保持最高存活率与治疗效力。</p>
+        <p>自研专利菌群低温保存技术与冻干制剂工艺，活性菌群在整个存储、运输、移植链路中保活率 ≥ 95%，充分保障治疗效力。</p>
       </div>
       <div class="platform-card reveal reveal-delay-2">
+        <div class="platform-card-line"></div>
         <div class="platform-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>GMP生产平台</h3>
-        <p>符合国家药品生产质量管理规范的全流程质控体系，覆盖原料入库、生产制备到成品放行的每个环节。</p>
+        <p>500m² P2 级实验室，符合 GMP 药品生产质量管理规范，覆盖原料入库、制备、质检到成品放行全流程的严格质控体系。</p>
       </div>
       <div class="platform-card reveal reveal-delay-3">
+        <div class="platform-card-line"></div>
         <div class="platform-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
         <h3>临床转化平台</h3>
-        <p>联合三甲医院开展多中心临床研究，推进肠道菌群移植技术的标准化与合规化进程。</p>
+        <p>联合深圳大学医学部、中山大学附属医院等三甲机构开展多中心临床研究，推动 HMT 技术标准化与合规化进程，推动指南收录。</p>
       </div>
     </div>
   </div>
@@ -730,28 +1093,28 @@
     <div class="section-header reveal">
       <div class="section-label">HMT 4.0 Technology</div>
       <h2 class="section-title">HMT 4.0 精准移植体系</h2>
-      <p class="section-subtitle">从肠道检测到精准移植，六步标准化流程实现肠道微生态重建</p>
+      <p class="section-subtitle">从肠道基因检测到精准移植后追踪，六步标准化流程实现肠道微生态全面重建，每个环节均有 AI 辅助决策</p>
     </div>
     <div class="hmt-steps reveal">
       <div class="hmt-step">
         <div class="hmt-step-num">01</div>
         <h4>肠道检测</h4>
-        <p>16S rRNA基因测序</p>
+        <p>16S rRNA 高通量测序</p>
       </div>
       <div class="hmt-step">
         <div class="hmt-step-num">02</div>
-        <h4>AI分析</h4>
-        <p>菌群特征深度解析</p>
+        <h4>AI 深度分析</h4>
+        <p>菌群多样性与功能解析</p>
       </div>
       <div class="hmt-step">
         <div class="hmt-step-num">03</div>
         <h4>配方筛选</h4>
-        <p>个性化精准匹配</p>
+        <p>个性化供体精准匹配</p>
       </div>
       <div class="hmt-step">
         <div class="hmt-step-num">04</div>
-        <h4>供体选取</h4>
-        <p>亚洲超规模化供体库</p>
+        <h4>供体制备</h4>
+        <p>GMP 标准全程质控</p>
       </div>
       <div class="hmt-step">
         <div class="hmt-step-num">05</div>
@@ -760,8 +1123,8 @@
       </div>
       <div class="hmt-step">
         <div class="hmt-step-num">06</div>
-        <h4>效果追踪</h4>
-        <p>持续管理与评估</p>
+        <h4>持续追踪</h4>
+        <p>定期复查与效果评估</p>
       </div>
     </div>
   </div>
@@ -773,48 +1136,48 @@
     <div class="section-header reveal">
       <div class="section-label">Clinical Indications</div>
       <h2 class="section-title">HMT 适应症范围</h2>
-      <p class="section-subtitle">经临床验证，肠道菌群移植对多种肠道及肠道外疾病具有显著疗效</p>
+      <p class="section-subtitle">经多中心临床验证，肠道菌群移植（HMT/FMT）对以下肠道及肠道外疾病具有显著疗效，多项纳入国家指南</p>
     </div>
     <div class="indications-grid">
       <div class="indication-card reveal reveal-delay-1">
         <div class="indication-icon">🔬</div>
         <h4>炎症性肠病</h4>
-        <p>溃疡性结肠炎、克罗恩病等IBD疾病</p>
+        <p>溃疡性结肠炎（UC）、克罗恩病（CD）等 IBD 的维持缓解与减药</p>
       </div>
       <div class="indication-card reveal reveal-delay-2">
         <div class="indication-icon">🦠</div>
         <h4>艰难梭菌感染</h4>
-        <p>复发性CDI感染（rCDI）的标准治疗方案</p>
+        <p>复发性 CDI（rCDI）单次 HMT 有效率 94%，列为国际一线推荐</p>
       </div>
       <div class="indication-card reveal reveal-delay-3">
         <div class="indication-icon">🧠</div>
         <h4>神经精神系统</h4>
-        <p>自闭症、帕金森、阿尔茨海默症辅助治疗</p>
+        <p>自闭症（ASD）、帕金森、阿尔茨海默症肠-脑轴辅助治疗</p>
       </div>
       <div class="indication-card reveal reveal-delay-4">
         <div class="indication-icon">⚖️</div>
         <h4>代谢性疾病</h4>
-        <p>肥胖、糖尿病、非酒精性脂肪肝等</p>
+        <p>肥胖、2型糖尿病、非酒精性脂肪肝（NAFLD）等代谢综合征</p>
       </div>
       <div class="indication-card reveal reveal-delay-1">
         <div class="indication-icon">🛡️</div>
         <h4>肿瘤免疫</h4>
-        <p>联合PD-1/PD-L1抑制剂增强抗肿瘤疗效</p>
+        <p>联合 PD-1/PD-L1 抑制剂，显著增强抗肿瘤免疫应答与 ORR</p>
       </div>
       <div class="indication-card reveal reveal-delay-2">
         <div class="indication-icon">💪</div>
         <h4>自身免疫</h4>
-        <p>系统性红斑狼疮、类风湿关节炎等</p>
+        <p>系统性红斑狼疮（SLE）、类风湿关节炎（RA）辅助免疫调节</p>
       </div>
       <div class="indication-card reveal reveal-delay-3">
         <div class="indication-icon">🫁</div>
         <h4>呼吸道疾病</h4>
-        <p>哮喘、慢性阻塞性肺病等辅助治疗</p>
+        <p>哮喘、慢性阻塞性肺病（COPD）等肠-肺轴相关疾病的辅助治疗</p>
       </div>
       <div class="indication-card reveal reveal-delay-4">
         <div class="indication-icon">❤️</div>
         <h4>心脑血管</h4>
-        <p>动脉粥样硬化、高血压等代谢综合征</p>
+        <p>动脉粥样硬化、高血压等与菌群紊乱相关的代谢心血管综合征</p>
       </div>
     </div>
   </div>
@@ -824,38 +1187,40 @@
 <section class="section" id="products">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">Products & Services</div>
+      <div class="section-label">Products &amp; Services</div>
       <h2 class="section-title">产品与服务</h2>
-      <p class="section-subtitle">三大核心产品，从检测到治疗，守护肠道健康全周期</p>
+      <p class="section-subtitle">三大核心产品 + 三项专业服务，从检测到治疗到管理，守护您的肠道健康全周期</p>
     </div>
     <div class="products-grid">
       <div class="product-card reveal reveal-delay-1">
-        <div class="product-img" style="background:#f0f6ff;padding:0;">
-          <img src="assets/product-1.png" alt="肠道菌群16S基因检测" style="width:100%;height:100%;object-fit:cover;border-radius:0;" />
+        <div class="product-img product-img-1" style="padding:0;">
+          <img src="assets/product-1.png" loading="lazy" alt="肠道菌群16S基因检测" style="width:100%;height:100%;object-fit:cover;" />
+          <span class="product-badge">核心产品</span>
         </div>
         <div class="product-body">
           <h3>肠道菌群16S基因检测</h3>
-          <p>肠年轻，长年轻。通过16S rRNA高通量测序技术，精准分析肠道菌群多样性，生成个性化肠道健康报告。</p>
+          <p>通过高通量 16S rRNA 测序，精准分析您的肠道菌群多样性、丰度与功能状态，生成个性化肠道健康报告，并配套 AI 解读服务。</p>
           <a href="#contact" class="product-link">立即预约 →</a>
         </div>
       </div>
       <div class="product-card reveal reveal-delay-2">
-        <div class="product-img" style="background:#f0fdf4;padding:0;">
-          <img src="assets/product-2.png" alt="深圳肠道菌群精准移植" style="width:100%;height:100%;object-fit:cover;border-radius:0;" />
+        <div class="product-img product-img-2" style="padding:0;">
+          <img src="assets/product-2.png" loading="lazy" alt="深圳肠道菌群精准移植" style="width:100%;height:100%;object-fit:cover;" />
+          <span class="product-badge" style="background:linear-gradient(135deg,#059669,#10B981);">明星产品</span>
         </div>
         <div class="product-body">
-          <h3>深圳肠道菌群精准移植</h3>
-          <p>菌群定向移植HMT产品包。基于AI配方筛选，匹配个性化菌群供体，多途径规范化移植，重建健康肠道微生态。</p>
+          <h3>HMT 菌群精准移植</h3>
+          <p>基于 AI 配方筛选与亚洲超规模化供体库，为每位患者定制专属菌群配方，多途径规范化精准移植，重建健康肠道微生态。</p>
           <a href="#contact" class="product-link">立即预约 →</a>
         </div>
       </div>
       <div class="product-card reveal reveal-delay-3">
-        <div class="product-img" style="background:#fef3c7;padding:0;">
-          <img src="assets/product-3.png" alt="复合益生元" style="width:100%;height:100%;object-fit:cover;border-radius:0;" />
+        <div class="product-img product-img-3" style="padding:0;">
+          <img src="assets/product-3.png" loading="lazy" alt="复合益生元" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div class="product-body">
-          <h3>复合益生元</h3>
-          <p>万亿菌株养料，辅助更有效。根据肠道检测结果，搭配个性化复合益生元组合，定向促进有益菌增殖，巩固移植效果。</p>
+          <h3>个性化复合益生元</h3>
+          <p>根据肠道检测结果，搭配个性化复合益生元组合（万亿菌株养料），定向促进有益菌增殖，巩固移植效果，加速肠道康复。</p>
           <a href="#contact" class="product-link">立即预约 →</a>
         </div>
       </div>
@@ -864,8 +1229,8 @@
           <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#DB2777" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div class="product-body">
-          <h3>特色精密体检</h3>
-          <p>针对肠道健康定制的深度体检套餐，涵盖菌群检测、代谢评估、免疫功能等全面指标。</p>
+          <h3>特色精密肠道体检</h3>
+          <p>针对肠道健康定制的深度体检套餐，涵盖菌群检测、代谢评估、炎症标志物、免疫功能等 50+ 项综合指标，配套专家解读。</p>
           <a href="#contact" class="product-link">了解更多 →</a>
         </div>
       </div>
@@ -875,7 +1240,7 @@
         </div>
         <div class="product-body">
           <h3>细胞免疫功能评估</h3>
-          <p>深度免疫细胞功能检测，评估肠道相关淋巴组织健康状态，指导精准免疫调节方案。</p>
+          <p>深度免疫细胞功能检测，全面评估肠道相关淋巴组织（GALT）健康状态，为肿瘤免疫联合治疗方案提供精准指导。</p>
           <a href="#contact" class="product-link">了解更多 →</a>
         </div>
       </div>
@@ -884,8 +1249,8 @@
           <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div class="product-body">
-          <h3>肠道健康管理</h3>
-          <p>专业医生+营养师团队全程管理，定期跟踪评估，定制化肠道健康维护方案。</p>
+          <h3>肠道健康全程管理</h3>
+          <p>资深医生 + 营养师 + 健康管理师三师联动，从检测报告解读到生活方式干预，持续追踪您的肠道健康改善轨迹。</p>
           <a href="#contact" class="product-link">了解更多 →</a>
         </div>
       </div>
@@ -898,104 +1263,104 @@
   <div class="container">
     <div class="section-header reveal">
       <div class="section-label">Clinical Evidence</div>
-      <h2 class="section-title">临床验证案例</h2>
-      <p class="section-subtitle">真实临床数据，部分案例被国家医保局《肠菌移植治疗指南》收录</p>
+      <h2 class="section-title">真实临床案例</h2>
+      <p class="section-subtitle">来自真实患者的治疗数据，部分案例已被国家医保局《肠菌移植治疗指南》收录引用</p>
     </div>
     <div class="cases-grid">
       <div class="case-card reveal reveal-delay-1">
         <div class="case-header">
-          <div class="case-avatar" style="background:#2563EB;">李</div>
+          <div class="case-avatar" style="background:linear-gradient(135deg,#2563EB,#3B82F6);">李</div>
           <div class="case-info">
-            <h4>溃疡性结肠炎患者</h4>
-            <p>45岁，男性，病程8年</p>
+            <h4>溃疡性结肠炎</h4>
+            <p>45岁，男性，病程 8 年</p>
           </div>
         </div>
         <div class="case-body">
-          经过3个疗程HMT精准菌群移植治疗后，腹痛、腹泻症状显著改善，肠镜检查显示黏膜愈合率达78%，激素用量减少90%，生活质量明显提升。
+          经 3 个疗程 HMT 精准移植后，腹痛腹泻症状显著改善，肠镜检查黏膜愈合率达 78%，激素用量减少 90%，生活质量大幅提升，目前维持缓解超 24 个月。
         </div>
         <div class="case-tags">
           <span class="case-tag">溃疡性结肠炎</span>
-          <span class="case-tag">HMT</span>
+          <span class="case-tag">HMT 3疗程</span>
           <span class="case-tag">激素减量</span>
         </div>
         <div class="case-result">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          黏膜愈合率 78%
+          黏膜愈合率 78%，维持缓解 24+ 月
         </div>
       </div>
       <div class="case-card reveal reveal-delay-2">
         <div class="case-header">
-          <div class="case-avatar" style="background:#7C3AED;">王</div>
+          <div class="case-avatar" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6);">王</div>
           <div class="case-info">
-            <h4>儿童自闭症合并胃肠道障碍</h4>
-            <p>6岁，男性</p>
+            <h4>儿童自闭症（ASD）</h4>
+            <p>6 岁，男性，合并胃肠道障碍</p>
           </div>
         </div>
         <div class="case-body">
-          患儿伴有严重便秘和社交行为障碍，接受HMT治疗后胃肠道症状明显缓解，ABC量表评分改善23%，睡眠质量提升，受到家长高度认可。
+          患儿伴有严重便秘和社交行为障碍，HMT 治疗后胃肠道症状明显缓解，ABC 行为量表评分改善 23%，语言理解能力提升，睡眠质量显著好转。
         </div>
         <div class="case-tags">
-          <span class="case-tag">自闭症</span>
+          <span class="case-tag">ASD 自闭症</span>
           <span class="case-tag">儿童</span>
-          <span class="case-tag">胃肠道</span>
+          <span class="case-tag">肠-脑轴</span>
         </div>
         <div class="case-result">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          ABC评分改善 23%
+          ABC 量表评分改善 23%
         </div>
       </div>
       <div class="case-card reveal reveal-delay-3">
         <div class="case-header">
-          <div class="case-avatar" style="background:#10B981;">张</div>
+          <div class="case-avatar" style="background:linear-gradient(135deg,#10B981,#059669);">张</div>
           <div class="case-info">
             <h4>复发性艰难梭菌感染</h4>
-            <p>62岁，女性</p>
+            <p>62 岁，女性，复发 3 次</p>
           </div>
         </div>
         <div class="case-body">
-          反复抗生素治疗无效，住院3次，经HMT单次移植治疗后感染完全清除，随访6个月无复发，显著降低医疗负担，方案被纳入国家医保指南。
+          反复抗生素治疗无效，三度住院，单次 HMT 治疗后感染彻底清除，6 个月随访无复发，医疗负担显著降低。本案已被纳入国家医保局指南。
         </div>
         <div class="case-tags">
-          <span class="case-tag">CDI</span>
           <span class="case-tag">rCDI</span>
           <span class="case-tag">指南收录</span>
+          <span class="case-tag">单次移植</span>
         </div>
         <div class="case-result">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          单次移植完全缓解
+          单次移植完全缓解，6月无复发
         </div>
       </div>
       <div class="case-card reveal reveal-delay-1">
         <div class="case-header">
-          <div class="case-avatar" style="background:#D97706;">陈</div>
+          <div class="case-avatar" style="background:linear-gradient(135deg,#D97706,#F59E0B);">陈</div>
           <div class="case-info">
             <h4>2型糖尿病合并肥胖</h4>
-            <p>51岁，男性，BMI 31.2</p>
+            <p>51 岁，男性，BMI 31.2</p>
           </div>
         </div>
         <div class="case-body">
-          血糖控制欠佳，口服降糖药效果有限，经HMT联合复合益生元治疗后，空腹血糖下降31%，体重减轻8.5kg，HbA1c由8.9%降至7.1%。
+          血糖控制欠佳，口服降糖药效果有限，HMT 联合复合益生元治疗后，空腹血糖下降 31%，体重减轻 8.5 kg，HbA1c 由 8.9% 降至 7.1%。
         </div>
         <div class="case-tags">
-          <span class="case-tag">糖尿病</span>
+          <span class="case-tag">T2DM</span>
           <span class="case-tag">肥胖</span>
-          <span class="case-tag">代谢</span>
+          <span class="case-tag">代谢综合征</span>
         </div>
         <div class="case-result">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          HbA1c 8.9% → 7.1%
+          HbA1c 8.9% → 7.1%，体重 ↓ 8.5kg
         </div>
       </div>
       <div class="case-card reveal reveal-delay-2">
         <div class="case-header">
-          <div class="case-avatar" style="background:#DB2777;">周</div>
+          <div class="case-avatar" style="background:linear-gradient(135deg,#DB2777,#EC4899);">周</div>
           <div class="case-info">
-            <h4>帕金森病伴严重便秘</h4>
-            <p>68岁，男性，病程5年</p>
+            <h4>帕金森伴严重便秘</h4>
+            <p>68 岁，男性，病程 5 年</p>
           </div>
         </div>
         <div class="case-body">
-          长期受便秘困扰，严重影响生活质量。HMT治疗后便秘症状显著改善，同时运动症状（静止性震颤、行动迟缓）也有一定程度的缓解。
+          长期顽固性便秘严重影响生活质量。HMT 治疗后便秘症状完全缓解，同时静止性震颤、行动迟缓等运动症状也有一定程度改善，帕金森药物可减量。
         </div>
         <div class="case-tags">
           <span class="case-tag">帕金森</span>
@@ -1004,28 +1369,183 @@
         </div>
         <div class="case-result">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          便秘完全缓解
+          便秘完全缓解，运动症状改善
         </div>
       </div>
       <div class="case-card reveal reveal-delay-3">
         <div class="case-header">
-          <div class="case-avatar" style="background:#0891B2;">赵</div>
+          <div class="case-avatar" style="background:linear-gradient(135deg,#0891B2,#06B6D4);">赵</div>
           <div class="case-info">
             <h4>肿瘤免疫联合治疗</h4>
-            <p>52岁，男性，晚期非小细胞肺癌</p>
+            <p>52 岁，男性，晚期非小细胞肺癌</p>
           </div>
         </div>
         <div class="case-body">
-          PD-1单抗单药疗效欠佳，联合HMT后肠道菌群多样性提升，免疫治疗客观缓解率（ORR）从28%提升至52%，无进展生存期（PFS）延长。
+          PD-1 单抗单药疗效欠佳，联合 HMT 后肠道菌群多样性提升，免疫应答激活，客观缓解率（ORR）从 28% 提升至 52%，无进展生存期（PFS）延长至 14 个月。
         </div>
         <div class="case-tags">
-          <span class="case-tag">肺癌</span>
+          <span class="case-tag">NSCLC</span>
           <span class="case-tag">PD-1</span>
-          <span class="case-tag">联合治疗</span>
+          <span class="case-tag">免疫治疗</span>
         </div>
         <div class="case-result">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          ORR 28% → 52%
+          ORR 28% → 52%，PFS 延长至 14 月
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Patient Voices</div>
+      <h2 class="section-title">患者真实评价</h2>
+      <p class="section-subtitle">来自患者和家属的亲身反馈，是我们不断前进的动力</p>
+    </div>
+    <div class="testimonials-wrap reveal">
+      <div class="testimonials-track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-quote">"我的孩子被诊断为 ASD 并伴随严重便秘。在源龄做了 HMT 之后，大便问题首先得到解决，几个月后孩子的语言表达和社交都有了很明显的改善，真的太感谢了。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6);">王</div>
+            <div>
+              <div class="testimonial-name">王女士</div>
+              <div class="testimonial-meta">儿童 ASD 患儿家长 · 广州</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-quote">"溃疡性结肠炎困扰了我 8 年，常规治疗效果越来越差。做了源龄的 HMT 后，现在已经停用激素 2 年了，肠镜复查显示黏膜完全愈合。这对我来说简直是奇迹。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#2563EB,#3B82F6);">李</div>
+            <div>
+              <div class="testimonial-name">李先生</div>
+              <div class="testimonial-meta">溃疡性结肠炎患者 · 深圳</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-quote">"作为医院的消化科医生，我对 HMT 技术有一定了解。源龄的实验室条件和操作规范是我见过做得最好的。我本人和家人的健康管理都在这里做，非常信赖。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#0891B2,#06B6D4);">陈</div>
+            <div>
+              <div class="testimonial-name">陈医生</div>
+              <div class="testimonial-meta">深圳某三甲医院消化科 · 医生</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-quote">"我妈妈做了 HMT 联合 PD-1 免疫治疗，原来疗效很差，医生说也不乐观。做了菌群移植之后，复查发现肿瘤明显缩小，医生很惊喜，说菌群确实对免疫治疗有很大帮助。"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#D97706,#F59E0B);">刘</div>
+            <div>
+              <div class="testimonial-name">刘先生</div>
+              <div class="testimonial-meta">肺癌患者家属 · 北京</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:2rem;">
+        <div class="testimonial-nav" id="testimonialNav"></div>
+        <div class="testimonial-btns">
+          <div class="testimonial-btn" id="prevBtn" onclick="moveTestimonial(-1)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </div>
+          <div class="testimonial-btn" id="nextBtn" onclick="moveTestimonial(1)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section section-bg" id="team">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Expert Team</div>
+      <h2 class="section-title">专家团队</h2>
+      <p class="section-subtitle">汇聚肠道微生态领域顶尖科学家、临床医生与 AI 工程师，为每位患者提供最高水准的精准医疗服务</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar-wrap" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
+          <div class="team-avatar-bg">
+            <div class="team-avatar-letter" style="background:linear-gradient(135deg,#1B4D89,#2563EB);">张</div>
+          </div>
+        </div>
+        <div class="team-body">
+          <h4>张锐博士</h4>
+          <div class="team-role">首席科学家 · 微生物学</div>
+          <div class="team-desc">前 NIH 研究员，肠道菌群基因组学专家，发表 SCI 论文 60+ 篇，主持国家重点研发项目 3 项。</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar-wrap" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);">
+          <div class="team-avatar-bg">
+            <div class="team-avatar-letter" style="background:linear-gradient(135deg,#059669,#10B981);">林</div>
+          </div>
+        </div>
+        <div class="team-body">
+          <h4>林雅慧教授</h4>
+          <div class="team-role">医疗总监 · 消化内科</div>
+          <div class="team-desc">香港中文大学（深圳）附属医院消化科主任，HMT 临床研究先驱，主持多项 RCT 临床试验。</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-avatar-wrap" style="background:linear-gradient(135deg,#EDE9FE,#DDD6FE);">
+          <div class="team-avatar-bg">
+            <div class="team-avatar-letter" style="background:linear-gradient(135deg,#7C3AED,#8B5CF6);">陈</div>
+          </div>
+        </div>
+        <div class="team-body">
+          <h4>陈泽民博士</h4>
+          <div class="team-role">AI 算法负责人</div>
+          <div class="team-desc">清华大学计算机博士，深度学习驱动的菌群配方筛选平台核心架构师，专利技术发明人。</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-4">
+        <div class="team-avatar-wrap" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
+          <div class="team-avatar-bg">
+            <div class="team-avatar-letter" style="background:linear-gradient(135deg,#D97706,#F59E0B);">刘</div>
+          </div>
+        </div>
+        <div class="team-body">
+          <h4>刘晓婷医生</h4>
+          <div class="team-role">神经科 · 肠脑轴专家</div>
+          <div class="team-desc">北京大学神经科博士，专注肠-脑轴研究，尤其擅长 ASD、帕金森等神经系统疾病的 HMT 辅助治疗。</div>
         </div>
       </div>
     </div>
@@ -1038,37 +1558,46 @@
     <div class="section-header reveal">
       <div class="section-label">Latest News</div>
       <h2 class="section-title">行业资讯</h2>
-      <p class="section-subtitle">追踪肠道菌群与微生态医学领域最新研究进展</p>
+      <p class="section-subtitle">追踪肠道菌群与微生态医学领域最新研究进展与政策动向</p>
     </div>
     <div class="news-grid">
       <div class="news-card reveal reveal-delay-1">
-        <div class="news-thumb news-thumb-1" style="padding:0.5rem;">
-          <img src="assets/gut-microbiome.png" alt="Nature Medicine" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" />
+        <div class="news-thumb news-thumb-1" style="padding:0;">
+          <img src="assets/gut-microbiome.png" alt="Nature Medicine" loading="lazy" />
         </div>
         <div class="news-body">
-          <div class="news-date">2026-03-28</div>
+          <div class="news-meta">
+            <span class="news-date">2026-03-28</span>
+            <span class="news-cat">学术前沿</span>
+          </div>
           <h4>《Nature Medicine》重磅：肠-脑轴研究突破性进展</h4>
-          <p>最新研究揭示特定肠道菌群可显著改善帕金森病运动症状，为HMT治疗神经系统疾病提供新证据。</p>
+          <p>最新研究揭示特定肠道菌群可显著改善帕金森病运动症状，为 HMT 治疗神经系统疾病提供新证据。</p>
         </div>
       </div>
       <div class="news-card reveal reveal-delay-2">
-        <div class="news-thumb news-thumb-2" style="padding:0.5rem;">
-          <img src="assets/banner-lab.png" alt="国家卫健委" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" />
+        <div class="news-thumb news-thumb-2" style="padding:0;">
+          <img src="assets/banner-lab.png" alt="国家卫健委" loading="lazy" />
         </div>
         <div class="news-body">
-          <div class="news-date">2026-03-15</div>
-          <h4>国家卫健委扩大HMT技术临床应用范围</h4>
-          <p>政策利好，肠道菌群移植正式获批用于儿童自闭症合并胃肠道功能障碍的治疗，惠及更多患儿家庭。</p>
+          <div class="news-meta">
+            <span class="news-date">2026-03-15</span>
+            <span class="news-cat">政策利好</span>
+          </div>
+          <h4>国家卫健委扩大 HMT 技术临床应用范围</h4>
+          <p>政策利好，肠道菌群移植正式获批用于儿童 ASD 合并胃肠道功能障碍的治疗，惠及更多患儿家庭。</p>
         </div>
       </div>
       <div class="news-card reveal reveal-delay-3">
-        <div class="news-thumb news-thumb-3" style="padding:0.5rem;">
-          <img src="assets/scientist.png" alt="柳叶刀" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" />
+        <div class="news-thumb news-thumb-3" style="padding:0;">
+          <img src="assets/scientist.png" alt="柳叶刀" loading="lazy" />
         </div>
         <div class="news-body">
-          <div class="news-date">2026-03-05</div>
-          <h4>《柳叶刀》子刊：HMT单次治疗CDI有效率达94%</h4>
-          <p>涵盖全球23项RCT的系统评价证实，单次HMT治疗复发性艰难梭菌感染成功率高达94%，显著优于万古霉素。</p>
+          <div class="news-meta">
+            <span class="news-date">2026-03-05</span>
+            <span class="news-cat">循证医学</span>
+          </div>
+          <h4>《柳叶刀》子刊：HMT 单次治疗 rCDI 有效率达 94%</h4>
+          <p>涵盡全球 23 项 RCT 的系统评价证实，单次 HMT 治疗复发性艰难梭菌感染成功率高达 94%，显著优于万古霉素。</p>
         </div>
       </div>
     </div>
@@ -1081,43 +1610,102 @@
     <div class="section-header reveal">
       <div class="section-label">Science Education</div>
       <h2 class="section-title">肠道菌群科普</h2>
-      <p class="section-subtitle">了解肠道菌群与人体健康的密切关系</p>
+      <p class="section-subtitle">了解肠道菌群与人体健康的密切关系，读懂您的"第二大脑"</p>
     </div>
     <div class="science-grid">
       <div class="science-card reveal reveal-delay-1">
-        <div class="science-card-img"><img src="assets/banner-lab.png" alt="FMT" /></div>
+        <div class="science-card-img"><img src="assets/banner-lab.png" alt="FMT" loading="lazy" /></div>
         <div class="science-card-body">
-          <h4>什么是肠道菌群移植（FMT）？</h4>
-          <p>肠道菌群移植是将健康供体的功能菌群，通过规范化流程移植到患者肠道，重建患者健康微生态系统的技术手段。</p>
-          <a href="#contact" class="science-link">了解更多 →</a>
+          <h4>什么是肠道菌群移植（HMT/FMT）？</h4>
+          <p>将健康供体的功能菌群，通过规范化流程移植到患者肠道，重建患者健康微生态，治疗因菌群失衡引发的疾病。</p>
+          <a href="#faq" class="science-link">了解更多 →</a>
         </div>
       </div>
       <div class="science-card reveal reveal-delay-2">
-        <div class="science-card-img"><img src="assets/scientist.png" alt="肠脑轴" /></div>
+        <div class="science-card-img"><img src="assets/scientist.png" alt="肠脑轴" loading="lazy" /></div>
         <div class="science-card-body">
-          <h4>肠-脑轴：肠道如何影响大脑</h4>
-          <p>肠道与大脑通过神经、内分泌和免疫通路双向交流，肠道菌群紊乱与自闭症、抑郁症、帕金森等疾病密切相关。</p>
-          <a href="#contact" class="science-link">了解更多 →</a>
+          <h4>肠-脑轴：肠道如何影响大脑？</h4>
+          <p>肠道与大脑通过神经、内分泌和免疫通路双向交流，菌群紊乱与自闭症、抑郁症、帕金森病密切相关。</p>
+          <a href="#contact" class="science-link">预约咨询 →</a>
         </div>
       </div>
       <div class="science-card reveal reveal-delay-3">
-        <div class="science-card-img"><img src="assets/gut-microbiome.png" alt="个性化菌群" /></div>
+        <div class="science-card-img"><img src="assets/gut-microbiome.png" alt="个性化菌群" loading="lazy" /></div>
         <div class="science-card-body">
-          <h4>为什么需要个性化菌群配方？</h4>
-          <p>每个人的肠道菌群组成如同指纹般独特。AI配方筛选根据个体差异匹配最优供体，显著提升移植效果。</p>
-          <a href="#contact" class="science-link">了解更多 →</a>
+          <h4>为什么需要个性化 AI 配方？</h4>
+          <p>每个人的肠道菌群如同指纹般独特。AI 配方筛选根据个体 16S 测序结果匹配最优供体，大幅提升移植成功率。</p>
+          <a href="#platform" class="science-link">了解 AI 平台 →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">常见问题解答</h2>
+      <p class="section-subtitle">我们整理了患者最关心的问题，帮助您在就诊前做好充分了解</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>HMT 与 FMT 有什么区别？源龄的 HMT 4.0 有哪些优势？</span>
+          <div class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">FMT（粪菌移植）是传统方法，主要移植粪便来源的混合菌群。HMT（菌群移植）是升级版本，通过精细化处理提取高纯度活性功能菌群，去除杂质。源龄 HMT 4.0 的核心优势在于：① AI 精准配方匹配每位患者的菌群缺口；② 亚洲超规模化供体库保证菌群多样性；③ GMP 标准生产保证安全性；④ 全程数字化追踪移植效果。综合安全性和有效性均显著优于传统 FMT。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>HMT 治疗安全吗？有哪些可能的副作用？</span>
+          <div class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">HMT 是经过严格临床验证的安全治疗技术。所有供体均经过 1,000+ 项健康筛查，包括传染病、遗传病等全面排查，确保供体菌群高质量。常见的轻微副作用包括治疗后短暂的腹胀、腹鸣（24-48h 内消失），严重不良反应极为罕见。源龄迄今完成 2,000+ 例移植，无重大安全事件记录。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>HMT 治疗需要做几个疗程？每个疗程的周期是多久？</span>
+          <div class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">疗程数因疾病类型和病情严重程度而有所不同：复发性 CDI 通常 1 次即可达到完全缓解；炎症性肠病通常需要 2-3 个疗程；神经系统疾病（ASD、帕金森）通常需要 3-6 个疗程以维持效果。每个疗程一般持续 5-10 天，建议配合复合益生元巩固疗效。具体方案需经医生评估后制定。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>做 HMT 前需要做哪些准备？治疗前需要先做 16S 检测吗？</span>
+          <div class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">建议先进行 16S 肠道菌群检测，了解个人菌群基线状态，以便 AI 系统精准匹配供体配方。治疗前需要：① 停用抗生素至少 2 周；② 完成常规血液检查；③ 调整饮食（避免高脂高糖 1 周）。我们的专业顾问会为您详细讲解全流程准备事项，确保治疗效果最优化。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>儿童和老年人可以做 HMT 吗？有没有年龄限制？</span>
+          <div class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">HMT 对各年龄段均有应用，但方案设计会因年龄调整。儿童（通常 2 岁以上）尤其适合 ASD 合并胃肠道问题的治疗，需由儿科医生联合评估。老年患者（70 岁以上）需在心肺功能评估合格后进行，源龄有专属的老年友好型治疗方案。请联系我们获取个性化评估。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PARTNERS -->
-<section class="section" id="partners">
+<section class="section section-bg" id="partners">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-label">Partners</div>
-      <h2 class="section-title">合作机构</h2>
+      <h2 class="section-title">战略合作机构</h2>
+      <p class="section-subtitle">与国内外顶尖高校、三甲医院及科研机构建立深度战略合作</p>
     </div>
     <div class="partners-scroll-wrap reveal">
       <div class="partners-track">
@@ -1129,6 +1717,8 @@
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 深圳市儿童医院</div>
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 深圳市第二人民医院</div>
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 华大基因（BGI）</div>
+        <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 深圳市南山区人民医院</div>
+        <!-- Duplicate for seamless loop -->
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 深圳大学医学部</div>
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 清华大学深圳研究生院</div>
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 香港中文大学（深圳）</div>
@@ -1137,18 +1727,19 @@
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 深圳市儿童医院</div>
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 深圳市第二人民医院</div>
         <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 华大基因（BGI）</div>
+        <div class="partner-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> 深圳市南山区人民医院</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- JOIN -->
-<section class="section section-bg" id="join">
+<section class="section" id="join">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-label">Business Cooperation</div>
       <h2 class="section-title">招商加盟</h2>
-      <p class="section-subtitle">携手共创万亿级微生态医疗市场，共享肠道健康产业红利</p>
+      <p class="section-subtitle">携手共创万亿级微生态医疗市场，共享肠道健康产业红利，品牌+技术+运营全方位赋能</p>
     </div>
     <div class="join-grid">
       <div class="join-card reveal reveal-delay-1">
@@ -1156,24 +1747,54 @@
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
         </div>
         <h3>OEM 定制合作</h3>
-        <p>为医疗机构、科研单位提供HMT产品 OEM 定制服务，快速建立自有品牌肠道菌群移植解决方案。</p>
-        <a href="#contact" class="btn-outline">获取方案</a>
+        <p>为医疗机构、科研单位提供 HMT 产品 OEM 定制服务，依托源龄的供体库和 GMP 产线，快速建立自有品牌肠道菌群移植解决方案。</p>
+        <a href="#contact" class="btn-outline" style="font-size:0.85rem;padding:0.5rem 1.25rem;">获取方案</a>
       </div>
       <div class="join-card reveal reveal-delay-2">
         <div class="join-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
         <h3>区域代理加盟</h3>
-        <p>成为源龄生命区域合作伙伴，独享区域市场保护政策，共享品牌、技术、产品、运营全维度支持。</p>
-        <a href="#contact" class="btn-outline">了解政策</a>
+        <p>成为源龄生命区域独家合作伙伴，享受区域市场保护政策，共享品牌、技术、产品、营销与培训全维度支持体系。</p>
+        <a href="#contact" class="btn-outline" style="font-size:0.85rem;padding:0.5rem 1.25rem;">了解政策</a>
       </div>
       <div class="join-card reveal reveal-delay-3">
         <div class="join-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>科研合作项目</h3>
-        <p>与高校、科研机构共建联合实验室，开展肠道微生态前沿研究，共同申报科研课题与专利成果。</p>
-        <a href="#contact" class="btn-outline">洽谈合作</a>
+        <p>与高校、科研机构共建联合实验室，提供菌群样本与检测数据资源，共同开展前沿研究并联合申报科研课题与专利成果。</p>
+        <a href="#contact" class="btn-outline" style="font-size:0.85rem;padding:0.5rem 1.25rem;">洽谈合作</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <div class="section-label" style="color:rgba(255,255,255,0.6);justify-content:center;margin-bottom:1rem;">Start Your Journey</div>
+    <h2>重置肠道，重启人生</h2>
+    <p>预约源龄生命专家一对一咨询，30分钟内获取专属菌群检测方案<br/>科学评估 · 精准施策 · 全程跟踪</p>
+    <div class="cta-banner-btns">
+      <a href="#contact" class="btn-white">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.56-1.56a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        立即预约免费咨询
+      </a>
+      <a href="#products" class="btn-white-outline">查看全部产品与服务</a>
+    </div>
+    <div class="cta-stats">
+      <div>
+        <div class="cta-stat-num">2,000<span style="font-size:1.4rem;">+</span></div>
+        <div class="cta-stat-label">成功治疗案例</div>
+      </div>
+      <div>
+        <div class="cta-stat-num">94<span style="font-size:1.4rem;">%</span></div>
+        <div class="cta-stat-label">CDI 单次有效率</div>
+      </div>
+      <div>
+        <div class="cta-stat-num">500<span style="font-size:1.4rem;">+</span></div>
+        <div class="cta-stat-label">临床合作机构</div>
       </div>
     </div>
   </div>
@@ -1185,8 +1806,8 @@
     <div class="contact-layout">
       <div class="contact-info reveal">
         <div class="section-label">Contact Us</div>
-        <h2>联系我们</h2>
-        <p>立即预约专家咨询，获取个性化肠道健康管理方案。我们期待与您携手探索微生态医学的无限可能。</p>
+        <h2>预约专家咨询</h2>
+        <p>立即填写咨询表，我们的专业顾问将在 30 分钟内与您联系，提供个性化肠道健康管理方案。</p>
         <div class="contact-detail">
           <div class="contact-item">
             <div class="contact-item-icon">
@@ -1194,7 +1815,7 @@
             </div>
             <div>
               <div class="contact-item-label">公司地址</div>
-              <div class="contact-item-value">深圳市南山区深圳大学南门附近（具体地址详询）</div>
+              <div class="contact-item-value">深圳市南山区深圳大学附近（具体地址请咨询）</div>
             </div>
           </div>
           <div class="contact-item">
@@ -1203,7 +1824,7 @@
             </div>
             <div>
               <div class="contact-item-label">服务微信</div>
-              <div class="contact-item-value">ylfmt2050（周一至周日 9:00 - 22:00）</div>
+              <div class="contact-item-value">ylfmt2050</div>
             </div>
           </div>
           <div class="contact-item">
@@ -1212,12 +1833,12 @@
             </div>
             <div>
               <div class="contact-item-label">服务时间</div>
-              <div class="contact-item-value">周一至周日 9:00 - 22:00</div>
+              <div class="contact-item-value">周一至周日 9:00 - 22:00（全年无休）</div>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-item-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <div>
               <div class="contact-item-label">官方网站</div>
@@ -1225,36 +1846,51 @@
             </div>
           </div>
         </div>
+        <div class="contact-qrcode">
+          <div class="contact-qrcode-box">微信<br/>二维码</div>
+          <div class="contact-qrcode-text">
+            <h4>微信扫码咨询</h4>
+            <p>微信号：ylfmt2050<br/>9:00-22:00 在线响应</p>
+          </div>
+        </div>
       </div>
       <div class="contact-form reveal reveal-delay-2">
-        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text)">预约专家咨询</h3>
+        <div class="contact-form-title">预约专家咨询</div>
+        <div class="contact-form-sub">填写后 30 分钟内专业顾问联系您</div>
         <form onsubmit="handleSubmit(event)">
           <div class="form-row">
             <div class="form-group">
-              <label>您的姓名</label>
-              <input type="text" placeholder="请输入姓名" required />
+              <label>您的姓名 *</label>
+              <input type="text" placeholder="请输入您的姓名" required />
             </div>
             <div class="form-group">
-              <label>联系电话</label>
-              <input type="tel" placeholder="请输入手机号" required />
+              <label>联系电话 *</label>
+              <input type="tel" placeholder="请输入手机号码" required />
             </div>
           </div>
           <div class="form-group">
-            <label>咨询类型</label>
-            <select>
-              <option value="">请选择</option>
-              <option>肠道菌群移植（HMT）</option>
-              <option>16S肠道菌群检测</option>
-              <option>复合益生元方案</option>
+            <label>所在城市</label>
+            <input type="text" placeholder="如：深圳、广州、北京等" />
+          </div>
+          <div class="form-group">
+            <label>咨询类型 *</label>
+            <select required>
+              <option value="">请选择咨询类型</option>
+              <option>肠道菌群移植（HMT）治疗</option>
+              <option>16S 肠道菌群基因检测</option>
+              <option>个性化复合益生元方案</option>
+              <option>特色精密体检套餐</option>
               <option>招商加盟合作</option>
+              <option>科研合作</option>
               <option>其他咨询</option>
             </select>
           </div>
           <div class="form-group">
-            <label>留言信息</label>
-            <textarea placeholder="请简要描述您的健康状况或合作意向..."></textarea>
+            <label>健康情况 / 留言</label>
+            <textarea placeholder="请简要描述您的健康状况、主要症状或合作意向（选填）..."></textarea>
           </div>
-          <button type="submit" class="form-submit">提交咨询申请</button>
+          <button type="submit" class="form-submit">提交预约申请</button>
+          <div class="form-privacy">提交即表示您同意我们的隐私政策，信息仅用于本次咨询服务</div>
         </form>
       </div>
     </div>
@@ -1269,23 +1905,30 @@
         <img src="assets/logo.png" alt="源龄生命" class="footer-logo-img" />
         <span>源龄生命</span>
       </div>
-      <p>源龄健康产业科技（深圳）有限责任公司<br/>专注肠道菌群移植（HMT/FMT）精准医疗服务</p>
+      <p>源龄健康产业科技（深圳）有限责任公司<br/>专注肠道菌群移植（HMT/FMT）精准医疗服务<br/>肠年轻，长年轻。</p>
+      <div class="footer-social">
+        <div class="footer-social-btn">微</div>
+        <div class="footer-social-btn">抖</div>
+        <div class="footer-social-btn">B</div>
+      </div>
     </div>
     <div class="footer-col">
       <h4>产品服务</h4>
       <ul>
-        <li><a href="#products">16S肠道检测</a></li>
-        <li><a href="#products">HMT精准移植</a></li>
-        <li><a href="#products">复合益生元</a></li>
-        <li><a href="#products">精密体检</a></li>
+        <li><a href="#products">16S 肠道菌群检测</a></li>
+        <li><a href="#products">HMT 精准移植</a></li>
+        <li><a href="#products">个性化复合益生元</a></li>
+        <li><a href="#products">精密肠道体检</a></li>
+        <li><a href="#products">健康全程管理</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>关于我们</h4>
       <ul>
         <li><a href="#about">公司简介</a></li>
-        <li><a href="#platform">技术平台</a></li>
+        <li><a href="#platform">五大技术平台</a></li>
         <li><a href="#cases">临床案例</a></li>
+        <li><a href="#team">专家团队</a></li>
         <li><a href="#join">招商加盟</a></li>
       </ul>
     </div>
@@ -1293,9 +1936,9 @@
       <h4>联系我们</h4>
       <ul>
         <li><a>咨询微信：ylfmt2050</a></li>
-        <li><a>服务时间：9:00-22:00</a></li>
-        <li><a>www.ylfmt.com</a></li>
-        <li><a>粤ICP备2020141030号-1</a></li>
+        <li><a>服务时间：9:00 - 22:00</a></li>
+        <li><a>官网：www.ylfmt.com</a></li>
+        <li><a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2020141030号-1</a></li>
       </ul>
     </div>
   </div>
@@ -1310,52 +1953,182 @@
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- FLOAT -->
+<!-- FLOAT BUTTONS -->
 <div class="float-btns">
-  <div class="float-btn" onclick="window.open('https://mp.weixin.qq.com/','_blank')">微信</div>
+  <div class="float-btn float-btn-phone" title="微信咨询" onclick="alert('微信号：ylfmt2050')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 13 19.79 19.79 0 0 1 1 4.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </div>
+  <div class="float-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">咨询</div>
 </div>
 
 <script>
-  // Nav scroll
+  // ===== NAV SCROLL + ACTIVE =====
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('nav');
     const backTop = document.getElementById('backTop');
-    if (window.scrollY > 20) { nav.classList.add('scrolled'); }
-    else { nav.classList.remove('scrolled'); }
-    if (window.scrollY > 500) { backTop.classList.add('visible'); }
-    else { backTop.classList.remove('visible'); }
-  });
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    backTop.classList.toggle('visible', window.scrollY > 500);
 
-  // Reveal on scroll
+    // Active nav link — highlight section currently in view
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      const isActive = a.getAttribute('href') === '#' + current;
+      a.classList.toggle('active', isActive);
+      a.classList.toggle('active-section', isActive);
+    });
+  }, { passive: true });
+
+  // ===== REVEAL ON SCROLL =====
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => revealObserver.observe(el));
 
-  // Mobile nav
-  function toggleMobile() {
-    const m = document.getElementById('mobileNav');
-    m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+  // ===== COUNT-UP ANIMATION =====
+  function animateCount(el, target, suffix) {
+    const duration = 2000;
+    const start = performance.now();
+    const update = (time) => {
+      const elapsed = time - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Custom spring easing: fast start, gradual end
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = Math.round(eased * target);
+      el.innerHTML = current.toLocaleString('zh-CN') + '<span class="accent">' + suffix + '</span>';
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
   }
 
-  // Form submit
+  const statNums = document.querySelectorAll('.hero-stat-num[data-count]');
+  let counted = false;
+  const countObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      statNums.forEach((el, i) => {
+        // Stagger each counter start
+        setTimeout(() => {
+          const target = parseInt(el.dataset.count);
+          const suffix = el.querySelector('.accent').textContent;
+          animateCount(el, target, suffix);
+        }, i * 150);
+      });
+    }
+  }, { threshold: 0.5 });
+  if (statNums.length) countObserver.observe(statNums[0].parentElement.parentElement);
+
+  // ===== RIPPLE EFFECT =====
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-primary, .btn-outline, .btn-white, .btn-white-outline, .form-submit, .nav-cta, .float-btn');
+    if (!btn) return;
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 1.5;
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple-effect';
+    ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size/2}px;top:${e.clientY - rect.top - size/2}px;`;
+    btn.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
+
+  // ===== MOBILE NAV =====
+  function toggleMobile() {
+    const m = document.getElementById('mobileNav');
+    const isOpen = m.style.display === 'flex';
+    m.style.display = isOpen ? 'none' : 'flex';
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+
+  // ===== FORM SUBMIT =====
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '提交成功！';
-    btn.style.background = '#10B981';
+    const original = btn.textContent;
+    btn.textContent = '✓ 提交成功，顾问将在30分钟内联系您！';
+    btn.style.background = 'linear-gradient(135deg,#059669,#10B981)';
+    btn.disabled = true;
     setTimeout(() => {
-      btn.textContent = '提交咨询申请';
+      btn.textContent = original;
       btn.style.background = '';
+      btn.disabled = false;
       e.target.reset();
-    }, 2500);
+    }, 4000);
   }
+
+  // ===== FAQ TOGGLE =====
+  function toggleFaq(qEl) {
+    const item = qEl.parentElement;
+    const isOpen = item.classList.contains('open');
+    // Close all with smooth animation
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    // Open clicked (if wasn't open)
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ===== LAZY LOAD IMAGES =====
+  if ('IntersectionObserver' in window) {
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+          imgObserver.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => imgObserver.observe(img));
+  }
+
+  // ===== TESTIMONIALS CAROUSEL =====
+  let testimonialIdx = 0;
+  const track = document.getElementById('testimonialTrack');
+  const nav = document.getElementById('testimonialNav');
+
+  function initTestimonials() {
+    const cards = track.querySelectorAll('.testimonial-card');
+    const perView = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+    const maxIdx = Math.max(0, cards.length - perView);
+
+    nav.innerHTML = '';
+    for (let i = 0; i <= maxIdx; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToTestimonial(i);
+      nav.appendChild(dot);
+    }
+    return { cards, perView, maxIdx };
+  }
+
+  function goToTestimonial(idx) {
+    const { cards, perView, maxIdx } = initTestimonials();
+    testimonialIdx = Math.max(0, Math.min(idx, maxIdx));
+    const cardW = cards[0].offsetWidth + 24; // gap 1.5rem = 24px
+    track.style.transform = `translateX(-${testimonialIdx * cardW}px)`;
+    document.querySelectorAll('.testimonial-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === testimonialIdx);
+    });
+  }
+
+  function moveTestimonial(dir) {
+    goToTestimonial(testimonialIdx + dir);
+  }
+
+  initTestimonials();
+  window.addEventListener('resize', () => { testimonialIdx = 0; initTestimonials(); goToTestimonial(0); });
+
+  // Auto-play testimonials
+  setInterval(() => moveTestimonial(1), 5000);
 </script>
 </body>
 </html>
